@@ -1,59 +1,59 @@
 /*
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
- * @Last Modified by:   yiyulong
- * @Last Modified time: 2018-05-11 22:55:47
+ * @Last Modified by: yyl
+ * @Last Modified time: 2018-05-14 15:32:23
  */
 
 //  动画效果执行一次
-$.fn.extend({
-  animateCss: function (animationName, callback) {
-    var animationEnd = (function (el) {
-      var animations = {
-        animation: 'animationend',
-        OAnimation: 'oAnimationEnd',
-        MozAnimation: 'mozAnimationEnd',
-        WebkitAnimation: 'webkitAnimationEnd',
-      };
-      for (var t in animations) {
-        if (el.style[t] !== undefined) {
-          return animations[t];
-        }
-      }
-    })(document.createElement('div'));
-    this.addClass('animated ' + animationName).one(animationEnd, function () {
-      $(this).removeClass('animated ' + animationName);
-      if (typeof callback === 'function') callback();
-    });
-    return this;
-  }
-});
-!(function (win, doc) {
-  function setFontSize() {
-    // 获取window 宽度
-    var winWidth = window.innerWidth;
-    let bgW = $(window).width();
-    let bgH = $(window).height();
-    $('body').css({ "width": bgW, "height": bgH })
-    // 640宽度以上进行限制 需要css进行配合
-    var size = (winWidth / 640) * 100;
-    doc.documentElement.style.fontSize = (size < 100 ? size : 100) + 'px';
-  }
-  var evt = 'onorientationchange' in win ? 'orientationchange' : 'resize';
-  var timer = null;
-  win.addEventListener(evt, function () {
-    clearTimeout(timer);
-    timer = setTimeout(setFontSize, 60);
-  }, false);
-  win.addEventListener("pageshow", function (e) {
-    if (e.persisted) {
-      clearTimeout(timer);
-      timer = setTimeout(setFontSize, 60);
-    }
-  }, false);
-  // 初始化
-  setFontSize();
-}(window, document));
+// $.fn.extend({
+//   animateCss: function (animationName, callback) {
+//     var animationEnd = (function (el) {
+//       var animations = {
+//         animation: 'animationend',
+//         OAnimation: 'oAnimationEnd',
+//         MozAnimation: 'mozAnimationEnd',
+//         WebkitAnimation: 'webkitAnimationEnd',
+//       };
+//       for (var t in animations) {
+//         if (el.style[t] !== undefined) {
+//           return animations[t];
+//         }
+//       }
+//     })(document.createElement('div'));
+//     this.addClass('animated ' + animationName).one(animationEnd, function () {
+//       $(this).removeClass('animated ' + animationName);
+//       if (typeof callback === 'function') callback();
+//     });
+//     return this;
+//   }
+// });
+// !(function (win, doc) {
+//   function setFontSize() {
+//     // 获取window 宽度
+//     var winWidth = window.innerWidth;
+//     let bgW = $(window).width();
+//     let bgH = $(window).height();
+//     $('body').css({ "width": bgW, "height": bgH })
+//     // 640宽度以上进行限制 需要css进行配合
+//     var size = (winWidth / 640) * 100;
+//     doc.documentElement.style.fontSize = (size < 100 ? size : 100) + 'px';
+//   }
+//   var evt = 'onorientationchange' in win ? 'orientationchange' : 'resize';
+//   var timer = null;
+//   win.addEventListener(evt, function () {
+//     clearTimeout(timer);
+//     timer = setTimeout(setFontSize, 60);
+//   }, false);
+//   win.addEventListener("pageshow", function (e) {
+//     if (e.persisted) {
+//       clearTimeout(timer);
+//       timer = setTimeout(setFontSize, 60);
+//     }
+//   }, false);
+//   // 初始化
+//   setFontSize();
+// }(window, document));
 var queue;
 // 动画结束
 var animationEnd = (function (el) {
@@ -102,6 +102,22 @@ var preLoad = function () {
     { id: 'guitar', src: 'guitar.png' },
     { id: 'sunglasses', src: 'sunglasses.png' },
     { id: 'lamp_light1', src: 'lamp_light1.png' },
+    { id: 'page3_bg', src: 'page3_bg.jpg' },
+    { id: 'page3_dnp', src: 'page3_dpn.png' },
+    { id: 'page3_mby', src: 'page3_mby.png'},
+    { id: 'page3_wsl', src: 'page3_wsl.png' },
+    { id: 'page3_gd', src: 'page3_gd.png' },
+    { id: 'page3_chy', src: 'page3_chy.png' },
+    { id: 'page4_bird', src: 'page4_bird.png' },
+    { id: 'page4_lamp', src: 'page4_lamp.png' },
+    { id: 'page4_box', src: 'page4_box.gif'},
+    { id: 'page6_box', src: 'page6_box.png' },
+    { id: 'page6_boxred', src: 'page6_boxred.png' },
+    { id: 'page6_boxorange', src: 'page6_boxorange.png' },
+    { id: 'page6_boxblue', src: 'page6_boxblue.png' },
+    { id: 'page6_box2', src: 'page6_box2.png' },
+    { id: 'page6_bird', src: 'page6_bird.png' },
+    { id: 'page6_text', src: 'page6_text.gif' }
   ], true, "image/");
   queue.on("progress", loadFileProgress);
   queue.on("complete", loadComplete);
@@ -138,7 +154,7 @@ function bgAnimate () {
 }
 // pageplay
 function pageplay (el) {
-  $(el).siblings().attr('style', 'display: none;').end().attr('style', 'display: block;')
+  $(el).siblings().css('display', 'none').end().css('display', 'block');
 }
 $('.page1 .go').on('click', function () {
   pageplay('.page2')
@@ -146,4 +162,16 @@ $('.page1 .go').on('click', function () {
 $('.page2 .go').on('click', function () {
   pageplay('.page3')
 })
-console.log('gulp')
+$('.page3 .go').on('click', function () {
+  pageplay('.page4')
+})
+$('.page4 .go').on('click', function () {
+  pageplay('.page6')
+})
+$('.page6 .go').on('click', function () {
+  pageplay('.page8')
+})
+$('.take_gift .next').on('click', function () {
+  $('.take_gift').css('display', 'none')
+  $('.make').css('display', 'block')
+})

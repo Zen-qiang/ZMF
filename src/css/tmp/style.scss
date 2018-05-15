@@ -46,8 +46,8 @@ html {
 // body 也增加最大最小宽度限制，避免默认100%宽度的 block 元素跟随 body 而过大过小
 body {
   height: 100vh;
-  max-width: 540px;
-  min-width: 320px;
+  // max-width: 540px;
+  // min-width: 320px;
   overflow: hidden;
 }
 [hidden] {
@@ -129,6 +129,14 @@ body {
     transform: scale3d(1, 1, 1);
   } 
 }
+@keyframes mouse {
+    from, 30%, to {
+      transform: rotate(0);
+    }
+    20%, 50% {
+      transform: rotate(-20deg);
+    }
+  }
 /* 公共类 */
 .bounceInLeft {
   animation: bounceInLeft .8s both;
@@ -138,6 +146,10 @@ body {
 }
 .tada {
   animation: tada .8s both infinite;
+}
+.rotatemouse {
+  transform-origin: right bottom;
+  animation: mouse 1s infinite;
 }
 /* 背景 */
 @keyframes box_shake {
@@ -341,54 +353,54 @@ body {
   align-content: center;
   overflow: hidden;
   > div {
-    height: 2rem;
+    height: rem(150);
     flex: 0 0 100%;
     overflow: hidden;
     position: relative;
-  }
-  > div > div {
-    position: relative;
-    width: 20rem;
-    overflow: hidden;
-    animation: marquee 3s linear infinite;
+    > div {
+      position: relative;
+      width: rem(1500);
+      overflow: hidden;
+      animation: marquee 3s linear infinite;
+    }
   }
   ul {
     float: left;
     width: 50%;
     height: 100%;
     overflow: hidden;
-  }
-  ul li {
-    float: left;
-    width: 2rem;
-    padding-bottom: 2rem;
-    height: 0;
-  }
-  ul li:nth-of-type(1) {
-    background: url(../image/bird_blue.svg) no-repeat center;
-    background-size: 300%;
-  }
-  ul li:nth-of-type(2) {
-    background: url(../image/bird_red.svg) no-repeat center;
-    background-size: 300%;
-  }
-  ul li:nth-of-type(3) {
-    background: url(../image/bird_green.svg) no-repeat center;
-    background-size: 300%;
-  }
-  ul li:nth-of-type(4) {
-    background: url(../image/bird_orange.svg) no-repeat center;
-    background-size: 300%;
-  }
-  ul li:nth-of-type(5) {
-    background: url(../image/bird_purple.svg) no-repeat center;
-    background-size: 300%;
+    li {
+      float: left;
+      width: 2rem;
+      padding-bottom: 2rem;
+      height: 0;
+    }
+    li:nth-of-type(1) {
+      background: url(../image/bird_blue.svg) no-repeat center;
+      background-size: 300%;
+    }
+    li:nth-of-type(2) {
+      background: url(../image/bird_red.svg) no-repeat center;
+      background-size: 300%;
+    }
+    li:nth-of-type(3) {
+      background: url(../image/bird_green.svg) no-repeat center;
+      background-size: 300%;
+    }
+    li:nth-of-type(4) {
+      background: url(../image/bird_orange.svg) no-repeat center;
+      background-size: 300%;
+    }
+    li:nth-of-type(5) {
+      background: url(../image/bird_purple.svg) no-repeat center;
+      background-size: 300%;
+    }
   }
   > p {
-    height: 20px;
+    height: rem(20);
     flex: 0 0 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: rem(18);
     font-weight: 200;
     color: #1d1f78;
   }
@@ -402,9 +414,9 @@ body {
   .loading_text {
     display: block;
     text-align: center;
-    font-size: 14px;
+    font-size: rem(14);
     width: 100%;
-    line-height: 16px;
+    line-height: rem(16);
     font-weight: 200;
     color: #1d1f78;
     transform: scale(0.8);
@@ -415,8 +427,8 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  height: 1.4rem;
-  width: 4rem;
+  height: rem(108);
+  width: rem(300);
   overflow: hidden;
   background: url(../image/2018ch.svg) no-repeat center;
   background-size: contain;
@@ -454,200 +466,193 @@ polygon {
     background-size: contain;
   }
 }
+// paeg1
 .page1 {
   [class^="square"] svg {
     float: left;
   }
   .square1 {
-    left: -220px;
-    top: -60px;
-    width: 275px;
-    height: 200px;
+    left: rem(-220);
+    top: rem(-60);
+    width: rem(275);
+    height: rem(200);
     animation-delay: .5s;
   }
   .square2 {
-    left: 90px;
-    top: -10px;
-    width: 44px;
-    height: 46px;
+    left: rem(90);
+    top: rem(-10);
+    width: rem(44);
+    height: rem(46);
     animation-delay: .42s;
   }
   .square3 {
     right: 0;
-    top: -25px;
-    width: 58px;
-    height: 68px;
+    top: rem(-25);
+    width: rem(58);
+    height: rem(68);
     animation-delay: .4s;
   }
   .square4 {
-    left: -40px;
+    // left: rem(-40);
+    left: 50%;
     top: 25%;
-    width: 280px;
-    height: 180px;
+    transform: translateX(-50%);
+    width: rem(280);
+    height: rem(180);
     animation-delay: .2s;
-  }
-  .square4 > img {
-    position: absolute;
-    width: 12px;
-    height: 40px;
-    z-index: 3;
-  }
-  .square4 > img:first-of-type {
-    left: 44px;
-    bottom: 90px;
-  }
-  .square4 > img:nth-of-type(2) {
-    right: 80px;
-    bottom: 80px;
-  }
-  .square4 > img:last-of-type {
-    right: 140px;
-    bottom: 40px;
+    > img {
+      position: absolute;
+      width: rem(12);
+      height: rem(40);
+      z-index: 3;
+    }
+    > img:first-of-type {
+      left: rem(44);
+      bottom: rem(90);
+    }
+    > img:nth-of-type(2) {
+      right: rem(80);
+      bottom: rem(80);
+    }
+    > img:last-of-type {
+      right: rem(140);
+      bottom: rem(40);
+    }
   }
   .square5 {
-    left: 160px;
+    left: rem(160);
     top: 39%;
-    width: 40px;
-    height: 40px;
+    width: rem(40);
+    height: rem(40);
     animation-delay: .32s;
   }
   .square6 {
-    left: -220px;
+    left: rem(-220);
     top: 39%;
-    width: 280px;
-    height: 180px;
+    width: rem(280);
+    height: rem(180);
     animation-delay: .22s;
-  }
-  .square6 > img {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    width: 12px;
-    height: 40px;
+    > img {
+      position: absolute;
+      top: rem(40);
+      right: rem(40);
+      width: rem(12);
+      height: rem(12);
+    }
   }
   .square7 {
     top: 47%;
-    right: 100px;
-    width: 80px;
-    height: 92px;
-    perspective: 100px;
+    right: rem(100);
+    width: rem(80);
+    height: rem(92);
+    perspective: rem(100);
     animation-delay: .12s;
-  }
-  .square7 > img {
-    position: absolute;
-  }
-  .square7 > img:first-of-type {
-    width: 12px;
-    height: 40px;
-    top: -14px;
-    left: 40%;
-  }
-  .square7 > img:nth-of-type(2) {
-    width: 12px;
-    height: 40px;
-    top: -10px;
-    left: 56%;
-  }
-  .square7 > img:last-of-type {
-    width: 40px;
-    height: 20px;
-    top: -30px;
-    left: 54%;
-    transform: rotateY(24deg);
+    > img {
+      position: absolute;
+    }
+    > img:first-of-type {
+      width: rem(12);
+      height: rem(40);
+      top: rem(-14);
+      left: 40%;
+    }
+    > img:nth-of-type(2) {
+      width: rem(12);
+      height: rem(40);
+      top: rem(-10);
+      left: 56%;
+    }
+    > img:last-of-type {
+      width: rem(40);
+      height: rem(20);
+      top: rem(-30);
+      left: 54%;
+      transform: rotateY(24deg);
+    }
   }
   .square8 {
-    right: -70px;
+    right: rem(-70);
     top: 45%;
-    width: 146px;
-    height: 170px;
-  }
-  .square8 > img {
-    position: absolute;
-    width: 12px;
-    height: 40px;
-  }
-  .square8 > img:first-of-type {
-    top: 10px;
-    left: 25px;
-  }
-  .square8 > img {
-    top: -5px;
-    left: 45px;
+    width: rem(146);
+    height: rem(170);
+    > img {
+      position: absolute;
+      width: rem(12);
+      height: rem(40);
+    }
+    > img:first-of-type {
+      top: rem(10);
+      left: rem(25);
+    }
+    > img {
+      top: rem(-5);
+      left: rem(45);
+    }
   }
   .square9 {
     top: 59%;
     left: 0;
-    width: 60px;
-    height: 68px;
-    perspective: 100px;
+    width: rem(60);
+    height: rem(68);
+    perspective: rem(100);
     animation-delay: .3s;
-  }
-  .square9 > img {
-    position: absolute;
-  }
-  .square9 > img:first-of-type {
-    top: -30px;
-    left: 30%;
-    width: 20px;
-    height: 52px;
-  }
-  .square9 > img:last-of-type {
-    top: -30px;
-    left: 80%;
-    width: 40px;
-    height: 20px;
-    transform: rotateY(-45deg);
+    > img {
+      position: absolute;
+    }
+    > img:first-of-type {
+      top: rem(-30);
+      left: 30%;
+      width: rem(20);
+      height: rem(52);
+    }
+    > img:last-of-type {
+      top: rem(-30);
+      left: 80%;
+      width: rem(40);
+      height: rem(20);
+      transform: rotateY(-45deg);
+    }
   }
   /* 对话框 */
   .dialog_box {
     top: 0;
     left: 0;
     width: 100%;
-    height: 320px;
-  }
-  .dialog_box > div:first-of-type {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 320px;
-    z-index: 1;
-    animation-delay: .45s;
-  }
-
-  .dialog_box > div:first-of-type img {
-    width: 100%;
-    height: 100%;
-  }
-  .dialog_box > div:last-of-type {
-    position: absolute;
-    top: 16px;
-    right: -50px;
-    width: 260px;
-    height: 300px;
-    z-index: 0;
-    animation-delay: .45s;
-  }
-  .dialog_box > div:last-of-type > img:first-of-type {
-    width: 100%;
-    height: 100%;
-  }
-  .dialog_box > div:last-of-type > img:last-of-type {
-    position: absolute;
-    top: 40px;
-    left: 40%;
-    width: 40px;
-    height: 30px;
-    transform: skewY(-20deg);
-  }
-  @media screen and (max-width: 320px) {
-    .dialog_box > div:first-of-type {
-      width: 180px;
-      height: 280px;
+    height: rem(320);
+    > div:first-of-type {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: rem(220);
+      height: rem(320);
+      z-index: 1;
+      animation-delay: .45s;
     }
-    .dialog_box > div:last-of-type {
-      width: 240px;
-      height: 260px;
+
+    > div:first-of-type img {
+      width: 100%;
+      height: 100%;
+    }
+    > div:last-of-type {
+      position: absolute;
+      top: rem(16);
+      right: rem(-50);
+      width: rem(260);
+      height: rem(300);
+      z-index: 0;
+      animation-delay: .45s;
+    }
+    > div:last-of-type > img:first-of-type {
+      width: 100%;
+      height: 100%;
+    }
+    > div:last-of-type > img:last-of-type {
+      position: absolute;
+      top: rem(40);
+      left: 40%;
+      width: rem(40);
+      height: rem(30);
+      transform: skewY(-20deg);
     }
   }
   /* 输入框 */
@@ -655,65 +660,67 @@ polygon {
     top: 54%;
     left: 0;
     right: 0;
-    width: 280px;
+    width: rem(280);
     margin: auto;
-  }
-  .input_box ul {
-    width: 240px;
-    margin: 0 auto;
-    position: relative;
-  }
-  .input_box ul > li:first-of-type {
-    width: 240px;
-    height: 180px;
-    background: url(../image/draw.svg) no-repeat center;
-    background-size: contain;
-    position: relative;
-    z-index: 1;
-  }
-  .input_box input {
-    vertical-align: top;
-    transform-origin: 0;
-    transform: translate(7px, 25px) rotateX(-50deg) rotateY(-33deg);
-    outline: none;
-    border: none;
-    background: none;
-    height: 60px;
-    width: 220px;
-    padding: 0 15px;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: center;
-    color: #000;
-  }
-  .input_box ul > li:nth-of-type(2) {
-    width: 360px;
-    height: 230px;
-    background: url(../image/lamp_dark.png) no-repeat center;
-    background-size: contain;
-    transform: translate(-90px, -140px);
-  }
-  .input_box.active ul > li:nth-of-type(2) {
-    animation: neonlamp 1.4s .8s forwards;
-  }
-  .input_box ul > li .go {
-    position: absolute;
-    bottom: 0;
-    right: 20px;
-    width: 130px;
-    height: 80px;
-    z-index: 3;
-    transform: rotateX(-50deg) rotateY(-33deg);
-    border-radius: 30px;
-  }
-  .input_box.active ul > li:last-of-type {
-    position: absolute;
-    top: 160px;
-    right: 70px;
-    width: 60px;
-    height: 60px;
-    background: url(../image/mouse.svg) no-repeat center;
-    background-size: contain;
+    ul {
+      width: rem(240);
+      margin: 0 auto;
+      position: relative;
+    }
+    ul > li:first-of-type {
+      width: rem(240);
+      height: rem(180);
+      background: url(../image/draw.svg) no-repeat center;
+      background-size: contain;
+      position: relative;
+      z-index: 1;
+    }
+    input {
+      vertical-align: top;
+      transform-origin: 0;
+      transform: translate(rem(7), rem(25)) rotateX(-50deg) rotateY(-33deg);
+      outline: none;
+      border: none;
+      background: none;
+      height: rem(60);
+      width: rem(220);
+      padding: 0 rem(15);
+      font-size: rem(16);
+      font-weight: 400;
+      text-align: center;
+      color: #000;
+    }
+    ul > li:nth-of-type(2) {
+      width: rem(360);
+      height: rem(230);
+      background: url(../image/lamp_dark.png) no-repeat center;
+      background-size: contain;
+      transform: translate(rem(-90), rem(-140));
+    }
+    &.active ul > li:nth-of-type(2) {
+      animation: neonlamp 1.4s .8s forwards;
+    }
+    ul > li .go {
+      position: absolute;
+      bottom: 0;
+      right: rem(20);
+      width: rem(130);
+      height: rem(80);
+      z-index: 3;
+      transform: rotateX(-50deg) rotateY(-33deg);
+      border-radius: rem(30);
+    }
+    &.active ul > li:last-of-type {
+      position: absolute;
+      top: rem(160);
+      right: rem(70);
+      width: rem(60);
+      height: rem(60);
+      img {
+        width: rem(34);
+        vertical-align: top;
+      }
+    }
   }
 }
 /* page2 */
@@ -725,218 +732,190 @@ polygon {
     position: absolute;
   }
   .square1 {
-    width: 300px;
-    height: 160px;
-    top: -100px;
+    width: rem(300);
+    height: rem(160);
+    top: rem(-100);
     right: 0;
   }
   .square2 {
-    width: 100px;
-    height: 106px;
-    left: -44px;
+    width: rem(100);
+    height: rem(106);
+    left: rem(-44);
     animation-delay: .2s;
   }
   .square3 {
-    width: 56px;
-    height: 63px;
+    width: rem(56);
+    height: rem(63);
     left: 0;
     right: 0;
-    top: 70px;
+    top: rem(70);
     margin: auto;
     animation-delay: .4s;
-  }
-  .square3 img {
-    top: -25px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    width: 12px;
-    margin: auto;
+    img {
+      top: rem(-25);
+      left: 0;
+      right: 0;
+      height: rem(40);
+      width: rem(12);
+      margin: auto;
+    }
   }
   .square4 {
-    width: 40px;
-    height: 48px;
+    width: rem(40);
+    height: rem(48);
     right: 0;
-    top: 30px;
+    top: rem(30);
     animation-delay: .3s;
-  }
-  .square4 img {
-    bottom: -36px;
-    right: 74px;
-    height: 40px;
-    width: 42px;
+    img {
+      bottom: rem(-36);
+      right: rem(74);
+      height: rem(40);
+      width: rem(42);
+    }
   }
   .square5 {
-    width: 34px;
-    height: 40px;
-    top: 120px;
-    left: 60px;
+    width: rem(34);
+    height: rem(40);
+    top: 1rem(120);
+    left: rem(60);
     animation-delay: .2s;
-  }
-  .square5 img:first-of-type {
-    top: -25px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    width: 12px;
-    margin: auto;
-  }
-  .square5 img:last-of-type {
-    top: -45px;
-    left: 12px;
-    height: 24px;
-    width: 40px;
-    transform: rotateX(-30deg) rotateY(-34deg);
+    img:first-of-type {
+      top: rem(-25);
+      left: 0;
+      right: 0;
+      height: rem(40);
+      width: rem(12);
+      margin: auto;
+    }
+    img:last-of-type {
+      top: rem(-45);
+      left: rem(12);
+      height: rem(24);
+      width: rem(40);
+      transform: rotateX(-30deg) rotateY(-34deg);
+    }
   }
   .square6 {
-    right: 30px;
-    top: 120px;
-    width: 80px;
-    height: 88px;
+    right: rem(30);
+    top: rem(120);
+    width: rem(80);
+    height: rem(88);
     animation-delay: .4s;
-  }
-  .square6 img {
-    top: -10px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    width: 12px;
-    margin: auto;
+    img {
+      top: rem(-10);
+      left: 0;
+      right: 0;
+      height: rem(40);
+      width: rem(12);
+      margin: auto;
+    }
   }
   .square7 {
-    top: 400px;
-    left: -30px;
-    width: 60px;
-    height: 66px;
+    top: rem(400);
+    left: rem(-30);
+    width: rem(60);
+    height: rem(66);
     animation-delay: .3s;
-  }
-  .square7 img:first-of-type {
-    top: -16px;
-    right: 14px;
-    height: 40px;
-    width: 12px;
-  }
-  .square7 img:last-of-type {
-    top: 66px;
-    right: -24px;
-    height: 30px;
-    width: 30px;
+    img:first-of-type {
+      top: rem(-16);
+      right: rem(14);
+      height: rem(40);
+      width: rem(12);
+    }
+    img:last-of-type {
+      top: rem(66);
+      right: rem(-24);
+      height: rem(30);
+      width: rem(30);
+    }
   }
   .square8 {
-    width: 28px;
-    height: 30px;
-    top: 450px;
-    left: 61px;
+    width: rem(28);
+    height: rem(30);
+    top: rem(450);
+    left: rem(61);
     animation-delay: .3s;
-  }
-  .square8 img {
-    top: -30px;
-    right: 0;
-    left: 0;
-    height: 40px;
-    width: 12px;
-    margin: auto;
+    img {
+      top: rem(-30);
+      right: 0;
+      left: 0;
+      height: rem(40);
+      width: rem(12);
+      margin: auto;
+    }
   }
   .square9 {
-    width: 40px;
-    height: 44px;
-    right: 20px;
-    top: 430px;
-  }
-  .square9 img {
-    top: -24px;
-    right: 0;
-    left: 0;
-    height: 40px;
-    width: 12px;
-    margin: auto;
+    width: rem(40);
+    height: rem(44);
+    right: rem(20);
+    top: rem(430);
+    img {
+      top: rem(-24);
+      right: 0;
+      left: 0;
+      height: rem(40);
+      width: rem(12);
+      margin: auto;
+    }
   }
   .square_dialog {
     width: 100%;
-    height: 440px;
-    top: 130px;
-  }
-  .square_dialog > div {
-    position: absolute;
-  }
-  .square_dialog > div img {
-    width: 100%;
-  }
-  .square_dialog .dialog_bg {
-    width: 360px;
-    height: 240px;
-    top: 100px;
-    right: -20px;
-    animation-delay: .2s;
-  }
-  .square_dialog .dialog_bird {
-    width: 280px;
-    left: -80px;
-    top: -40px;
-    height: 300px;
-    animation-delay: .6s;
-  }
-
-  .square_dialog .dialog_box {
-    width: 260px;
-    right: 0;
-    height: 300px;
-    animation-delay: .6s;
-  }
-  .square_dialog .dialog_box div {
-    position: absolute;
-    top: 90px;
-    left: 122px;
-    height: 30px;
-    width: 60px;
-    font-size: 20px;
-    transform: rotateX(-20deg) rotateY(-56deg);
-  }
-  .square_dialog .dialog_box div span {
-    display: inline-block;
-  }
-  .square_dialog .dialog_neon {
-    background: url(../image/lamp_light1.png) no-repeat center;
-    background-size: contain;
-    height: 126px;
-    width: 126px;
-    top: 295px;
-    right: 150px;
-    animation-delay: .2s;
-  }
-  .square_dialog .dialog_neon .go {
-    position: absolute;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    background: url(../image/mouse.svg) no-repeat right bottom;
-    background-size: 40px;
-  }
-  @media screen and (max-width: 320px) {
-    .square_dialog .dialog_bg {
-      width: 320px;
-      height: 240px;
-      top: 80px;
-      right: -20px;
+    height: rem(440);
+    top: rem(130);
+    > div {
+      position: absolute;
     }
-    .square_dialog .dialog_bird {
-      width: 240px;
-      left: -60px;
-      top: -20px;
+    > div img {
+      width: 100%;
     }
-    .square_dialog .dialog_box {
-      width: 240px;
+    .dialog_bg {
+      width: rem(360);
+      height: rem(240);
+      top: rem(100);
+      right: rem(-20);
+      animation-delay: .2s;
     }
-    .square_dialog .dialog_box div {
-      top: 84px;
-      left: 114px;
-      transform: rotateX(-20deg) rotateY(-54deg);
+    .dialog_bird {
+      width: rem(280);
+      left: rem(-80);
+      top: rem(-40);
+      height: rem(300);
+      animation-delay: .6s;
     }
-    .square_dialog .dialog_neon {
-      height: 110px;
-      width: 110px;
-      top: 266px;
-      right: 120px;
+    .dialog_box {
+      width: rem(260);
+      right: 0;
+      height: rem(300);
+      animation-delay: .6s;
+      div {
+        position: absolute;
+        top: rem(90);
+        left: rem(122);
+        height: rem(30);
+        width: rem(60);
+        font-size: rem(20);
+        transform: rotateX(-20deg) rotateY(-56deg);
+      }
+      div span {
+        display: inline-block;
+      }
+    }
+    .dialog_neon {
+      background: url(../image/lamp_light1.png) no-repeat center;
+      background-size: contain;
+      height: rem(126);
+      width: rem(126);
+      top: rem(295);
+      right: rem(150);
+      animation-delay: .2s;
+    }
+    .dialog_neon .go {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background: url(../image/mouse.svg) no-repeat right bottom;
+      background-size: rem(40);
     }
   }
 }
@@ -963,9 +942,9 @@ polygon {
     }
     .logo {
       width: 100%;
-      height: 300px;
+      height: rem(300);
       left: 0;
-      top: -60px;
+      top: rem(-60);
     }
     .logo ~ div {
       img {
@@ -973,8 +952,8 @@ polygon {
       }
     }
     .dpn {
-      width: 36vw;
-      bottom: 80vw;
+      width: rem(135);
+      bottom: rem(290);
       left: 0;
     }
     .mby {
@@ -999,13 +978,13 @@ polygon {
     }
     .begin {
       bottom: 0;
-      font-size: 16px;
+      font-size: rem(16);
       color: #fff;
       font-family: 'custFont';
-      height: 120px;
+      height: rem(120);
       width: 100%;
       p {
-        line-height: 120px;
+        line-height: rem(120);
         text-align: center;
       }
     }
@@ -1020,196 +999,171 @@ polygon {
     position: absolute;
   }
   .square1 {
-    width: 300px;
-    height: 160px;
-    top: -100px;
+    width: rem(300);
+    height: rem(160);
+    top: rem(-100);
     right: 0;
   }
   .square2 {
-    width: 100px;
-    height: 106px;
-    left: -44px;
+    width: rem(100);
+    height: rem(106);
+    left: rem(-44);
     animation-delay: .2s;
   }
   .square3 {
-    width: 56px;
-    height: 63px;
+    width: rem(56);
+    height: rem(63);
     left: 0;
     right: 0;
-    top: 70px;
+    top: rem(70);
     margin: auto;
     animation-delay: .4s;
   }
   .square3 img {
-    top: -25px;
+    top: rem(-25);
     left: 0;
     right: 0;
-    height: 40px;
-    width: 12px;
+    height: rem(40);
+    width: rem(12);
     margin: auto;
   }
   .square4 {
-    width: 40px;
-    height: 48px;
+    width: rem(40);
+    height: rem(48);
     right: 0;
-    top: 30px;
+    top: rem(30);
     animation-delay: .3s;
   }
   .square5 {
-    width: 34px;
-    height: 40px;
-    top: 120px;
-    left: 60px;
+    width: rem(34);
+    height: rem(40);
+    top: rem(120);
+    left: rem(60);
     animation-delay: .2s;
-  }
-  .square5 img:first-of-type {
-    top: -25px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    width: 12px;
-    margin: auto;
-  }
-  .square5 img:last-of-type {
-    top: -45px;
-    left: 12px;
-    height: 24px;
-    width: 40px;
-    transform: rotateX(-30deg) rotateY(-34deg);
+    img:first-of-type {
+      top: rem(-25);
+      left: 0;
+      right: 0;
+      height: rem(40);
+      width: rem(12);
+      margin: auto;
+    }
+    img:last-of-type {
+      top: rem(-45);
+      left: rem(12);
+      height: rem(24);
+      width: rem(40);
+      transform: rotateX(-30deg) rotateY(-34deg);
+    }
   }
   .square6 {
-    right: 30px;
-    top: 120px;
-    width: 80px;
-    height: 88px;
+    right: rem(30);
+    top: rem(120);
+    width: rem(80);
+    height: rem(88);
     animation-delay: .4s;
-  }
-  .square6 img {
-    top: -10px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    width: 12px;
-    margin: auto;
+    img {
+      top: rem(-10);
+      left: 0;
+      right: 0;
+      height: rem(40);
+      width: rem(12);
+      margin: auto;
+    }
   }
   .square7 {
-    top: 400px;
-    left: -30px;
-    width: 60px;
-    height: 66px;
+    top: rem(400);
+    left: rem(-30);
+    width: rem(60);
+    height: rem(66);
     animation-delay: .3s;
   }
   .square8 {
-    width: 28px;
-    height: 30px;
-    top: 450px;
-    left: 61px;
+    width: rem(28);
+    height: rem(30);
+    top: rem(450);
+    left: rem(61);
     animation-delay: .3s;
   }
   .square9 {
-    width: 40px;
-    height: 44px;
-    right: 20px;
-    top: 430px;
-  }
-  .square9 img {
-    top: -24px;
-    right: 0;
-    left: 0;
-    height: 40px;
-    width: 12px;
-    margin: auto;
+    width: rem(40);
+    height: rem(44);
+    right: rem(20);
+    top: rem(430);
+    img {
+      top: rem(-24);
+      right: 0;
+      left: 0;
+      height: rem(40);
+      width: rem(12);
+      margin: auto;
+    }
   }
   .square_dialog {
     width: 100%;
-    height: 440px;
-    top: 110px;
+    height: rem(440);
+    top: rem(110);
     > div {
       position: absolute;
       img {
         width: 100%;
       }
     }
-  }
-  .square_dialog .dialog_bg {
-    width: 460px;
-    height: 280px;
-    top: 100px;
-    left: -80px;
-    animation-delay: .2s;
-  }
-  .square_dialog .dialog_bird {
-    width: 200px;
-    right: -20px;
-    top: 80px;
-    height: 300px;
-    animation-delay: .6s;
-  }
+    .dialog_bg {
+      width: rem(460);
+      height: rem(280);
+      top: rem(100);
+      left: rem(-80);
+      animation-delay: .2s;
+    }
+    .dialog_bird {
+      width: rem(200);
+      right: rem(-20);
+      top:rem(80);
+      height: rem(300);
+      animation-delay: .6s;
+    }
 
-  .square_dialog .dialog_box {
-    width: 230px;
-    left: 0;
-    height: 340;
-    animation-delay: .6s;
-      div {
-      position: absolute;
-      top: 105px;
-      left: 105px;
-      height: 30px;
-      width: 60px;
-      font-size: 20px;
-      transform: rotateX(-22deg) rotateY(62deg);
-      span {
-        display: inline-block;
+    .dialog_box {
+      width: rem(230);
+      left: 0;
+      height: 340;
+      animation-delay: .6s;
+        div {
+        position: absolute;
+        top: rem(105);
+        left: rem(105);
+        height:rem(30);
+        width:rem(60);
+        font-size:rem(20);
+        transform: rotateX(-22deg) rotateY(62deg);
+        span {
+          display: inline-block;
+        }
       }
     }
-  }
-  .square_dialog .dialog_neon {
-    height: 100px;
-    width: 100px;
-    top: 326px;
-    left: 150px;
-    animation-delay: .2s;
-  }
-  .square_dialog .dialog_neon .go {
-    position: absolute;
-    right: -10px;
-    top: 20px;
-    height: 100%;
-    width: 100%;
-    background: url(../image/mouse.svg) no-repeat right bottom;
-    background-size: 40px;
-  }
-  @media screen and (max-width: 320px) {
-    .square_dialog .dialog_bg {
-      width: 420px;
-      height: 240px;
-      top: 80px;
-      left: -80px;
+    .dialog_neon {
+      height: rem(100);
+      width: rem(100);
+      top: rem(326);
+      left: rem(150);
+      animation-delay: .2s;
     }
-    .square_dialog .dialog_bird {
-      width: 160px;
-      right: -20px;
-      top: 60px;
-    }
-    .square_dialog .dialog_box {
-      width: 200px;
-    }
-    .square_dialog .dialog_box div {
-      top: 84px;
-      left: 90px;
-      transform: rotateX(-22deg) rotateY(62deg);
-    }
-    .square_dialog .dialog_neon {
-      height: 100px;
-      width: 90px;
-      top: 276px;
-      left: 130px;
+    .dialog_neon .go {
+      position: absolute;
+      right: rem(-10);
+      top: rem(20);
+      height: 100%;
+      width: 100%;
+      background: url(../image/mouse.svg) no-repeat right bottom;
+      background-size: rem(40);
     }
   }
 }
+// page5
 .page5 {
 }
+// page6
 .page6 {
   [class^="square"] {
     svg {
@@ -1297,20 +1251,47 @@ polygon {
         left: 46%;
         transform: translateX(-50%);
       }
+      @keyframes float {
+        to {
+          transform: translateY(10%);
+        }
+      }
+      @keyframes zoomout {
+        to {
+          transform: scale(0);
+          top: rem(260);
+          left: rem(130);
+        }
+      }
+      @keyframes zoomin {
+        from {
+          transform: scale(0);
+          top: rem(260);
+          left: rem(130);
+        }
+      }
+      &.active {
+        .box1, .box2, .box3 {
+          animation: zoomout .5s forwards;
+        }
+      }
       .box1 {
         width: rem(110);
         top: rem(40);
         left: rem(60);
+        animation: zoomin .5s 1.1s backwards, float .8s 1.6s infinite alternate;
       }
       .box2 {
         width: rem(110);
         top: rem(180);
         left: rem(80);
+        animation: zoomin .5s 1.3s backwards, float .8s 1.8s infinite alternate;
       }
       .box3 {
         width: rem(110);
-        right: rem(30);
+        left: rem(230);
         top: rem(140);
+        animation: zoomin .5s 1.4s backwards, float .8s 1.9s infinite alternate;
       }
       .mouse {
         top: rem(380);
@@ -1345,6 +1326,13 @@ polygon {
         top: rem(30);
         left: 46%;
         transform: translateX(-50%);
+        > img:last-of-type {
+          position: absolute;
+          bottom: rem(40);
+          left: 50%;
+          width: rem(40);
+          height: auto;
+        }
         span {
           position: absolute;
           width: rem(140);
@@ -1407,8 +1395,10 @@ polygon {
     }
   }
 }
+// page7
 .page7 {
 }
+// page8
 .page8 {
   [class^="square"] > svg {
     float: left;
@@ -1423,12 +1413,36 @@ polygon {
     margin-top: rem(-120);
     width: rem(300);
     height: rem(220);
+    svg {
+      position: relative;
+      z-index: 2;
+    }
+    > img:first-of-type {
+      width: rem(90);
+      left: rem(180);
+      top: rem(144);
+    }
+    > img:last-of-type {
+      width: rem(40);
+      left: rem(260);
+      top: rem(170);
+    }
+    span {
+      position: absolute;
+      z-index: 3;
+      width: rem(110);
+      height: rem(80);
+      top: rem(170);
+      left: rem(178);
+      transform: rotateX(44deg) rotateY(-46deg);
+    }
   }
   .square2 {
     top: 0;
     left: rem(-40);
     width: rem(80);
     height: rem(80);
+    animation-delay: .2s;
   }
   .square3 {
     top: 0;
@@ -1441,6 +1455,7 @@ polygon {
     left: rem(60);
     width: rem(34);
     height: rem(34);
+    animation-delay: .4s;
     img {
       top: rem(-28);
       left: 50%;
@@ -1454,6 +1469,7 @@ polygon {
     left: rem(10);
     width: rem(70);
     height: rem(70);
+    animation-delay: .3s;
     img {
       top: rem(-20);
       left: 50%;
@@ -1467,6 +1483,7 @@ polygon {
     right: rem(50);
     width: rem(44);
     height: rem(44);
+    animation-delay: .2s;
     img {
       top: 0;
       left: 36%;
@@ -1481,12 +1498,14 @@ polygon {
     margin-left: rem(-30);
     width: rem(60);
     height: rem(60);
+    animation-delay: .5s;
   }
   .square8 {
     top: rem(420);
     right: rem(-30);
     width: rem(60);
     height: rem(60);
+    animation-delay: .3s;
   }
   .dialog_box {
     top: 0;
@@ -1505,6 +1524,7 @@ polygon {
     .text {
       width: rem(250);
       top: rem(100);
+      animation-delay: .5s;
       img {
         width: 100%;
       }
@@ -1536,6 +1556,7 @@ polygon {
       width: rem(160);
       right: rem(-20);
       top: rem(220);
+      animation-delay: .4s;
       img {
         width: 100%;
       }

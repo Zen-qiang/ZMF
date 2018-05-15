@@ -2,7 +2,7 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-14 15:32:23
+ * @Last Modified time: 2018-05-15 14:41:06
  */
 
 //  动画效果执行一次
@@ -117,7 +117,10 @@ var preLoad = function () {
     { id: 'page6_boxblue', src: 'page6_boxblue.png' },
     { id: 'page6_box2', src: 'page6_box2.png' },
     { id: 'page6_bird', src: 'page6_bird.png' },
-    { id: 'page6_text', src: 'page6_text.gif' }
+    { id: 'page6_text', src: 'page6_text.gif' },
+    { id: 'page8_bird', src: 'page8_bird.png' },
+    { id: 'page8_lamp', src: 'page8_lamp.png' },
+    { id: 'page8_text', src: 'page8_text.gif' }
   ], true, "image/");
   queue.on("progress", loadFileProgress);
   queue.on("complete", loadComplete);
@@ -172,6 +175,11 @@ $('.page6 .go').on('click', function () {
   pageplay('.page8')
 })
 $('.take_gift .next').on('click', function () {
-  $('.take_gift').css('display', 'none')
-  $('.make').css('display', 'block')
+  // $('.take_gift').css('display', 'none')
+  // $('.make').css('display', 'block')
+  $('.take_gift').addClass('active')
+  setTimeout(() => {
+    $('.take_gift').css('display', 'none')
+    $('.make').css('display', 'block')
+  }, 500);
 })

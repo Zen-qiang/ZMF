@@ -35,7 +35,7 @@ gulp.task('js', function () {
     .pipe(gulp.dest('src/js'));
 });
 gulp.task('js-watch', ['js'], browserSync.reload);
-gulp.task('serve', ['sass', 'js'], function () {
+gulp.task('serve', ['sass', 'js', 'js-optimize'], function () {
   browserSync.init({
       server: "./src"
   });

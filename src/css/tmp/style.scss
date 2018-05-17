@@ -48,7 +48,6 @@ body {
   height: 100vh;
   // max-width: 540px;
   // min-width: 320px;
-  overflow: hidden;
 }
 [hidden] {
   display: none;
@@ -493,10 +492,8 @@ polygon {
     animation-delay: .4s;
   }
   .square4 {
-    // left: rem(-40);
-    left: 50%;
+    left: rem(-40);
     top: 25%;
-    transform: translateX(-50%);
     width: rem(280);
     height: rem(180);
     animation-delay: .2s;
@@ -889,15 +886,16 @@ polygon {
       animation-delay: .6s;
       div {
         position: absolute;
-        top: rem(90);
-        left: rem(122);
+        top: rem(94);
+        left: rem(118);
         height: rem(30);
-        width: rem(60);
-        font-size: rem(20);
+        width: rem(68);
+        font-size: rem(16);
         transform: rotateX(-20deg) rotateY(-56deg);
-      }
-      div span {
-        display: inline-block;
+        text-align: center;
+        span {
+          display: inline-block;
+        }
       }
     }
     .dialog_neon {
@@ -936,57 +934,146 @@ polygon {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba($color: #000000, $alpha: .6);
+    // background: rgba($color: #000000, $alpha: .5);
     > div {
       position: absolute;
     }
     .logo {
       width: 100%;
-      height: rem(300);
+      height: rem(100);
       left: 0;
-      top: rem(-60);
-    }
-    .logo ~ div {
-      img {
-        width: 100%;
+      padding-top: rem(40);
+      // top: rem(-60);
+      ~ div {
+        img {
+          width: 100%;
+        }
+      }
+      p {
+        font-size: 24px;
+        font-family: 'custFont';
+        text-align: center;
+        color: #ffeb00;
+        -webkit-text-stroke: 1px #1b227b;
+      }
+      &.active {
+        > p:first-of-type {
+          display: none;
+        }
+        > p:last-of-type {
+          display: block;
+        }
       }
     }
+    .logo ~ div > span {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: rem(30);
+      height: rem(56);
+      background: url(../image/mouse.svg) no-repeat center;
+      background-size: contain;
+    }
+    .logo ~ .active > span {
+      display: none;
+    }
     .dpn {
-      width: rem(135);
-      bottom: rem(290);
+      width: 36vw;
+      bottom: 92vw;
+      height: 26vw;
       left: 0;
+      background: url(../image/page3_dpn_dark.png) no-repeat center;
+      background-size: cover;
+      &.active {
+        background: url(../image/page3_dpn.png) no-repeat center;
+        background-size: cover;
+      }
     }
     .mby {
       width: 36vw;
-      bottom: 76vw;
-      left: 40vw;
+      bottom: 84vw;
+      left: 41vw;
+      height: 40vw;
+      background: url(../image/page3_mby_dark.png) no-repeat center;
+      background-size: cover;
+      &.active {
+        background: url(../image/page3_mby.png) no-repeat center;
+        background-size: cover;
+      }
     }
     .wsl {
       width: 36vw;
       right: 0;
-      bottom: 70vw;
+      bottom: 76vw;
+      height: 34vw;
+      background: url(../image/page3_wsl_dark.png) no-repeat center;
+      background-size: cover;
+      &.active {
+        background: url(../image/page3_wsl.png) no-repeat center;
+        background-size: cover;
+      }
     }
     .gd {
-      width: 30vw;
-      bottom: 40vw;
+      width: 28vw;
+      bottom: 56vw;
       right: 15vw;
+      height: 20vw;
+      background: url(../image/page3_gd_dark.png) no-repeat center;
+      background-size: cover;
+      &.active {
+        background: url(../image/page3_gd.png) no-repeat center;
+       background-size: cover;
+      }
     }
     .chy {
-      width: 26vw;
-      left: 0;
-      bottom: 28vw;
-    }
-    .begin {
-      bottom: 0;
-      font-size: rem(16);
-      color: #fff;
-      font-family: 'custFont';
-      height: rem(120);
-      width: 100%;
-      p {
-        line-height: rem(120);
-        text-align: center;
+      width: 20vw;
+      left: 2vw;
+      bottom: 34vw;
+      height: 26vw;
+      background: url(../image/page3_chy_dark.png) no-repeat center;
+      background-size: cover;
+      &.active {
+        background: url(../image/page3_chy.png) no-repeat center;
+        background-size: cover;
       }
+    }
+  }
+  @keyframes jump {
+    30% {
+      transform: translateY(0);
+    }
+    20%, 50% {
+      transform: translateY(-1vw);
+    }
+  }
+  .bird {
+    height: 100%;
+    img {
+      position: absolute;
+    }
+    > img:first-of-type {
+      bottom: 26vw;
+      left: 16vw;
+      width: 8vw;
+      animation: jump .8s infinite;
+    }
+    > img:nth-of-type(2) {
+      bottom: 62vw;
+      left: 84vw;
+      width: 8vw;
+      animation: jump .8s .3s infinite;
+    }
+    > img:nth-of-type(3) {
+      bottom: 114vw;
+      left: 76vw;
+      width: 6vw;
+      animation: jump .8s .5s infinite;
+    }
+    > img:last-of-type {
+      bottom: 23vw;
+      left: 88vw;
+      width: 5vw;
+      animation: jump .8s .2s infinite;
     }
   }
 }
@@ -1129,14 +1216,15 @@ polygon {
       left: 0;
       height: 340;
       animation-delay: .6s;
-        div {
+      div {
         position: absolute;
-        top: rem(105);
-        left: rem(105);
+        top: rem(108);
+        left: rem(94);
         height:rem(30);
-        width:rem(60);
-        font-size:rem(20);
+        width:rem(80);
+        font-size:rem(16);
         transform: rotateX(-22deg) rotateY(62deg);
+        text-align: center;
         span {
           display: inline-block;
         }
@@ -1162,6 +1250,50 @@ polygon {
 }
 // page5
 .page5 {
+  text-align: center;
+  background: #ffda00;
+  div {
+    width: 100%;
+    height: 100%;
+  }
+  .bg {
+    img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      // height: 100%;
+      width: 100%;
+      vertical-align: middle;
+      &:first-of-type {
+        display: inline-block;
+      }
+      &:last-of-type {
+        display: none;
+      }
+    }
+    &.active {
+      img:first-of-type {
+        display: none;
+      }
+      img:last-of-type {
+        display: inline-block;
+      }
+    }
+  }
+  > div:last-of-type {
+    position: relative;
+    span {
+      position: absolute;
+    }
+    > span:first-of-type {
+      top: 16vw;
+      right: 2vw;
+      width: 26vw;
+      height: 28vw;
+      background: rgba($color: #000000, $alpha: .6);
+      transform: rotateX(35deg) rotateY(-46deg);
+    }
+  }
 }
 // page6
 .page6 {
@@ -1353,10 +1485,12 @@ polygon {
         top: rem(30);
         p {
           position: absolute;
-          font-size: rem(20);
-          top: rem(80);
-          left: rem(98);
+          font-size: rem(16);
+          top: rem(86);
+          left: rem(90);
+          width: rem(64);
           // transform: rotateX(-30deg) rotateY(-40deg);
+          text-align: center;
           span {
             display: inline-block;
             transform: rotateX(-30deg) rotateY(-40deg);
@@ -1397,6 +1531,154 @@ polygon {
 }
 // page7
 .page7 {
+  .diy_container {
+    width: rem(330);
+    height: rem(400);
+    left: 50%;
+    top: rem(10);
+    transform: translateX(-50%);
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+    > div {
+      position: absolute;
+    }
+    .diy_left {
+      top: rem(9);
+      left: 0;
+      width: rem(260);
+      height: rem(390);
+      // background: url(../image/page8_bird.png) no-repeat center;
+      // -webkit-mask-image: url(../image/shading.png);
+      // mask-image: url(../image/shading.png);
+      // -webkit-mask-size: cover;
+      // mask-size: cover;
+      // -webkit-mask-repeat: no-repeat;
+      // mask-repeat: no-repeat;
+      .diy_bg {
+        height: 100%;
+        text-align: center;
+        padding-top: rem(30);
+        img {
+          width: rem(220);
+        }
+      }
+    }
+    .diy_right {
+      top: rem(9);
+      right: rem(13);
+      width: rem(56);
+      height: rem(303);
+      ul {
+        width: 100%;
+        height: 100%;
+        li {
+          height: (1/8) * 100%;
+          text-align: center;
+          font-size: rem(16);
+          font-family: 'custFont';
+          color: #887e01;
+          &.active {
+            color: #000;
+          }
+          &::after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 100%;
+            vertical-align: middle;
+          }
+          span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: rem(18);
+          }
+        }
+      }
+    }
+  }
+  .diy_element {
+    height: rem(160);
+    width: 100%;
+    font-size: rem(20);
+    bottom: 0;
+    > ul {
+      height: rem(34);
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    li {
+      flex: 0 0 rem(120);
+      font-size: rem(16);
+      color: #887e01;
+      font-family: 'custFont';
+      background: url(../image/page7_btn.svg) no-repeat center;
+      background-size: cover;
+      line-height: rem(34);
+      text-align: center;
+      transform: translateX(rem(-30));
+      position: relative;
+      z-index: 3;
+      &.active {
+        background: url(../image/page7_btn_active.svg) no-repeat center;
+        background-size: cover;
+        color: #000;
+      }
+    }
+    li:nth-of-type(2) {
+      transform: translateX(rem(-60));
+      z-index: 2;
+    }
+    li:nth-of-type(3) {
+      transform: translateX(rem(-90));
+      z-index: 1;
+    }
+    li:last-of-type {
+      transform: translateX(rem(-120));
+      z-index: 0;
+    }
+    > div {
+      border-top: rem(2) solid #1c1e75;
+      background: rgba(243, 233, 196, 0.9);
+      height: rem(128);
+      margin-top: rem(-2);
+      > div {
+        display: none;
+        &.active {
+          display: flex;
+          flex-flow: row wrap;
+        }
+        p {
+          width: 25%;
+          height: rem(64);
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+  .go {
+    width: rem(100);
+    height: rem(80);
+    right: rem(20);
+    top: rem(350);
+    img {
+      width: 80%;
+    }
+    span {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: rem(40);
+      height: rem(40);
+      background: url(../image/mouse.svg) no-repeat center;
+      background-size: contain;
+    }
+  }
 }
 // page8
 .page8 {
@@ -1531,8 +1813,10 @@ polygon {
       p {
         position: absolute;
         top: rem(94);
-        left: rem(114);
-        font-size: rem(20);
+        left: rem(108);
+        font-size: rem(16);
+        text-align: center;
+        width: rem(64);
         span {
           display: inline-block;
           transform: rotateX(30deg) rotateY(-54deg);

@@ -2,7 +2,7 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-15 14:41:06
+ * @Last Modified time: 2018-05-17 19:01:08
  */
 
 //  动画效果执行一次
@@ -28,32 +28,6 @@
 //     return this;
 //   }
 // });
-// !(function (win, doc) {
-//   function setFontSize() {
-//     // 获取window 宽度
-//     var winWidth = window.innerWidth;
-//     let bgW = $(window).width();
-//     let bgH = $(window).height();
-//     $('body').css({ "width": bgW, "height": bgH })
-//     // 640宽度以上进行限制 需要css进行配合
-//     var size = (winWidth / 640) * 100;
-//     doc.documentElement.style.fontSize = (size < 100 ? size : 100) + 'px';
-//   }
-//   var evt = 'onorientationchange' in win ? 'orientationchange' : 'resize';
-//   var timer = null;
-//   win.addEventListener(evt, function () {
-//     clearTimeout(timer);
-//     timer = setTimeout(setFontSize, 60);
-//   }, false);
-//   win.addEventListener("pageshow", function (e) {
-//     if (e.persisted) {
-//       clearTimeout(timer);
-//       timer = setTimeout(setFontSize, 60);
-//     }
-//   }, false);
-//   // 初始化
-//   setFontSize();
-// }(window, document));
 var queue;
 // 动画结束
 var animationEnd = (function (el) {
@@ -118,6 +92,7 @@ var preLoad = function () {
     { id: 'page6_box2', src: 'page6_box2.png' },
     { id: 'page6_bird', src: 'page6_bird.png' },
     { id: 'page6_text', src: 'page6_text.gif' },
+    { id: 'page7_bg', src: 'page7_bg.png' },
     { id: 'page8_bird', src: 'page8_bird.png' },
     { id: 'page8_lamp', src: 'page8_lamp.png' },
     { id: 'page8_text', src: 'page8_text.gif' }
@@ -159,8 +134,11 @@ function bgAnimate () {
 function pageplay (el) {
   $(el).siblings().css('display', 'none').end().css('display', 'block');
 }
+$('body').height($(window).height())
 $('.page1 .go').on('click', function () {
-  pageplay('.page2')
+  let user = $('.page1 input').val()
+  if (user) pageplay('.page2')
+  $('.user').text(user)
 })
 $('.page2 .go').on('click', function () {
   pageplay('.page3')
@@ -172,6 +150,9 @@ $('.page4 .go').on('click', function () {
   pageplay('.page6')
 })
 $('.page6 .go').on('click', function () {
+  pageplay('.page7')
+})
+$('.page7 .go').on('click', function () {
   pageplay('.page8')
 })
 $('.take_gift .next').on('click', function () {
@@ -182,4 +163,36 @@ $('.take_gift .next').on('click', function () {
     $('.take_gift').css('display', 'none')
     $('.make').css('display', 'block')
   }, 500);
+})
+$('.page8 .share').on('click', function () {
+  pageplay('.page9')
+})
+var actorNo = 0;
+$('.actor').on('click', function () {
+  let flag = $(this).hasClass('active');
+  // if (actorNo == 3) {
+    // pageplay('.page4')
+  // } else {
+    if (flag) {
+      $(this).removeClass('active');
+      actorNo--
+    } else {
+      $(this).addClass('active');
+      actorNo == 2 ? pageplay('.page4') : actorNo++
+      // actorNo++
+    }
+    console.log(actorNo)
+  // }
+});
+$('.page7 .diy_element li').on('click', function () {
+  let index = $(this).index()
+  $(this).addClass('active').siblings().removeClass('active');
+  $('.diy_element .labels > div').eq(index).addClass('active').siblings().removeClass('active');
+})
+$('.page7 .diy_right li').on('click', function () {
+  if ($(this).hasClass('active')) return
+  let index = $(this).index() + 1;
+  let src = $('.diy_bg img').attr('src').split('.png')[0].slice(0, -1);
+  $(this).addClass('active').siblings().removeClass('active')
+  $('.diy_bg img').attr('src', src + index + '.png')
 })

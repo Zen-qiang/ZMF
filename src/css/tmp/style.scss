@@ -940,9 +940,9 @@ polygon {
     }
     .logo {
       width: 100%;
-      height: rem(100);
+      height: rem(120);
       left: 0;
-      padding-top: rem(40);
+      padding-top: rem(20);
       // top: rem(-60);
       ~ div {
         img {
@@ -950,11 +950,15 @@ polygon {
         }
       }
       p {
-        font-size: 24px;
-        font-family: 'custFont';
+        // font-size: 24px;
+        // font-family: 'custFont';
+        // text-align: center;
+        // color: #ffeb00;
+        // -webkit-text-stroke: 1px #1b227b;
         text-align: center;
-        color: #ffeb00;
-        -webkit-text-stroke: 1px #1b227b;
+        img {
+          width: 80vw;
+        }
       }
       &.active {
         > p:first-of-type {
@@ -1053,14 +1057,14 @@ polygon {
     }
     > img:first-of-type {
       bottom: 26vw;
-      left: 16vw;
-      width: 8vw;
+      left: 12vw;
+      width: 14vw;
       animation: jump .8s infinite;
     }
     > img:nth-of-type(2) {
       bottom: 62vw;
-      left: 84vw;
-      width: 8vw;
+      left: 86vw;
+      width: 7vw;
       animation: jump .8s .3s infinite;
     }
     > img:nth-of-type(3) {
@@ -1069,11 +1073,23 @@ polygon {
       width: 6vw;
       animation: jump .8s .5s infinite;
     }
-    > img:last-of-type {
-      bottom: 23vw;
+    > img:nth-of-type(4) {
+      bottom: 26vw;
       left: 88vw;
-      width: 5vw;
+      width: 6vw;
       animation: jump .8s .2s infinite;
+    }
+    > img:nth-of-type(5) {
+      bottom: 120vw;
+      left: 90vw;
+      width: 4vw;
+      animation: jump .8s .4s infinite;
+    }
+    > img:last-of-type {
+      bottom: 140vw;
+      left: 94vw;
+      width: 4vw;
+      animation: jump .8s infinite;
     }
   }
 }
@@ -1252,6 +1268,9 @@ polygon {
 .page5 {
   text-align: center;
   background: #ffda00;
+  polygon {
+    opacity: 0.7;
+  }
   div {
     width: 100%;
     height: 100%;
@@ -1282,16 +1301,169 @@ polygon {
   }
   > div:last-of-type {
     position: relative;
+    font-size: rem(16);
     span {
       position: absolute;
     }
+    @mixin row1 {
+      top: 11vw;
+      width: 16vw;
+    }
     > span:first-of-type {
-      top: 16vw;
-      right: 2vw;
-      width: 26vw;
+      @include row1;
+      width: 15.5vw;
+      top: 12vw;
+      left: 18vw;
+    }
+    > span:nth-of-type(2) {
+      @include row1;
+      left: 40vw;
+    }
+    > span:nth-of-type(3) {
+      @include row1;
+      left: 72vw;
       height: 28vw;
-      background: rgba($color: #000000, $alpha: .6);
-      transform: rotateX(35deg) rotateY(-46deg);
+    }
+    @mixin row2 {
+      top: 47vw;
+      width: 12vw;
+      height: 22vw;
+    }
+    > span:nth-of-type(4) {
+      @include row2;
+      left: 15vw;
+    }
+    > span:nth-of-type(5) {
+      left: 32vw;
+      @include row2;
+    }
+    > span:nth-of-type(6) {
+      left: 56vw;
+      @include row2;
+    }
+    > span:nth-of-type(7) {
+      left: 73vw;
+      @include row2;
+    }
+    @mixin row3 {
+      top: 72vw;
+      width: 10vw;
+      height: 18vw;
+    }
+    > span:nth-of-type(8) {
+      @include row3;
+      left: 14vw;
+    }
+    > span:nth-of-type(9) {
+      @include row3;
+      top: 72.4vw;
+      left: 27.5vw;
+    }
+    > span:nth-of-type(10) {
+      @include row3;
+      left: 47vw;
+    }
+    > span:nth-of-type(11) {
+      @include row3;
+      left: 60vw;
+    }
+    > span:nth-of-type(12) {
+      @include row3;
+      left: 80vw;
+      top: 73vw;
+    }
+    @mixin row4 {
+      top: 94vw;
+      width: 9.5vw;
+      height: 19vw;
+    }
+    > span:nth-of-type(13) {
+      @include row4;
+      width: 9vw;
+      left: 11.5vw;
+      height: 18vw;
+    }
+    > span:nth-of-type(14) {
+      @include row4;
+      top: 93.5vw;
+      left: 30.5vw;
+    }
+    > span:nth-of-type(15) {
+      @include row4;
+      left: 44vw;
+    }
+    > span:nth-of-type(16) {
+      @include row4;
+      left: 64vw;
+    }
+    > span:nth-of-type(17) {
+      @include row4;
+      left: 77vw;
+    }
+    @mixin row5 {
+      top: 113.4vw;
+      width: 7.8vw;
+      height: 16vw;
+    }
+    > span:nth-of-type(18) {
+      @include row5;
+      left: 13.4vw;
+    }
+    > span:nth-of-type(19) {
+      @include row5;
+      left: 24vw;
+    }
+    > span:nth-of-type(20) {
+      @include row5;
+      left: 41vw;
+    }
+    > span:nth-of-type(21) {
+      @include row5;
+      top: 114vw;
+      left: 51.6vw;
+    }
+    > span:nth-of-type(22) {
+      @include row5;
+      top: 114.5vw;
+      left: 68vw;
+    }
+    > span:nth-of-type(23) {
+      @include row5;
+      top: 114.5vw;
+      left: 79vw;
+    }
+    @mixin row6 {
+      top: 129vw;
+      width: 8vw;
+      height: 16vw;
+    }
+    > span:nth-of-type(24) {
+      @include row6;
+      left: 13vw;
+    }
+    > span:nth-of-type(25) {
+      @include row6;
+      left: 24vw;
+    }
+    > span:nth-of-type(26) {
+      @include row6;
+      top: 130vw;
+      left: 40.5vw;
+    }
+    > span:nth-of-type(27) {
+      @include row6;
+      top: 130vw;
+      left: 51.5vw;
+    }
+    > span:nth-of-type(28) {
+      @include row6;
+      top: 130vw;
+      left: 68vw;
+    }
+    > span:nth-of-type(29) {
+      @include row6;
+      top: 131vw;
+      left: 79vw;
     }
   }
 }

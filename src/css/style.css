@@ -780,17 +780,15 @@ polygon {
     position: absolute; }
   .page3 .content .logo {
     width: 100%;
-    height: 1.33333rem;
+    height: 1.6rem;
     left: 0;
-    padding-top: 0.53333rem; }
+    padding-top: 0.26667rem; }
     .page3 .content .logo ~ div img {
       width: 100%; }
     .page3 .content .logo p {
-      font-size: 24px;
-      font-family: 'custFont';
-      text-align: center;
-      color: #ffeb00;
-      -webkit-text-stroke: 1px #1b227b; }
+      text-align: center; }
+      .page3 .content .logo p img {
+        width: 80vw; }
     .page3 .content .logo.active > p:first-of-type {
       display: none; }
     .page3 .content .logo.active > p:last-of-type {
@@ -868,24 +866,34 @@ polygon {
     position: absolute; }
   .page3 .bird > img:first-of-type {
     bottom: 26vw;
-    left: 16vw;
-    width: 8vw;
+    left: 12vw;
+    width: 14vw;
     animation: jump .8s infinite; }
   .page3 .bird > img:nth-of-type(2) {
     bottom: 62vw;
-    left: 84vw;
-    width: 8vw;
+    left: 86vw;
+    width: 7vw;
     animation: jump .8s .3s infinite; }
   .page3 .bird > img:nth-of-type(3) {
     bottom: 114vw;
     left: 76vw;
     width: 6vw;
     animation: jump .8s .5s infinite; }
-  .page3 .bird > img:last-of-type {
-    bottom: 23vw;
+  .page3 .bird > img:nth-of-type(4) {
+    bottom: 26vw;
     left: 88vw;
-    width: 5vw;
+    width: 6vw;
     animation: jump .8s .2s infinite; }
+  .page3 .bird > img:nth-of-type(5) {
+    bottom: 120vw;
+    left: 90vw;
+    width: 4vw;
+    animation: jump .8s .4s infinite; }
+  .page3 .bird > img:last-of-type {
+    bottom: 140vw;
+    left: 94vw;
+    width: 4vw;
+    animation: jump .8s infinite; }
 
 .page4 > [class^="square"] svg {
   float: left; }
@@ -1044,6 +1052,8 @@ polygon {
 .page5 {
   text-align: center;
   background: #ffda00; }
+  .page5 polygon {
+    opacity: 0.7; }
   .page5 div {
     width: 100%;
     height: 100%; }
@@ -1062,16 +1072,167 @@ polygon {
   .page5 .bg.active img:last-of-type {
     display: inline-block; }
   .page5 > div:last-of-type {
-    position: relative; }
+    position: relative;
+    font-size: 0.21333rem; }
     .page5 > div:last-of-type span {
       position: absolute; }
     .page5 > div:last-of-type > span:first-of-type {
-      top: 16vw;
-      right: 2vw;
-      width: 26vw;
-      height: 28vw;
-      background: rgba(0, 0, 0, 0.6);
-      transform: rotateX(35deg) rotateY(-46deg); }
+      top: 11vw;
+      width: 16vw;
+      width: 15.5vw;
+      top: 12vw;
+      left: 18vw; }
+    .page5 > div:last-of-type > span:nth-of-type(2) {
+      top: 11vw;
+      width: 16vw;
+      left: 40vw; }
+    .page5 > div:last-of-type > span:nth-of-type(3) {
+      top: 11vw;
+      width: 16vw;
+      left: 72vw;
+      height: 28vw; }
+    .page5 > div:last-of-type > span:nth-of-type(4) {
+      top: 47vw;
+      width: 12vw;
+      height: 22vw;
+      left: 15vw; }
+    .page5 > div:last-of-type > span:nth-of-type(5) {
+      left: 32vw;
+      top: 47vw;
+      width: 12vw;
+      height: 22vw; }
+    .page5 > div:last-of-type > span:nth-of-type(6) {
+      left: 56vw;
+      top: 47vw;
+      width: 12vw;
+      height: 22vw; }
+    .page5 > div:last-of-type > span:nth-of-type(7) {
+      left: 73vw;
+      top: 47vw;
+      width: 12vw;
+      height: 22vw; }
+    .page5 > div:last-of-type > span:nth-of-type(8) {
+      top: 72vw;
+      width: 10vw;
+      height: 18vw;
+      left: 14vw; }
+    .page5 > div:last-of-type > span:nth-of-type(9) {
+      top: 72vw;
+      width: 10vw;
+      height: 18vw;
+      top: 72.4vw;
+      left: 27.5vw; }
+    .page5 > div:last-of-type > span:nth-of-type(10) {
+      top: 72vw;
+      width: 10vw;
+      height: 18vw;
+      left: 47vw; }
+    .page5 > div:last-of-type > span:nth-of-type(11) {
+      top: 72vw;
+      width: 10vw;
+      height: 18vw;
+      left: 60vw; }
+    .page5 > div:last-of-type > span:nth-of-type(12) {
+      top: 72vw;
+      width: 10vw;
+      height: 18vw;
+      left: 80vw;
+      top: 73vw; }
+    .page5 > div:last-of-type > span:nth-of-type(13) {
+      top: 94vw;
+      width: 9.5vw;
+      height: 19vw;
+      width: 9vw;
+      left: 11.5vw;
+      height: 18vw; }
+    .page5 > div:last-of-type > span:nth-of-type(14) {
+      top: 94vw;
+      width: 9.5vw;
+      height: 19vw;
+      top: 93.5vw;
+      left: 30.5vw; }
+    .page5 > div:last-of-type > span:nth-of-type(15) {
+      top: 94vw;
+      width: 9.5vw;
+      height: 19vw;
+      left: 44vw; }
+    .page5 > div:last-of-type > span:nth-of-type(16) {
+      top: 94vw;
+      width: 9.5vw;
+      height: 19vw;
+      left: 64vw; }
+    .page5 > div:last-of-type > span:nth-of-type(17) {
+      top: 94vw;
+      width: 9.5vw;
+      height: 19vw;
+      left: 77vw; }
+    .page5 > div:last-of-type > span:nth-of-type(18) {
+      top: 113.4vw;
+      width: 7.8vw;
+      height: 16vw;
+      left: 13.4vw; }
+    .page5 > div:last-of-type > span:nth-of-type(19) {
+      top: 113.4vw;
+      width: 7.8vw;
+      height: 16vw;
+      left: 24vw; }
+    .page5 > div:last-of-type > span:nth-of-type(20) {
+      top: 113.4vw;
+      width: 7.8vw;
+      height: 16vw;
+      left: 41vw; }
+    .page5 > div:last-of-type > span:nth-of-type(21) {
+      top: 113.4vw;
+      width: 7.8vw;
+      height: 16vw;
+      top: 114vw;
+      left: 51.6vw; }
+    .page5 > div:last-of-type > span:nth-of-type(22) {
+      top: 113.4vw;
+      width: 7.8vw;
+      height: 16vw;
+      top: 114.5vw;
+      left: 68vw; }
+    .page5 > div:last-of-type > span:nth-of-type(23) {
+      top: 113.4vw;
+      width: 7.8vw;
+      height: 16vw;
+      top: 114.5vw;
+      left: 79vw; }
+    .page5 > div:last-of-type > span:nth-of-type(24) {
+      top: 129vw;
+      width: 8vw;
+      height: 16vw;
+      left: 13vw; }
+    .page5 > div:last-of-type > span:nth-of-type(25) {
+      top: 129vw;
+      width: 8vw;
+      height: 16vw;
+      left: 24vw; }
+    .page5 > div:last-of-type > span:nth-of-type(26) {
+      top: 129vw;
+      width: 8vw;
+      height: 16vw;
+      top: 130vw;
+      left: 40.5vw; }
+    .page5 > div:last-of-type > span:nth-of-type(27) {
+      top: 129vw;
+      width: 8vw;
+      height: 16vw;
+      top: 130vw;
+      left: 51.5vw; }
+    .page5 > div:last-of-type > span:nth-of-type(28) {
+      top: 129vw;
+      width: 8vw;
+      height: 16vw;
+      top: 130vw;
+      left: 68vw; }
+    .page5 > div:last-of-type > span:nth-of-type(29) {
+      top: 129vw;
+      width: 8vw;
+      height: 16vw;
+      top: 131vw;
+      left: 79vw; }
 
 .page6 [class^="square"] svg {
   float: left; }

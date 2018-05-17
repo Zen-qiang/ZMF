@@ -2,9 +2,8 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-17 19:01:08
+ * @Last Modified time: 2018-05-17 20:42:35
  */
-
 //  动画效果执行一次
 // $.fn.extend({
 //   animateCss: function (animationName, callback) {
@@ -147,7 +146,7 @@ $('.page3 .go').on('click', function () {
   pageplay('.page4')
 })
 $('.page4 .go').on('click', function () {
-  pageplay('.page6')
+  pageplay('.page5')
 })
 $('.page6 .go').on('click', function () {
   pageplay('.page7')

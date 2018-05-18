@@ -432,6 +432,14 @@ body {
   background: url(../image/2018ch.svg) no-repeat center;
   background-size: contain;
 }
+@keyframes bubble {
+  0% {
+    transform: scale(0.2);
+  }
+}
+.bubble {
+  animation: bubble 1.5s infinite backwards;
+}
 /* 主体内容部分 */
 /* svg通用样式 */
 polygon {
@@ -564,7 +572,8 @@ polygon {
       height: rem(20);
       top: rem(-30);
       left: 54%;
-      transform: rotateY(24deg);
+      // transform: rotateY(24deg);
+      animation-delay: 1.2s;
     }
   }
   .square8 {
@@ -604,10 +613,11 @@ polygon {
     }
     > img:last-of-type {
       top: rem(-30);
-      left: 80%;
+      left: rem(30);
       width: rem(40);
       height: rem(20);
-      transform: rotateY(-45deg);
+      // transform: rotateY(-45deg);
+      animation-delay: .8s;
     }
   }
   /* 对话框 */
@@ -638,18 +648,18 @@ polygon {
       height: rem(300);
       z-index: 0;
       animation-delay: .45s;
-    }
-    > div:last-of-type > img:first-of-type {
-      width: 100%;
-      height: 100%;
-    }
-    > div:last-of-type > img:last-of-type {
-      position: absolute;
-      top: rem(40);
-      left: 40%;
-      width: rem(40);
-      height: rem(30);
-      transform: skewY(-20deg);
+      > img:first-of-type {
+        width: 100%;
+        height: 100%;
+      }
+      > img:last-of-type {
+        position: absolute;
+        top: rem(40);
+        left: 40%;
+        width: rem(40);
+        height: rem(30);
+        transform: skewY(-20deg);
+      }
     }
   }
   /* 输入框 */
@@ -950,11 +960,6 @@ polygon {
         }
       }
       p {
-        // font-size: 24px;
-        // font-family: 'custFont';
-        // text-align: center;
-        // color: #ffeb00;
-        // -webkit-text-stroke: 1px #1b227b;
         text-align: center;
         img {
           width: 80vw;
@@ -967,6 +972,21 @@ polygon {
         > p:last-of-type {
           display: block;
         }
+      }
+    }
+    @each $name in dpn, mby, wsl, gd, chy {
+      @keyframes page3_#{$name} {
+        15%, 35% {
+          background: url(../image/page3_#{$name}_dark.png) no-repeat center;
+          background-size: contain;
+        }
+        0%, 25%, 100% {
+          background: url(../image/page3_#{$name}.png) no-repeat center;
+          background-size: contain;
+        }
+      }
+      .#{$name}.active {
+        animation: page3_#{$name} 1.5s forwards;
       }
     }
     .logo ~ div > span {
@@ -983,15 +1003,11 @@ polygon {
     }
     .dpn {
       width: 36vw;
-      bottom: 92vw;
-      height: 26vw;
+      bottom: 88vw;
+      height: 35vw;
       left: 0;
       background: url(../image/page3_dpn_dark.png) no-repeat center;
-      background-size: cover;
-      &.active {
-        background: url(../image/page3_dpn.png) no-repeat center;
-        background-size: cover;
-      }
+      background-size: contain;
     }
     .mby {
       width: 36vw;
@@ -999,11 +1015,7 @@ polygon {
       left: 41vw;
       height: 40vw;
       background: url(../image/page3_mby_dark.png) no-repeat center;
-      background-size: cover;
-      &.active {
-        background: url(../image/page3_mby.png) no-repeat center;
-        background-size: cover;
-      }
+      background-size: contain;
     }
     .wsl {
       width: 36vw;
@@ -1011,35 +1023,23 @@ polygon {
       bottom: 76vw;
       height: 34vw;
       background: url(../image/page3_wsl_dark.png) no-repeat center;
-      background-size: cover;
-      &.active {
-        background: url(../image/page3_wsl.png) no-repeat center;
-        background-size: cover;
-      }
+      background-size: contain;
     }
     .gd {
       width: 28vw;
-      bottom: 56vw;
+      bottom: 48vw;
       right: 15vw;
-      height: 20vw;
+      height: 30vw;
       background: url(../image/page3_gd_dark.png) no-repeat center;
-      background-size: cover;
-      &.active {
-        background: url(../image/page3_gd.png) no-repeat center;
-       background-size: cover;
-      }
+      background-size: contain;
     }
     .chy {
-      width: 20vw;
-      left: 2vw;
+      width: 26vw;
+      left: 0vw;
       bottom: 34vw;
-      height: 26vw;
+      height: 34vw;
       background: url(../image/page3_chy_dark.png) no-repeat center;
-      background-size: cover;
-      &.active {
-        background: url(../image/page3_chy.png) no-repeat center;
-        background-size: cover;
-      }
+      background-size: contain;
     }
   }
   @keyframes jump {
@@ -1299,11 +1299,14 @@ polygon {
       }
     }
   }
-  > div:last-of-type {
+  .mask_square {
     position: relative;
     font-size: rem(16);
     span {
       position: absolute;
+      &.active{
+        display: none;
+      }
     }
     @mixin row1 {
       top: 11vw;
@@ -1312,16 +1315,17 @@ polygon {
     > span:first-of-type {
       @include row1;
       width: 15.5vw;
-      top: 12vw;
-      left: 18vw;
+      left: 17.5vw;
     }
     > span:nth-of-type(2) {
       @include row1;
-      left: 40vw;
+      left: 40.3vw;
+      width: 15vw;
     }
     > span:nth-of-type(3) {
       @include row1;
-      left: 72vw;
+      top: 11.5vw;
+      left: 71.5vw;
       height: 28vw;
     }
     @mixin row2 {
@@ -1331,6 +1335,7 @@ polygon {
     }
     > span:nth-of-type(4) {
       @include row2;
+      top: 46.5vw;
       left: 15vw;
     }
     > span:nth-of-type(5) {
@@ -1342,8 +1347,10 @@ polygon {
       @include row2;
     }
     > span:nth-of-type(7) {
-      left: 73vw;
       @include row2;
+      left: 73vw;
+      height: 21.5vw;
+      top: 47.5vw;
     }
     @mixin row3 {
       top: 72vw;
@@ -1357,15 +1364,17 @@ polygon {
     > span:nth-of-type(9) {
       @include row3;
       top: 72.4vw;
-      left: 27.5vw;
+      left: 27.2vw;
     }
     > span:nth-of-type(10) {
       @include row3;
       left: 47vw;
+      top: 73vw;
     }
     > span:nth-of-type(11) {
       @include row3;
-      left: 60vw;
+      left: 60.5vw;
+      top: 73vw;
     }
     > span:nth-of-type(12) {
       @include row3;
@@ -1379,26 +1388,30 @@ polygon {
     }
     > span:nth-of-type(13) {
       @include row4;
-      width: 9vw;
-      left: 11.5vw;
+      width: 9.2vw;
+      left: 11.2vw;
       height: 18vw;
     }
     > span:nth-of-type(14) {
       @include row4;
-      top: 93.5vw;
+      top: 93.4vw;
       left: 30.5vw;
     }
     > span:nth-of-type(15) {
       @include row4;
-      left: 44vw;
+      top: 93.5vw;
+      left: 43.8vw;
     }
     > span:nth-of-type(16) {
       @include row4;
-      left: 64vw;
+      left: 63.5vw;
+      top: 94.3vw;
+      width: 9.3vw;
     }
     > span:nth-of-type(17) {
       @include row4;
-      left: 77vw;
+      left: 76.7vw;
+      top: 94.3vw;
     }
     @mixin row5 {
       top: 113.4vw;
@@ -1407,7 +1420,9 @@ polygon {
     }
     > span:nth-of-type(18) {
       @include row5;
-      left: 13.4vw;
+      width: 8.5vw;
+      top: 113.5vw;
+      left: 13.2vw;
     }
     > span:nth-of-type(19) {
       @include row5;
@@ -1415,22 +1430,26 @@ polygon {
     }
     > span:nth-of-type(20) {
       @include row5;
-      left: 41vw;
+      top: 113.9vw;
+      left: 40.5vw;
     }
     > span:nth-of-type(21) {
       @include row5;
+      width: 8.2vw;
       top: 114vw;
-      left: 51.6vw;
+      left: 51.5vw;
     }
     > span:nth-of-type(22) {
       @include row5;
+      width: 8.2vw;
       top: 114.5vw;
       left: 68vw;
     }
     > span:nth-of-type(23) {
       @include row5;
+      width: 8vw;
       top: 114.5vw;
-      left: 79vw;
+      left: 78.8vw;
     }
     @mixin row6 {
       top: 129vw;
@@ -1444,6 +1463,7 @@ polygon {
     > span:nth-of-type(25) {
       @include row6;
       left: 24vw;
+      top: 129.5vw;
     }
     > span:nth-of-type(26) {
       @include row6;
@@ -1452,17 +1472,18 @@ polygon {
     }
     > span:nth-of-type(27) {
       @include row6;
-      top: 130vw;
+      top: 130.5vw;
       left: 51.5vw;
     }
     > span:nth-of-type(28) {
       @include row6;
-      top: 130vw;
-      left: 68vw;
+      top: 131vw;
+      left: 67.6vw;
+      width: 7.5vw;
     }
     > span:nth-of-type(29) {
       @include row6;
-      top: 131vw;
+      top: 131.5vw;
       left: 79vw;
     }
   }
@@ -1736,6 +1757,17 @@ polygon {
           width: rem(220);
         }
       }
+      .diy_content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        img {
+          position: absolute;
+          object-fit: contain;
+        }
+      }
     }
     .diy_right {
       top: rem(9);
@@ -1745,6 +1777,7 @@ polygon {
       ul {
         width: 100%;
         height: 100%;
+        overflow: hidden;
         li {
           height: (1/8) * 100%;
           text-align: center;
@@ -1753,6 +1786,9 @@ polygon {
           color: #887e01;
           &.active {
             color: #000;
+            background: #ffea04;
+            border-bottom: #1b1e79 solid rem(2);
+            box-shadow: rem(0) rem(6) rem(0) rgba($color: #000000, $alpha: .2);
           }
           &::after {
             content: '';
@@ -1791,7 +1827,7 @@ polygon {
       text-align: center;
       transform: translateX(rem(-30));
       position: relative;
-      z-index: 3;
+      z-index: 0;
       &.active {
         background: url(../image/page7_btn_active.svg) no-repeat center;
         background-size: cover;
@@ -1800,15 +1836,15 @@ polygon {
     }
     li:nth-of-type(2) {
       transform: translateX(rem(-60));
-      z-index: 2;
+      z-index: -1;
     }
     li:nth-of-type(3) {
       transform: translateX(rem(-90));
-      z-index: 1;
+      z-index: -2;
     }
     li:last-of-type {
       transform: translateX(rem(-120));
-      z-index: 0;
+      z-index: -3;
     }
     > div {
       border-top: rem(2) solid #1c1e75;
@@ -1824,10 +1860,27 @@ polygon {
         p {
           width: 25%;
           height: rem(64);
+          position: relative;
+          text-align: center;
+          &::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 0;
+            padding-top: 50%;
+            background: rgba($color: #fff, $alpha: .7);
+            border-radius: 50%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+          }
           img {
             height: 100%;
-            width: 100%;
+            width: 80%;
             object-fit: contain;
+            position: relative;
           }
         }
       }
@@ -1850,6 +1903,10 @@ polygon {
       background: url(../image/mouse.svg) no-repeat center;
       background-size: contain;
     }
+  }
+  > img {
+    position: absolute;
+    object-fit: contain;
   }
 }
 // page8

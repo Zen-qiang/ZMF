@@ -343,6 +343,13 @@ body {
   background: url(../image/2018ch.svg) no-repeat center;
   background-size: contain; }
 
+@keyframes bubble {
+  0% {
+    transform: scale(0.2); } }
+
+.bubble {
+  animation: bubble 1.5s infinite backwards; }
+
 /* 主体内容部分 */
 /* svg通用样式 */
 polygon {
@@ -457,7 +464,7 @@ polygon {
       height: 0.26667rem;
       top: -0.4rem;
       left: 54%;
-      transform: rotateY(24deg); }
+      animation-delay: 1.2s; }
   .page1 .square8 {
     right: -0.93333rem;
     top: 45%;
@@ -489,10 +496,10 @@ polygon {
       height: 0.69333rem; }
     .page1 .square9 > img:last-of-type {
       top: -0.4rem;
-      left: 80%;
+      left: 0.4rem;
       width: 0.53333rem;
       height: 0.26667rem;
-      transform: rotateY(-45deg); }
+      animation-delay: .8s; }
   .page1 .dialog_box {
     top: 0;
     left: 0;
@@ -517,16 +524,16 @@ polygon {
       height: 4rem;
       z-index: 0;
       animation-delay: .45s; }
-    .page1 .dialog_box > div:last-of-type > img:first-of-type {
-      width: 100%;
-      height: 100%; }
-    .page1 .dialog_box > div:last-of-type > img:last-of-type {
-      position: absolute;
-      top: 0.53333rem;
-      left: 40%;
-      width: 0.53333rem;
-      height: 0.4rem;
-      transform: skewY(-20deg); }
+      .page1 .dialog_box > div:last-of-type > img:first-of-type {
+        width: 100%;
+        height: 100%; }
+      .page1 .dialog_box > div:last-of-type > img:last-of-type {
+        position: absolute;
+        top: 0.53333rem;
+        left: 40%;
+        width: 0.53333rem;
+        height: 0.4rem;
+        transform: skewY(-20deg); }
   .page1 .input_box {
     top: 54%;
     left: 0;
@@ -793,6 +800,56 @@ polygon {
       display: none; }
     .page3 .content .logo.active > p:last-of-type {
       display: block; }
+
+@keyframes page3_dpn {
+  15%, 35% {
+    background: url(../image/page3_dpn_dark.png) no-repeat center;
+    background-size: contain; }
+  0%, 25%, 100% {
+    background: url(../image/page3_dpn.png) no-repeat center;
+    background-size: contain; } }
+  .page3 .content .dpn.active {
+    animation: page3_dpn 1.5s forwards; }
+
+@keyframes page3_mby {
+  15%, 35% {
+    background: url(../image/page3_mby_dark.png) no-repeat center;
+    background-size: contain; }
+  0%, 25%, 100% {
+    background: url(../image/page3_mby.png) no-repeat center;
+    background-size: contain; } }
+  .page3 .content .mby.active {
+    animation: page3_mby 1.5s forwards; }
+
+@keyframes page3_wsl {
+  15%, 35% {
+    background: url(../image/page3_wsl_dark.png) no-repeat center;
+    background-size: contain; }
+  0%, 25%, 100% {
+    background: url(../image/page3_wsl.png) no-repeat center;
+    background-size: contain; } }
+  .page3 .content .wsl.active {
+    animation: page3_wsl 1.5s forwards; }
+
+@keyframes page3_gd {
+  15%, 35% {
+    background: url(../image/page3_gd_dark.png) no-repeat center;
+    background-size: contain; }
+  0%, 25%, 100% {
+    background: url(../image/page3_gd.png) no-repeat center;
+    background-size: contain; } }
+  .page3 .content .gd.active {
+    animation: page3_gd 1.5s forwards; }
+
+@keyframes page3_chy {
+  15%, 35% {
+    background: url(../image/page3_chy_dark.png) no-repeat center;
+    background-size: contain; }
+  0%, 25%, 100% {
+    background: url(../image/page3_chy.png) no-repeat center;
+    background-size: contain; } }
+  .page3 .content .chy.active {
+    animation: page3_chy 1.5s forwards; }
   .page3 .content .logo ~ div > span {
     position: absolute;
     right: 0;
@@ -805,54 +862,39 @@ polygon {
     display: none; }
   .page3 .content .dpn {
     width: 36vw;
-    bottom: 92vw;
-    height: 26vw;
+    bottom: 88vw;
+    height: 35vw;
     left: 0;
     background: url(../image/page3_dpn_dark.png) no-repeat center;
-    background-size: cover; }
-    .page3 .content .dpn.active {
-      background: url(../image/page3_dpn.png) no-repeat center;
-      background-size: cover; }
+    background-size: contain; }
   .page3 .content .mby {
     width: 36vw;
     bottom: 84vw;
     left: 41vw;
     height: 40vw;
     background: url(../image/page3_mby_dark.png) no-repeat center;
-    background-size: cover; }
-    .page3 .content .mby.active {
-      background: url(../image/page3_mby.png) no-repeat center;
-      background-size: cover; }
+    background-size: contain; }
   .page3 .content .wsl {
     width: 36vw;
     right: 0;
     bottom: 76vw;
     height: 34vw;
     background: url(../image/page3_wsl_dark.png) no-repeat center;
-    background-size: cover; }
-    .page3 .content .wsl.active {
-      background: url(../image/page3_wsl.png) no-repeat center;
-      background-size: cover; }
+    background-size: contain; }
   .page3 .content .gd {
     width: 28vw;
-    bottom: 56vw;
+    bottom: 48vw;
     right: 15vw;
-    height: 20vw;
+    height: 30vw;
     background: url(../image/page3_gd_dark.png) no-repeat center;
-    background-size: cover; }
-    .page3 .content .gd.active {
-      background: url(../image/page3_gd.png) no-repeat center;
-      background-size: cover; }
+    background-size: contain; }
   .page3 .content .chy {
-    width: 20vw;
-    left: 2vw;
+    width: 26vw;
+    left: 0vw;
     bottom: 34vw;
-    height: 26vw;
+    height: 34vw;
     background: url(../image/page3_chy_dark.png) no-repeat center;
-    background-size: cover; }
-    .page3 .content .chy.active {
-      background: url(../image/page3_chy.png) no-repeat center;
-      background-size: cover; }
+    background-size: contain; }
 
 @keyframes jump {
   30% {
@@ -1071,167 +1113,187 @@ polygon {
     display: none; }
   .page5 .bg.active img:last-of-type {
     display: inline-block; }
-  .page5 > div:last-of-type {
+  .page5 .mask_square {
     position: relative;
     font-size: 0.21333rem; }
-    .page5 > div:last-of-type span {
+    .page5 .mask_square span {
       position: absolute; }
-    .page5 > div:last-of-type > span:first-of-type {
+      .page5 .mask_square span.active {
+        display: none; }
+    .page5 .mask_square > span:first-of-type {
       top: 11vw;
       width: 16vw;
       width: 15.5vw;
-      top: 12vw;
-      left: 18vw; }
-    .page5 > div:last-of-type > span:nth-of-type(2) {
+      left: 17.5vw; }
+    .page5 .mask_square > span:nth-of-type(2) {
       top: 11vw;
       width: 16vw;
-      left: 40vw; }
-    .page5 > div:last-of-type > span:nth-of-type(3) {
+      left: 40.3vw;
+      width: 15vw; }
+    .page5 .mask_square > span:nth-of-type(3) {
       top: 11vw;
       width: 16vw;
-      left: 72vw;
+      top: 11.5vw;
+      left: 71.5vw;
       height: 28vw; }
-    .page5 > div:last-of-type > span:nth-of-type(4) {
+    .page5 .mask_square > span:nth-of-type(4) {
       top: 47vw;
       width: 12vw;
       height: 22vw;
+      top: 46.5vw;
       left: 15vw; }
-    .page5 > div:last-of-type > span:nth-of-type(5) {
+    .page5 .mask_square > span:nth-of-type(5) {
       left: 32vw;
       top: 47vw;
       width: 12vw;
       height: 22vw; }
-    .page5 > div:last-of-type > span:nth-of-type(6) {
+    .page5 .mask_square > span:nth-of-type(6) {
       left: 56vw;
       top: 47vw;
       width: 12vw;
       height: 22vw; }
-    .page5 > div:last-of-type > span:nth-of-type(7) {
-      left: 73vw;
+    .page5 .mask_square > span:nth-of-type(7) {
       top: 47vw;
       width: 12vw;
-      height: 22vw; }
-    .page5 > div:last-of-type > span:nth-of-type(8) {
+      height: 22vw;
+      left: 73vw;
+      height: 21.5vw;
+      top: 47.5vw; }
+    .page5 .mask_square > span:nth-of-type(8) {
       top: 72vw;
       width: 10vw;
       height: 18vw;
       left: 14vw; }
-    .page5 > div:last-of-type > span:nth-of-type(9) {
+    .page5 .mask_square > span:nth-of-type(9) {
       top: 72vw;
       width: 10vw;
       height: 18vw;
       top: 72.4vw;
-      left: 27.5vw; }
-    .page5 > div:last-of-type > span:nth-of-type(10) {
+      left: 27.2vw; }
+    .page5 .mask_square > span:nth-of-type(10) {
       top: 72vw;
       width: 10vw;
       height: 18vw;
-      left: 47vw; }
-    .page5 > div:last-of-type > span:nth-of-type(11) {
+      left: 47vw;
+      top: 73vw; }
+    .page5 .mask_square > span:nth-of-type(11) {
       top: 72vw;
       width: 10vw;
       height: 18vw;
-      left: 60vw; }
-    .page5 > div:last-of-type > span:nth-of-type(12) {
+      left: 60.5vw;
+      top: 73vw; }
+    .page5 .mask_square > span:nth-of-type(12) {
       top: 72vw;
       width: 10vw;
       height: 18vw;
       left: 80vw;
       top: 73vw; }
-    .page5 > div:last-of-type > span:nth-of-type(13) {
+    .page5 .mask_square > span:nth-of-type(13) {
       top: 94vw;
       width: 9.5vw;
       height: 19vw;
-      width: 9vw;
-      left: 11.5vw;
+      width: 9.2vw;
+      left: 11.2vw;
       height: 18vw; }
-    .page5 > div:last-of-type > span:nth-of-type(14) {
+    .page5 .mask_square > span:nth-of-type(14) {
+      top: 94vw;
+      width: 9.5vw;
+      height: 19vw;
+      top: 93.4vw;
+      left: 30.5vw; }
+    .page5 .mask_square > span:nth-of-type(15) {
       top: 94vw;
       width: 9.5vw;
       height: 19vw;
       top: 93.5vw;
-      left: 30.5vw; }
-    .page5 > div:last-of-type > span:nth-of-type(15) {
+      left: 43.8vw; }
+    .page5 .mask_square > span:nth-of-type(16) {
       top: 94vw;
       width: 9.5vw;
       height: 19vw;
-      left: 44vw; }
-    .page5 > div:last-of-type > span:nth-of-type(16) {
+      left: 63.5vw;
+      top: 94.3vw;
+      width: 9.3vw; }
+    .page5 .mask_square > span:nth-of-type(17) {
       top: 94vw;
       width: 9.5vw;
       height: 19vw;
-      left: 64vw; }
-    .page5 > div:last-of-type > span:nth-of-type(17) {
-      top: 94vw;
-      width: 9.5vw;
-      height: 19vw;
-      left: 77vw; }
-    .page5 > div:last-of-type > span:nth-of-type(18) {
+      left: 76.7vw;
+      top: 94.3vw; }
+    .page5 .mask_square > span:nth-of-type(18) {
       top: 113.4vw;
       width: 7.8vw;
       height: 16vw;
-      left: 13.4vw; }
-    .page5 > div:last-of-type > span:nth-of-type(19) {
+      width: 8.5vw;
+      top: 113.5vw;
+      left: 13.2vw; }
+    .page5 .mask_square > span:nth-of-type(19) {
       top: 113.4vw;
       width: 7.8vw;
       height: 16vw;
       left: 24vw; }
-    .page5 > div:last-of-type > span:nth-of-type(20) {
+    .page5 .mask_square > span:nth-of-type(20) {
       top: 113.4vw;
       width: 7.8vw;
       height: 16vw;
-      left: 41vw; }
-    .page5 > div:last-of-type > span:nth-of-type(21) {
+      top: 113.9vw;
+      left: 40.5vw; }
+    .page5 .mask_square > span:nth-of-type(21) {
       top: 113.4vw;
       width: 7.8vw;
       height: 16vw;
+      width: 8.2vw;
       top: 114vw;
-      left: 51.6vw; }
-    .page5 > div:last-of-type > span:nth-of-type(22) {
+      left: 51.5vw; }
+    .page5 .mask_square > span:nth-of-type(22) {
       top: 113.4vw;
       width: 7.8vw;
       height: 16vw;
+      width: 8.2vw;
       top: 114.5vw;
       left: 68vw; }
-    .page5 > div:last-of-type > span:nth-of-type(23) {
+    .page5 .mask_square > span:nth-of-type(23) {
       top: 113.4vw;
       width: 7.8vw;
       height: 16vw;
+      width: 8vw;
       top: 114.5vw;
-      left: 79vw; }
-    .page5 > div:last-of-type > span:nth-of-type(24) {
+      left: 78.8vw; }
+    .page5 .mask_square > span:nth-of-type(24) {
       top: 129vw;
       width: 8vw;
       height: 16vw;
       left: 13vw; }
-    .page5 > div:last-of-type > span:nth-of-type(25) {
+    .page5 .mask_square > span:nth-of-type(25) {
       top: 129vw;
       width: 8vw;
       height: 16vw;
-      left: 24vw; }
-    .page5 > div:last-of-type > span:nth-of-type(26) {
+      left: 24vw;
+      top: 129.5vw; }
+    .page5 .mask_square > span:nth-of-type(26) {
       top: 129vw;
       width: 8vw;
       height: 16vw;
       top: 130vw;
       left: 40.5vw; }
-    .page5 > div:last-of-type > span:nth-of-type(27) {
+    .page5 .mask_square > span:nth-of-type(27) {
       top: 129vw;
       width: 8vw;
       height: 16vw;
-      top: 130vw;
+      top: 130.5vw;
       left: 51.5vw; }
-    .page5 > div:last-of-type > span:nth-of-type(28) {
-      top: 129vw;
-      width: 8vw;
-      height: 16vw;
-      top: 130vw;
-      left: 68vw; }
-    .page5 > div:last-of-type > span:nth-of-type(29) {
+    .page5 .mask_square > span:nth-of-type(28) {
       top: 129vw;
       width: 8vw;
       height: 16vw;
       top: 131vw;
+      left: 67.6vw;
+      width: 7.5vw; }
+    .page5 .mask_square > span:nth-of-type(29) {
+      top: 129vw;
+      width: 8vw;
+      height: 16vw;
+      top: 131.5vw;
       left: 79vw; }
 
 .page6 [class^="square"] svg {
@@ -1445,6 +1507,16 @@ polygon {
       padding-top: 0.4rem; }
       .page7 .diy_container .diy_left .diy_bg img {
         width: 2.93333rem; }
+    .page7 .diy_container .diy_left .diy_content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+      .page7 .diy_container .diy_left .diy_content img {
+        position: absolute;
+        -o-object-fit: contain;
+           object-fit: contain; }
   .page7 .diy_container .diy_right {
     top: 0.12rem;
     right: 0.17333rem;
@@ -1452,7 +1524,8 @@ polygon {
     height: 4.04rem; }
     .page7 .diy_container .diy_right ul {
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      overflow: hidden; }
       .page7 .diy_container .diy_right ul li {
         height: 12.5%;
         text-align: center;
@@ -1460,7 +1533,10 @@ polygon {
         font-family: 'custFont';
         color: #887e01; }
         .page7 .diy_container .diy_right ul li.active {
-          color: #000; }
+          color: #000;
+          background: #ffea04;
+          border-bottom: #1b1e79 solid 0.02667rem;
+          box-shadow: 0rem 0.08rem 0rem rgba(0, 0, 0, 0.2); }
         .page7 .diy_container .diy_right ul li::after {
           content: '';
           display: inline-block;
@@ -1492,20 +1568,20 @@ polygon {
     text-align: center;
     transform: translateX(-0.4rem);
     position: relative;
-    z-index: 3; }
+    z-index: 0; }
     .page7 .diy_element li.active {
       background: url(../image/page7_btn_active.svg) no-repeat center;
       background-size: cover;
       color: #000; }
   .page7 .diy_element li:nth-of-type(2) {
     transform: translateX(-0.8rem);
-    z-index: 2; }
+    z-index: -1; }
   .page7 .diy_element li:nth-of-type(3) {
     transform: translateX(-1.2rem);
-    z-index: 1; }
+    z-index: -2; }
   .page7 .diy_element li:last-of-type {
     transform: translateX(-1.6rem);
-    z-index: 0; }
+    z-index: -3; }
   .page7 .diy_element > div {
     border-top: 0.02667rem solid #1c1e75;
     background: rgba(243, 233, 196, 0.9);
@@ -1518,12 +1594,28 @@ polygon {
         flex-flow: row wrap; }
       .page7 .diy_element > div > div p {
         width: 25%;
-        height: 0.85333rem; }
+        height: 0.85333rem;
+        position: relative;
+        text-align: center; }
+        .page7 .diy_element > div > div p::before {
+          content: '';
+          position: absolute;
+          width: 50%;
+          height: 0;
+          padding-top: 50%;
+          background: rgba(255, 255, 255, 0.7);
+          border-radius: 50%;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto; }
         .page7 .diy_element > div > div p img {
           height: 100%;
-          width: 100%;
+          width: 80%;
           -o-object-fit: contain;
-             object-fit: contain; }
+             object-fit: contain;
+          position: relative; }
 
 .page7 .go {
   width: 1.33333rem;
@@ -1540,6 +1632,11 @@ polygon {
     height: 0.53333rem;
     background: url(../image/mouse.svg) no-repeat center;
     background-size: contain; }
+
+.page7 > img {
+  position: absolute;
+  -o-object-fit: contain;
+     object-fit: contain; }
 
 .page8 [class^="square"] > svg {
   float: left; }

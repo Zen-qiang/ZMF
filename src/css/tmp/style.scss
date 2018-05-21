@@ -1751,10 +1751,15 @@ polygon {
       // mask-repeat: no-repeat;
       .diy_bg {
         height: 100%;
+        width: 100%;
         text-align: center;
-        padding-top: rem(30);
         img {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
           width: rem(220);
+          height: rem(320);
+          vertical-align: middle;
         }
       }
       .diy_content {
@@ -1763,6 +1768,16 @@ polygon {
         left: 0;
         width: 100%;
         height: 100%;
+        // width: rem(260);
+        // height: rem(390);
+        -webkit-mask-image: url(../image/shading.png);
+        mask-image: url(../image/shading.png);
+        -webkit-mask-size: rem(220) rem(320);
+        mask-size: rem(220) rem(320);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
         img {
           position: absolute;
           object-fit: contain;
@@ -1827,7 +1842,7 @@ polygon {
       text-align: center;
       transform: translateX(rem(-30));
       position: relative;
-      z-index: 0;
+      z-index: 3;
       &.active {
         background: url(../image/page7_btn_active.svg) no-repeat center;
         background-size: cover;
@@ -1836,15 +1851,15 @@ polygon {
     }
     li:nth-of-type(2) {
       transform: translateX(rem(-60));
-      z-index: -1;
+      z-index: 2;
     }
     li:nth-of-type(3) {
       transform: translateX(rem(-90));
-      z-index: -2;
+      z-index: 1;
     }
     li:last-of-type {
       transform: translateX(rem(-120));
-      z-index: -3;
+      z-index: 0;
     }
     > div {
       border-top: rem(2) solid #1c1e75;
@@ -1907,6 +1922,7 @@ polygon {
   > img {
     position: absolute;
     object-fit: contain;
+    z-index: 3;
   }
 }
 // page8
@@ -2074,6 +2090,69 @@ polygon {
         width: 100%;
       }
     }
+  }
+}
+.page9 {
+  .container {
+    background: #fef50e;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: rem(5) rem(10);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    > div:first-of-type {
+      flex: auto;
+      border: rem(2) solid #000;
+      > div:first-of-type {
+        font-size: rem(16);
+      }
+      > div:nth-of-type(2) {}
+      > div:last-of-type {}
+    }
+    > div:last-of-type {
+      flex: 0 0 rem(110);
+      > p:first-of-type {
+        height: rem(60);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        > span:first-of-type {
+          width: 35%;
+          height: 100%;
+          line-height: 0;
+        }
+        > span:last-of-type {
+          line-height: 0;
+          height: 100%;
+          width: 58%;
+          img {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            object-fit: contain;
+          }
+        }
+      }
+      > p:last-of-type {
+        height: rem(50);
+        line-height: 0;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+  .f-full {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
   }
 }
 /* 底部logo */

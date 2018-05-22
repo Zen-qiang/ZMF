@@ -1,88 +1,86 @@
-<svg width="46" height="26" xmlns="http://www.w3.org/2000/svg">
- <style type="text/css">.st0{fill:#FFFFFF;}</style>
-
- <g>
-  <title>background</title>
-  <rect fill="none" id="canvas_background" height="28" width="48" y="-1" x="-1"/>
- </g>
- <g>
-  <title>Layer 1</title>
-  <g stroke="null" id="svg_1">
-   <polygon stroke="null" id="svg_2" points="39.10000228881836,1.7666668891906738 39.10000228881836,3.5333333015441895 41.400001525878906,3.5333333015441895 41.400001525878906,5.300000190734863 43.70000076293945,5.300000190734863 43.70000076293945,14.133333206176758 41.400001525878906,14.133333206176758 41.400001525878906,15.900001525878906 39.10000228881836,15.900001525878906 39.10000228881836,17.66666603088379 23,17.66666603088379 23,19.433334350585938 20.700000762939453,19.433334350585938 20.700000762939453,21.200000762939453 18.399999618530273,21.200000762939453 18.399999618530273,22.96666717529297 16.100000381469727,22.96666717529297 16.100000381469727,19.433334350585938 13.800000190734863,19.433334350585938 13.800000190734863,17.66666603088379 6.900000095367432,17.66666603088379 6.900000095367432,15.900001525878906 4.600000381469727,15.900001525878906 4.600000381469727,14.133333206176758 2.3000001907348633,14.133333206176758 2.3000001907348633,5.300000190734863 4.600000381469727,5.300000190734863 4.600000381469727,3.5333333015441895 6.900000095367432,3.5333333015441895 6.900000095367432,1.7666668891906738 " class="st0"/>
-   <rect stroke="null" id="svg_3" height="1.766667" width="2.3" y="5.3" x="9.2"/>
-   <rect stroke="null" id="svg_4" height="1.766667" width="2.3" y="7.066667" x="9.2"/>
-   <rect stroke="null" id="svg_5" height="1.766667" width="2.3" y="12.366667" x="11.5"/>
-   <rect stroke="null" id="svg_6" height="1.766667" width="2.3" y="12.366667" x="13.8"/>
-   <rect stroke="null" id="svg_7" height="1.766667" width="2.3" y="12.366667" x="9.2"/>
-   <rect stroke="null" id="svg_8" height="1.766667" width="2.3" y="8.833333" x="16.1"/>
-   <rect stroke="null" id="svg_9" height="1.766667" width="2.3" y="7.066667" x="16.1"/>
-   <rect stroke="null" id="svg_10" height="1.766667" width="2.3" y="8.833333" x="11.5"/>
-   <rect stroke="null" id="svg_11" height="1.766667" width="2.3" y="10.6" x="16.1"/>
-   <rect stroke="null" id="svg_12" height="1.766667" width="2.3" y="5.3" x="16.1"/>
-   <rect stroke="null" id="svg_13" height="1.766667" width="2.3" y="8.833333" x="13.8"/>
-   <rect stroke="null" id="svg_14" height="1.766667" width="2.3" y="0" x="9.2"/>
-   <rect stroke="null" id="svg_15" height="1.766667" width="2.3" y="0" x="11.5"/>
-   <rect stroke="null" id="svg_16" height="1.766667" width="2.3" y="0" x="13.8"/>
-   <rect stroke="null" id="svg_17" height="1.766667" width="2.3" y="0" x="16.1"/>
-   <rect stroke="null" id="svg_18" height="1.766667" width="2.3" y="0" x="18.4"/>
-   <rect stroke="null" id="svg_19" height="1.766667" width="2.3" y="0" x="20.7"/>
-   <rect stroke="null" id="svg_20" height="1.766667" width="2.3" y="0" x="23"/>
-   <rect stroke="null" id="svg_21" height="1.766667" width="2.3" y="0" x="25.3"/>
-   <rect stroke="null" id="svg_22" height="1.766667" width="2.3" y="0" x="27.600001"/>
-   <rect stroke="null" id="svg_23" height="1.766667" width="2.3" y="0" x="29.900001"/>
-   <rect stroke="null" id="svg_24" height="1.766667" width="2.3" y="0" x="32.200001"/>
-   <rect stroke="null" id="svg_25" height="1.766667" width="2.3" y="0" x="34.500001"/>
-   <rect stroke="null" id="svg_26" height="1.766667" width="2.3" y="0" x="36.800001"/>
-   <rect stroke="null" id="svg_27" height="1.766667" width="2.3" y="17.666667" x="9.2"/>
-   <rect stroke="null" id="svg_28" height="1.766667" width="2.3" y="17.666667" x="25.3"/>
-   <rect stroke="null" id="svg_29" height="1.766667" width="2.3" y="17.666667" x="27.600001"/>
-   <rect stroke="null" id="svg_30" height="1.766667" width="2.3" y="17.666667" x="29.900001"/>
-   <rect stroke="null" id="svg_31" height="1.766667" width="2.3" y="17.666667" x="32.200001"/>
-   <rect stroke="null" id="svg_32" height="1.766667" width="2.3" y="17.666667" x="34.500001"/>
-   <rect stroke="null" id="svg_33" height="1.766667" width="2.3" y="17.666667" x="11.5"/>
-   <rect stroke="null" id="svg_34" height="1.766667" width="2.3" y="19.433334" x="13.8"/>
-   <rect stroke="null" id="svg_35" height="1.766667" width="2.3" y="21.2" x="13.8"/>
-   <rect stroke="null" id="svg_36" height="1.766667" width="2.3" y="22.966667" x="13.8"/>
-   <rect stroke="null" id="svg_37" height="1.766667" width="2.3" y="17.666667" x="23"/>
-   <rect stroke="null" id="svg_38" height="1.766667" width="2.3" y="17.666667" x="36.800001"/>
-   <rect stroke="null" id="svg_39" height="1.766667" width="2.3" y="0" x="6.9"/>
-   <rect stroke="null" id="svg_40" height="1.766667" width="2.3" y="1.766667" x="4.6"/>
-   <rect stroke="null" id="svg_41" height="1.766667" width="2.3" y="15.9" x="4.6"/>
-   <rect stroke="null" id="svg_42" height="1.766667" width="2.3" y="3.533333" x="2.3"/>
-   <rect stroke="null" id="svg_43" height="1.766667" width="2.3" y="14.133334" x="2.3"/>
-   <rect stroke="null" id="svg_44" height="1.766667" width="2.3" y="8.833333" x="0"/>
-   <rect stroke="null" id="svg_45" height="1.766667" width="2.3" y="10.6" x="0"/>
-   <rect stroke="null" id="svg_46" height="1.766667" width="2.3" y="12.366667" x="0"/>
-   <rect stroke="null" id="svg_47" height="1.766667" width="2.3" y="17.666667" x="6.9"/>
-   <rect stroke="null" id="svg_48" height="1.766667" width="2.3" y="5.3" x="0"/>
-   <rect stroke="null" id="svg_49" height="1.766667" width="2.3" y="7.066667" x="0"/>
-   <rect stroke="null" id="svg_50" height="1.766667" width="2.3" y="1.766667" x="39.100001"/>
-   <rect stroke="null" id="svg_51" height="1.766667" width="2.3" y="3.533333" x="41.400001"/>
-   <rect stroke="null" id="svg_52" height="1.766667" width="2.3" y="5.3" x="43.700001"/>
-   <rect stroke="null" id="svg_53" height="1.766667" width="2.3" y="7.066667" x="43.700001"/>
-   <rect stroke="null" id="svg_54" height="1.766667" width="2.3" y="8.833333" x="43.700001"/>
-   <rect stroke="null" id="svg_55" height="1.766667" width="2.3" y="10.6" x="43.700001"/>
-   <rect stroke="null" id="svg_56" height="1.766667" width="2.3" y="12.366667" x="43.700001"/>
-   <rect stroke="null" id="svg_57" height="1.766667" width="2.3" y="14.133334" x="41.400001"/>
-   <rect stroke="null" id="svg_58" height="1.766667" width="2.3" y="15.9" x="39.100001"/>
-   <rect stroke="null" id="svg_59" height="1.766667" width="2.3" y="19.433334" x="20.7"/>
-   <rect stroke="null" id="svg_60" height="1.766667" width="2.3" y="21.2" x="18.4"/>
-   <rect stroke="null" id="svg_61" height="1.766667" width="2.3" y="22.966667" x="16.1"/>
-   <rect stroke="null" id="svg_62" height="1.766667" width="2.3" y="24.733334" x="13.8"/>
-   <rect stroke="null" id="svg_63" height="1.766667" width="2.3" y="8.833333" x="20.7"/>
-   <rect stroke="null" id="svg_64" height="1.766667" width="2.3" y="10.6" x="20.7"/>
-   <rect stroke="null" id="svg_65" height="1.766667" width="2.3" y="5.3" x="23"/>
-   <rect stroke="null" id="svg_66" height="1.766667" width="2.3" y="7.066667" x="20.7"/>
-   <rect stroke="null" id="svg_67" height="1.766667" width="2.3" y="12.366667" x="23"/>
-   <rect stroke="null" id="svg_68" height="1.766667" width="2.3" y="8.833333" x="27.600001"/>
-   <rect stroke="null" id="svg_69" height="1.766667" width="2.3" y="10.6" x="27.600001"/>
-   <rect stroke="null" id="svg_70" height="1.766667" width="2.3" y="5.3" x="25.3"/>
-   <rect stroke="null" id="svg_71" height="1.766667" width="2.3" y="7.066667" x="27.600001"/>
-   <rect stroke="null" id="svg_72" height="1.766667" width="2.3" y="12.366667" x="25.3"/>
-   <rect stroke="null" id="svg_73" height="1.766667" width="2.3" y="8.833333" x="34.500001"/>
-   <rect stroke="null" id="svg_74" height="1.766667" width="2.3" y="5.3" x="34.500001"/>
-   <rect stroke="null" id="svg_75" height="1.766667" width="2.3" y="7.066667" x="34.500001"/>
-   <rect stroke="null" id="svg_76" height="1.766667" width="2.3" y="12.366667" x="34.500001"/>
-  </g>
- </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-73 -11 200 150" style="enable-background:new -73 -11 200 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<polygon class="st0" points="97,-1 97,9 107,9 107,19 117,19 117,69 107,69 107,79 97,79 97,89 27,89 27,99 17,99 17,109 7,109 
+		7,119 -3,119 -3,99 -13,99 -13,89 -43,89 -43,79 -53,79 -53,69 -63,69 -63,19 -53,19 -53,9 -43,9 -43,-1 	"/>
+	<rect x="-33" y="19" width="10" height="10"/>
+	<rect x="-33" y="29" width="10" height="10"/>
+	<rect x="-23" y="59" width="10" height="10"/>
+	<rect x="-13" y="59" width="10" height="10"/>
+	<rect x="-33" y="59" width="10" height="10"/>
+	<rect x="-3" y="39" width="10" height="10"/>
+	<rect x="-3" y="29" width="10" height="10"/>
+	<rect x="-23" y="39" width="10" height="10"/>
+	<rect x="-3" y="49" width="10" height="10"/>
+	<rect x="-3" y="19" width="10" height="10"/>
+	<rect x="-13" y="39" width="10" height="10"/>
+	<rect x="-33" y="-11" width="10" height="10"/>
+	<rect x="-23" y="-11" width="10" height="10"/>
+	<rect x="-13" y="-11" width="10" height="10"/>
+	<rect x="-3" y="-11" width="10" height="10"/>
+	<rect x="7" y="-11" width="10" height="10"/>
+	<rect x="17" y="-11" width="10" height="10"/>
+	<rect x="27" y="-11" width="10" height="10"/>
+	<rect x="37" y="-11" width="10" height="10"/>
+	<rect x="47" y="-11" width="10" height="10"/>
+	<rect x="57" y="-11" width="10" height="10"/>
+	<rect x="67" y="-11" width="10" height="10"/>
+	<rect x="77" y="-11" width="10" height="10"/>
+	<rect x="87" y="-11" width="10" height="10"/>
+	<rect x="-33" y="89" width="10" height="10"/>
+	<rect x="37" y="89" width="10" height="10"/>
+	<rect x="47" y="89" width="10" height="10"/>
+	<rect x="57" y="89" width="10" height="10"/>
+	<rect x="67" y="89" width="10" height="10"/>
+	<rect x="77" y="89" width="10" height="10"/>
+	<rect x="-23" y="89" width="10" height="10"/>
+	<rect x="-13" y="99" width="10" height="10"/>
+	<rect x="-13" y="109" width="10" height="10"/>
+	<rect x="-13" y="119" width="10" height="10"/>
+	<rect x="27" y="89" width="10" height="10"/>
+	<rect x="87" y="89" width="10" height="10"/>
+	<rect x="-43" y="-11" width="10" height="10"/>
+	<rect x="-53" y="-1" width="10" height="10"/>
+	<rect x="-53" y="79" width="10" height="10"/>
+	<rect x="-63" y="9" width="10" height="10"/>
+	<rect x="-63" y="69" width="10" height="10"/>
+	<rect x="-73" y="39" width="10" height="10"/>
+	<rect x="-73" y="49" width="10" height="10"/>
+	<rect x="-73" y="59" width="10" height="10"/>
+	<rect x="-43" y="89" width="10" height="10"/>
+	<rect x="-73" y="19" width="10" height="10"/>
+	<rect x="-73" y="29" width="10" height="10"/>
+	<rect x="97" y="-1" width="10" height="10"/>
+	<rect x="107" y="9" width="10" height="10"/>
+	<rect x="117" y="19" width="10" height="10"/>
+	<rect x="117" y="29" width="10" height="10"/>
+	<rect x="117" y="39" width="10" height="10"/>
+	<rect x="117" y="49" width="10" height="10"/>
+	<rect x="117" y="59" width="10" height="10"/>
+	<rect x="107" y="69" width="10" height="10"/>
+	<rect x="97" y="79" width="10" height="10"/>
+	<rect x="17" y="99" width="10" height="10"/>
+	<rect x="7" y="109" width="10" height="10"/>
+	<rect x="-3" y="119" width="10" height="10"/>
+	<rect x="-13" y="129" width="10" height="10"/>
+	<rect x="17" y="39" width="10" height="10"/>
+	<rect x="17" y="49" width="10" height="10"/>
+	<rect x="27" y="19" width="10" height="10"/>
+	<rect x="17" y="29" width="10" height="10"/>
+	<rect x="27" y="59" width="10" height="10"/>
+	<rect x="47" y="39" width="10" height="10"/>
+	<rect x="47" y="49" width="10" height="10"/>
+	<rect x="37" y="19" width="10" height="10"/>
+	<rect x="47" y="29" width="10" height="10"/>
+	<rect x="37" y="59" width="10" height="10"/>
+	<rect x="77" y="39" width="10" height="10"/>
+	<rect x="77" y="19" width="10" height="10"/>
+	<rect x="77" y="29" width="10" height="10"/>
+	<rect x="77" y="59" width="10" height="10"/>
+</g>
 </svg>

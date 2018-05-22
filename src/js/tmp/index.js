@@ -2,7 +2,7 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-21 23:39:19
+ * @Last Modified time: 2018-05-23 00:05:46
  */
 //  动画效果执行一次
 // $.fn.extend({
@@ -27,224 +27,160 @@
 //     return this;
 //   }
 // });
-var queue;
-// 动画结束
-var animationEnd = (function (el) {
-  var animations = {
-    animation: 'animationend',
-    OAnimation: 'oAnimationEnd',
-    MozAnimation: 'mozAnimationEnd',
-    WebkitAnimation: 'webkitAnimationEnd',
-  };
-  for (var t in animations) {
-    if (el.style[t] !== undefined) {
-      return animations[t];
-    }
-  }
-})(document.createElement('div'));
-// loading加载图片资源
-var preLoad = function () {
-  queue = new createjs.LoadQueue(false);
-  queue.loadManifest([
-    // 背景图片
-    { id: 'box1', src: 'box_green.svg' },
-    // { id: 'box2', src: 'x_box.svg' },
-    // { id: 'box3', src: 'box_orange.svg' },
-    // { id: 'box4', src: 'box_pink.svg' },
-    // 页面素材
-    // { id: 'bird_purple', src: 'bird_purple.png' },
-    // { id: 'dialog_box', src: 'dialog_box.gif' },
-    // { id: 'person1', src: 'person1.png' },
-    // { id: 'person2', src: 'person2.png' },
-    // { id: 'person3', src: 'person3.png' },
-    // { id: 'person4', src: 'person4.png' },
-    // { id: 'person5', src: 'person5.png' },
-    // { id: 'person6', src: 'person6.png' },
-    // { id: 'person7', src: 'person7.png' },
-    // { id: 'person8', src: 'person8.png' },
-    // { id: 'person9', src: 'person9.png' },
-    // { id: 'inputBox1', src: 'draw.svg' },
-    // { id: 'inputBox2', src: 'lamp_dark.png' },
-    // { id: 'inputBox3', src: 'lamp_light.png' },
-    // { id: 'mouse', src: 'mouse.svg' },
-    // { id: 'text1', src: 'message1.svg' },
-    // { id: 'text2', src: 'message2.svg' },
-    // { id: 'text3', src: 'message3.svg' },
-    // { id: 'dialog_box1', src: 'dialog_box1.gif' },
-    // { id: 'bird_red', src: 'bird_red.png' },
-    // { id: 'guitar', src: 'guitar.png' },
-    // { id: 'sunglasses', src: 'sunglasses.png' },
-    // { id: 'lamp_light1', src: 'lamp_light1.png' },
-    // { id: 'page3_bg', src: 'page3_bg.jpg' },
-    // { id: 'page3_dnp', src: 'page3_dpn.png' },
-    // { id: 'page3_mby', src: 'page3_mby.png'},
-    // { id: 'page3_wsl', src: 'page3_wsl.png' },
-    // { id: 'page3_gd', src: 'page3_gd.png' },
-    // { id: 'page3_chy', src: 'page3_chy.png' },
-    // { id: 'page4_bird', src: 'page4_bird.png' },
-    // { id: 'page4_lamp', src: 'page4_lamp.png' },
-    // { id: 'page4_box', src: 'page4_box.gif'},
-    // { id: 'page6_box', src: 'page6_box.png' },
-    // { id: 'page6_boxred', src: 'page6_boxred.png' },
-    // { id: 'page6_boxorange', src: 'page6_boxorange.png' },
-    // { id: 'page6_boxblue', src: 'page6_boxblue.png' },
-    // { id: 'page6_box2', src: 'page6_box2.png' },
-    // { id: 'page6_bird', src: 'page6_bird.png' },
-    // { id: 'page6_text', src: 'page6_text.gif' },
-    // { id: 'page7_bg', src: 'page7_bg.png' },
-    // { id: 'page8_bird', src: 'page8_bird.png' },
-    // { id: 'page8_lamp', src: 'page8_lamp.png' },
-    // { id: 'page8_text', src: 'page8_text.gif' }
-  ], true, "image/");
-  queue.on("progress", loadFileProgress);
-  queue.on("complete", loadComplete);
-}
-//全度资源加载完毕
-function loadComplete(event) {
-  console.log("已加载完毕全部资源");
-  bgAnimate()
-}
-//已加进度
-function loadFileProgress (event) {
-  console.log("已加载 " + (queue.progress * 100 | 0) + "%");
-  $('.loading_text').text((queue.progress * 100 | 0) + "%");
-}
-// 背景动画执行
-function bgAnimate () {
-  // 背景立方体容器
-  let bg_box = $('.h_bg');
-  // 移除加载页面
-  $('.h_loading').remove();
-  $('.h_head').remove();
-  // 图片路径替换
-  $('img').each(function () {
-    $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-  });
-  // 立方体进入效果
-  bg_box.addClass('box_enter');
-  setTimeout(() => {
-    bg_box.removeClass('box_enter').addClass('box_shake');
-  }, 600);
-  setTimeout(() => {
-    pageplay('.page7')
-  }, 800);
-}
-// pageplay
-function pageplay (el) {
-  $(el).siblings().css('display', 'none').end().css('display', 'block');
-}
-$('body').height($(window).height())
-$('.page1 .go').on('touchstart', function () {
-  let user = $('.page1 input').val()
-  if (user) pageplay('.page2')
-  $('.user').text(user)
-})
-$('.page2 .go').on('click', function () {
-  pageplay('.page3')
-})
-$('.page3 .go').on('click', function () {
-  pageplay('.page4')
-})
-$('.page4 .go').on('click', function () {
-  pageplay('.page5')
-  // marquee()
-  mask_square()
-})
-$('.page6 .go').on('click', function () {
-  pageplay('.page7')
-})
-$('.page7 .go').on('click', function () {
-  pageplay('.page8')
-  // ZMF.convert2canvas('.page7 .diy_left', '.page7')
-})
-$('.take_gift .next').on('click', function () {
-  // $('.take_gift').css('display', 'none')
-  // $('.make').css('display', 'block')
-  $('.take_gift').addClass('active')
-  setTimeout(() => {
-    $('.take_gift').css('display', 'none')
-    $('.make').css('display', 'block')
-  }, 500);
-})
-$('.page8 .share').on('click', function () {
-  pageplay('.page9')
-  // ZMF.convert2canvas()
-})
-var actorNo = 0;
-var actor_timer = null
-$('.page3 .actor').on('click', function () {
-  if ($('.page3 .actor.active').length >= 3) return
-  let flag = $(this).hasClass('active');
-  flag ? $(this).removeClass('active') : $(this).addClass('active');
-  let length = $('.page3 .actor.active').length
-  if (length == 3) {
-    $('.page3 .logo').addClass('active');
-    setTimeout(() => {
-      pageplay('.page4');
-      $('.page3 .logo').removeClass('active')
-      $('.page3 .actor').removeClass('active')
-    }, 1000);
-  };
-});
-$('.page7 .diy_element li').on('click', function () {
-  let index = $(this).index()
-  $(this).addClass('active').siblings().removeClass('active');
-  $('.diy_element .labels > div').eq(index).addClass('active').siblings().removeClass('active');
-})
-$('.page7 .diy_right li').on('click', function () {
-  if ($(this).hasClass('active')) return
-  let index = $(this).index() + 1;
-  let src = $('.diy_bg img').attr('src').split('.png')[0].slice(0, -1);
-  $(this).addClass('active').siblings().removeClass('active')
-  $('.diy_bg img').attr('src', src + index + '.png')
-})
-function marquee () {
-  let num = 0;
-  let timer = setInterval(function() {
-    num++
-    // console.log(num)
-    $('.page5 .bg').toggleClass('active')
-    if (num == 9) {
-      clearInterval(timer)
-      pageplay('.page6')
-    }
-  }, 160)
-}
-function mask_square () {
-  let num = 0
-  let cont = 0
-  var timer = setInterval(function() {
-    if (num == 29) {
-      num = 0
-      cont++
-    } else {
-      num++
-    }
-    if (cont == 2) {
-      // clearInterval(timer)
-      // speed = 1000
-      // timer
-      if (num == 3 || num == 6 || num == 20) {
-        $('.page5 .mask_square span').eq(num).addClass('active')
-      } else {
-        $('.page5 .mask_square span').eq(num).addClass('active').end().eq(num - 1).removeClass('active')
-      }
-    } else if(cont == 3) {
-      clearInterval(timer)
-      marquee()
-    } else {
-      $('.page5 .mask_square span').eq(num).addClass('active').end().eq(num - 1).removeClass('active')
-    }
-  }, 70)
-}
+// $('.page7 .go').on('click', function () {
+//   pageplay('.page8')
+//   // ZMF.convert2canvas('.page7 .diy_left', '.page7')
+// })
+// $('.page8 .share').on('click', function () {
+//   pageplay('.page9')
+//   // ZMF.convert2canvas()
+// })
+// $('.page7 .diy_element li').on('click', function () {
+//   let index = $(this).index()
+//   $(this).addClass('active').siblings().removeClass('active');
+//   $('.diy_element .labels > div').eq(index).addClass('active').siblings().removeClass('active');
+// })
+// $('.page7 .diy_right li').on('click', function () {
+//   if ($(this).hasClass('active')) return
+//   let index = $(this).index() + 1;
+//   let src = $('.diy_bg img').attr('src').split('.png')[0].slice(0, -1);
+//   $(this).addClass('active').siblings().removeClass('active')
+//   $('.diy_bg img').attr('src', src + index + '.png')
+// })
+// $('.page9 .reset').on('touchstart', function () {
+//   pageplay('.page1')
+// })
 var ZMF = (function (doc) {
+  const $actors = [
+    {'index': 0,'alias': 'd','gift': '还想怎样'},
+    {'index': 1,'alias': 'm','gift': '一起喝啤酒'},
+    {'index': 2,'alias': 'w','gift': '追光者'},
+    {'index': 3,'alias': 'g','gift': '水星记'},
+    {'index': 6,'alias': 'a','gift': '天府广场吃炸鸡'},
+    {'index': 7,'alias': 'c','gift': 'tets'}
+  ];
   return {
+    queue: null,
     copyDom: null,
-    // tStart: [],
-    // isScale: false,
-    events: function () {
-      $('.page7 .labels img').on({touchstart: this.diyStart, touchmove: this.diyMove, touchend: this.diyEnd});
-      this.createRandom()
+    actorArr: [],
+    actor_timer: null,
+    maskTimer: null,
+    marqueeTimer: null,
+    animationEnd: (function (el) {
+      var animations = {
+        animation: 'animationend',
+        OAnimation: 'oAnimationEnd',
+        MozAnimation: 'mozAnimationEnd',
+        WebkitAnimation: 'webkitAnimationEnd',
+      };
+      for (var t in animations) {
+        if (el.style[t] !== undefined) {
+          return animations[t];
+        }
+      }
+    })(document.createElement('div')),
+    preLoad: function () {
+      this.queue = new createjs.LoadQueue(false);
+      this.queue.loadManifest([
+        // page1
+        { id: 'bird_purple', src: 'bird_purple.png' },
+        { id: 'dialog_box', src: 'dialog_box.gif' },
+        { id: 'lamp_light', src: 'lamp_light.png' },
+        // page2
+        { id: 'dialog_box1', src: 'dialog_box1.gif' },
+        { id: 'lamp_light1', src: 'lamp_light1.png' },
+        // page3
+        { id: 'page3_bg', src: 'page3_bg.jpg' },
+        { id: 'page3_as', src: 'page3_as.png' },
+        { id: 'page3_dnp', src: 'page3_dpn.png' },
+        { id: 'page3_mby', src: 'page3_mby.png'},
+        { id: 'page3_wsl', src: 'page3_wsl.png' },
+        { id: 'page3_gd', src: 'page3_gd.png' },
+        { id: 'page3_chy', src: 'page3_chy.png' },
+        { id: 'page3_wz1', src: 'page3_wz2.svg' },
+        // page4
+        { id: 'page4_box', src: 'page4_box.gif'},
+        // page5
+        { id: 'page5_bg', src: 'page5_bg.png' },
+        { id: 'page5_bg_active', src: 'page5_bg_active.png' },
+        // page6
+        { id: 'page6_box', src: 'page6_box.png' },
+        { id: 'page6_text', src: 'page6_text.gif' },
+        // { id: 'page7_bg', src: 'page7_bg.png' },
+        // { id: 'page8_bird', src: 'page8_bird.png' },
+        // { id: 'page8_lamp', src: 'page8_lamp.png' },
+        // { id: 'page8_text', src: 'page8_text.gif' }
+      ], true, "image/");
+      this.queue.on("progress", this.loadFileProgress);
+      this.queue.on("complete", this.bgAnimate);
+    },
+    loadFileProgress: function (event) {
+      console.log("已加载 " + (this.progress * 100 | 0) + "%");
+      $('.loading_text').text((this.progress * 100 | 0) + "%");
+    },
+    bgAnimate: function () {
+      let _this = ZMF;
+      console.log('资源全部加载完毕');
+      let bg_box = $('.h_bg');
+      $('.h_loading').css('display', 'none');
+      $('.page1 img').each(function () {
+        $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+      });
+      bg_box.addClass('box_enter');
+      setTimeout(() => {
+        bg_box.removeClass('box_enter').addClass('box_shake');
+      }, 600);
+      setTimeout(() => {
+        _this.pageplay('.page1')
+      }, 800);
+    },
+    pagestart: function (el) {
+      $(el).each(function () {
+        $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+      });
+    },
+    pageplay: function (el) {
+      $(el).siblings().css('display', 'none').end().css('display', 'block');
+    },
+    marquee: function () {
+      let _this = ZMF,
+          num = 0;
+      _this.marqueeTimer = setInterval(function () {
+        num++
+        $('.page5 .bg').toggleClass('active');
+        if (num == 6) {
+          clearInterval(_this.marqueeTimer);
+          _this.pagestart('.page6 img');
+          setTimeout(() => {
+            _this.pageplay('.page6');
+          }, 600);
+        }
+      }, 100)
+    },
+    mask_square: function () {
+      let _this = ZMF,
+          num = 0,
+          cont = 0;
+      _this.maskTimer = setInterval(function () {
+        if (num == 29) {
+          num = 0;
+          cont++;
+        } else {
+          num++;
+        };
+        if (cont == 2) {
+          if (num - 1 == _this.actorArr[0] || num - 1 == _this.actorArr[1] || num - 1 == _this.actorArr[2]) {
+            $('.page5 .mask_square span').eq(num).addClass('active');
+          } else {
+            $('.page5 .mask_square span').eq(num).addClass('active').end().eq(num - 1).removeClass('active');
+          };
+        } else if (cont == 3) {
+          clearInterval(_this.maskTimer);
+          _this.marquee();
+        } else {
+          $('.page5 .mask_square span').eq(num).addClass('active').end().eq(num - 1).removeClass('active')
+        };
+      }, 60);
     },
     diyStart: function (e) {
       e.preventDefault();
@@ -258,27 +194,17 @@ var ZMF = (function (doc) {
             'top': domRect.top + 'px'
           };
       _this.copyDom = $(this).clone().css(css).appendTo('.page7');
-      // if (e.originalEvent.touches.length >= 2) {
-      //   _this.tStart = e.originalEvent.touches;
-      //   _this.isScale = true;
-      // }
     },
     diyMove: function (e) {
       e.preventDefault();
       e.stopPropagation();
       let _this = ZMF;
-      // if (_this.isScale) {
-      //   let now = e.originalEvent.touches,
-      //     scale = (_this.getDistance(now[0], now[1]) / _this.getDistance(start[0], start[1])).toFixed(2);
-      //   _this.copyDom.css('transform', 'scale(' + scale + ')');
-      // } else {
       let _touch = e.originalEvent.targetTouches[0],
           offsetX = parseInt(_this.copyDom.css('width')) / 2,
           offsetY = parseInt(_this.copyDom.css('height')) / 2,
           _x = _touch.pageX - offsetX + 'px',
           _y = _touch.pageY - offsetY + 'px';
       _this.copyDom.css({ 'left': _x, 'top': _y });
-      // }
     },
     diyEnd: function (e) {
       e.preventDefault();
@@ -297,7 +223,7 @@ var ZMF = (function (doc) {
       _this.isScale = false;
       if (_offsetTop && _offsetLeft && _offsetRight && _offsetBottom) {
         $('.page7 .diy_content').children('.' + domClass).remove();
-        _this.copyDom.appendTo($('.page7 .diy_content')).css({'left': _left, 'top': _top});
+        _this.copyDom.prependTo($('.page7 .diy_content')).css({'left': _left, 'top': _top});
         _this.setScale()
       } else {
         _this.copyDom.remove();
@@ -331,7 +257,7 @@ var ZMF = (function (doc) {
           let now = _touch,
             scale = (_this.getDistance(now[0], now[1]) / _this.getDistance(start[0], start[1])).toFixed(2);
           _this.copyDom.css('transform', 'scale(' + scale + ')');
-        } else if (_touch.length == 1 && _touch[0].target.tagName == 'IMG') {
+        } else if (_touch.length == 1 && _touch[0].target.tagName == 'IMG' && !$(_touch[0].target).hasClass('static')) {
           let currentDom = $(_touch[0].target),
               rect = $(this)[0].getBoundingClientRect(),
               offsetX = parseInt(currentDom.css('width')) / 2,
@@ -345,11 +271,7 @@ var ZMF = (function (doc) {
       })
     },
     convert2canvas: function () {
-      // .page9.container
       let cntElem = $('.page9 .container')[0],
-          // shareContent = cntElem,//需要截图的包裹的（原生的）DOM 对象
-          // width = shareContent.offsetWidth,//获取dom 宽度
-          // height = shareContent.offsetHeight,//获取dom 高度
           width = $('.page9 .container').width(),
           height = $('.page9 .container').height(),
           canvas = document.createElement("canvas"),//创建一个canvas节点
@@ -383,7 +305,6 @@ var ZMF = (function (doc) {
         }).addClass('f-full');
       });
     },
-    // Math.floor(Math.random() * 10)
     createRandom: function () {
       // let index = Math.floor(Math.random() * 10);
       const textArr = [
@@ -398,7 +319,104 @@ var ZMF = (function (doc) {
         {'name': '魔鬼桶','des': '你拥有小恶魔般的性格，总是有些邪恶但不失可爱的小想法，比如在别人坐下的瞬间把凳子抽掉；比如偷偷的把别人的SKII换成卸妆水；比如看到这里，你想问候一下这个游戏的设计者。'},
         {'name': '感性桶','des': '看似坚强能干的你其实拥有着柔软的内心，你总能被这个世界上一些看似不起眼的小事情和小人物打动。由于心地很善良，所以总不愿伤害别人。有时会觉得自己与其他人不一样、喜欢沉醉于自己的想象世界。'}
       ]
+    },
+    events: function () {
+      let _this = this;
+      for(let i = 1; i <= 9; i++) {
+        if (i == 1) {
+          $(".page1 input[type='text']").on('change', function () {
+            $(this).val() ? $('.page1 .input_box').addClass('active') : $('.page1 .input_box').removeClass('active');
+            if ($('.page1 .input_box').hasClass('active')) {
+              $('.page1 .go').on({
+                'touchstart': function () {
+                  $('.page2 img').each(function () {
+                    $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+                  });
+                }, 'click': function () {
+                  _this.pageplay('.page2');
+                  let user = $('.page1 input').val()
+                  $('.user').text(user)
+                }
+              });
+            } else {
+              $('.page1 .go').off();
+            }
+          });
+        } if (i == 3) {
+          $('.page3 .actor').on('click', function () {
+            if ($('.page3 .actor.active').length >= 3) return
+            let flag = $(this).hasClass('active');
+            flag ? $(this).removeClass('active') : $(this).addClass('active');
+            let length = $('.page3 .actor.active').length
+            if (length == 3) {
+              $('.page3 .actor.active').each(function () {
+                _this.actorArr.push($(this).data('index'));
+              });
+              $('.page3 .logo').addClass('active');
+              $('.page4 img').each(function () {
+                $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+              });
+              setTimeout(() => {
+                _this.pageplay('.page4');
+                $('.page3 .logo').removeClass('active');
+                $('.page3 .actor').removeClass('active');
+              }, 1200);
+              console.log(_this.actorArr);
+              let page7str = ''
+              $actors.forEach(item => {
+                if (item.index == _this.actorArr[0] || item.index == _this.actorArr[1] || item.index == _this.actorArr[2]) {
+                  page7str += "<div>"
+                  for (let i = 1; i <= 4; i++) {
+                    page7str += "<p><img class='" + item.alias + i + "' data-src='image/" + item.alias + "_label" + i + ".png'></p>"
+                  }
+                  page7str += "</div>"
+                }
+              });
+              $('.page7 .diy_element .labels').before();
+            };
+          });
+        } if (i == 4) {
+          $('.page4 .go').on({
+            'touchstart': function () {
+              $('.page5 img').each(function () {
+                $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+              });
+            }, 'click': function () {
+              $('.page5').siblings().css('display', 'none').end().css('display', 'block');
+              _this.mask_square();
+            }
+          });
+        } else {
+          let next = i + 1;
+          $('.page' + i + ' .go').on({'touchstart': function () {
+            $('.page' + next + ' img').each(function () {
+              $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+            });
+          }, 'click': function () {
+            $('.page' + next).siblings().css('display', 'none').end().css('display', 'block');
+          }});
+        }
+      };
+      $('.page6 .take_gift .next').on('click', function () {
+        $('.page6 .take_gift').addClass('active')
+        setTimeout(() => {
+          $('.page6 .take_gift').css('display', 'none')
+          $('.page6 .make').css('display', 'block')
+        }, 500);
+      });
+      $('.page7 .labels img').on({ touchstart: this.diyStart, touchmove: this.diyMove, touchend: this.diyEnd });
+    },
+    load: function () {
+      let _this = ZMF;
+      $(function () {
+        $('body').height($(window).height());
+        $('section').on('touchmove', false);
+        _this.preLoad();
+      });
+      return _this;
+    },
+    init: function () {
+      this.load().events();
     }
   }
 })(document)
-ZMF.events()

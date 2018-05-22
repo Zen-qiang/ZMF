@@ -48,6 +48,7 @@ body {
   height: 100vh;
   // max-width: 540px;
   // min-width: 320px;
+  font-family: Consolas, Monaco, monospace;
 }
 [hidden] {
   display: none;
@@ -220,7 +221,8 @@ body {
     transform: rotate(30deg) translate3d(-40%, 8%, 1000px);
   }
   ul li {
-    width: 100%;
+    width: rem(700);
+    height: rem(200);
     position: relative;
   }
 
@@ -351,6 +353,7 @@ body {
   flex-flow: row wrap;
   align-content: center;
   overflow: hidden;
+  z-index: 6;
   > div {
     height: rem(150);
     flex: 0 0 100%;
@@ -371,28 +374,10 @@ body {
     li {
       float: left;
       width: 2rem;
-      padding-bottom: 2rem;
-      height: 0;
-    }
-    li:nth-of-type(1) {
-      background: url(../image/bird_blue.svg) no-repeat center;
-      background-size: 300%;
-    }
-    li:nth-of-type(2) {
-      background: url(../image/bird_red.svg) no-repeat center;
-      background-size: 300%;
-    }
-    li:nth-of-type(3) {
-      background: url(../image/bird_green.svg) no-repeat center;
-      background-size: 300%;
-    }
-    li:nth-of-type(4) {
-      background: url(../image/bird_orange.svg) no-repeat center;
-      background-size: 300%;
-    }
-    li:nth-of-type(5) {
-      background: url(../image/bird_purple.svg) no-repeat center;
-      background-size: 300%;
+      height: 2rem;
+      overflow: hidden;
+      position: relative;
+      display: flex;
     }
   }
   > p {
@@ -705,7 +690,7 @@ polygon {
       transform: translate(rem(-90), rem(-140));
     }
     &.active ul > li:nth-of-type(2) {
-      animation: neonlamp 1.4s .8s forwards;
+      animation: neonlamp 1.4s .8s forwards infinite;
     }
     ul > li .go {
       position: absolute;
@@ -974,7 +959,7 @@ polygon {
         }
       }
     }
-    @each $name in dpn, mby, wsl, gd, chy {
+    @each $name in dpn, mby, wsl, gd, chy, as {
       @keyframes page3_#{$name} {
         15%, 35% {
           background: url(../image/page3_#{$name}_dark.png) no-repeat center;
@@ -1039,6 +1024,14 @@ polygon {
       bottom: 34vw;
       height: 34vw;
       background: url(../image/page3_chy_dark.png) no-repeat center;
+      background-size: contain;
+    }
+    .as {
+      width: 26vw;
+      left: 28vw;
+      bottom: 34vw;
+      height: 48vw;
+      background: url(../image/page3_as_dark.png) no-repeat center;
       background-size: contain;
     }
   }
@@ -1316,6 +1309,7 @@ polygon {
       @include row1;
       width: 15.5vw;
       left: 17.5vw;
+      top: 11.1vw;
     }
     > span:nth-of-type(2) {
       @include row1;
@@ -1343,8 +1337,10 @@ polygon {
       @include row2;
     }
     > span:nth-of-type(6) {
-      left: 56vw;
       @include row2;
+      left: 56.2vw;
+      top: 47.2vw;
+      width: 11.8vw;
     }
     > span:nth-of-type(7) {
       @include row2;
@@ -1394,7 +1390,7 @@ polygon {
     }
     > span:nth-of-type(14) {
       @include row4;
-      top: 93.4vw;
+      top: 93.5vw;
       left: 30.5vw;
     }
     > span:nth-of-type(15) {
@@ -1422,15 +1418,16 @@ polygon {
       @include row5;
       width: 8.5vw;
       top: 113.5vw;
-      left: 13.2vw;
+      left: 13.1vw;
     }
     > span:nth-of-type(19) {
       @include row5;
       left: 24vw;
+      width: 8.1vw;
     }
     > span:nth-of-type(20) {
       @include row5;
-      top: 113.9vw;
+      top: 114vw;
       left: 40.5vw;
     }
     > span:nth-of-type(21) {
@@ -1742,45 +1739,52 @@ polygon {
       left: 0;
       width: rem(260);
       height: rem(390);
-      // background: url(../image/page8_bird.png) no-repeat center;
-      // -webkit-mask-image: url(../image/shading.png);
-      // mask-image: url(../image/shading.png);
-      // -webkit-mask-size: cover;
-      // mask-size: cover;
-      // -webkit-mask-repeat: no-repeat;
-      // mask-repeat: no-repeat;
-      .diy_bg {
-        height: 100%;
-        width: 100%;
-        text-align: center;
-        img {
-          position: relative;
-          top: 50%;
-          transform: translateY(-50%);
-          width: rem(220);
-          height: rem(320);
-          vertical-align: middle;
-        }
-      }
-      .diy_content {
+      .diy_box {
+        width: rem(220);
+        height: rem(320);
+        overflow: hidden;
         position: absolute;
         top: 0;
+        bottom: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        // width: rem(260);
-        // height: rem(390);
-        -webkit-mask-image: url(../image/shading.png);
-        mask-image: url(../image/shading.png);
-        -webkit-mask-size: rem(220) rem(320);
-        mask-size: rem(220) rem(320);
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        img {
+        right: 0;
+        margin: auto;
+        .diy_bg {
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+          }
+        }
+        .diy_content {
           position: absolute;
-          object-fit: contain;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          -webkit-mask-image: url(../image/shading.png);
+          mask-image: url(../image/shading.png);
+          -webkit-mask-size: cover;
+          mask-size: cover;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+          mask-position: center;
+          img {
+            position: absolute;
+            object-fit: contain;
+          }
+          .static {
+            top: rem(40);
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            width: rem(150);
+          }
         }
       }
     }
@@ -2106,11 +2110,69 @@ polygon {
     > div:first-of-type {
       flex: auto;
       border: rem(2) solid #000;
-      > div:first-of-type {
-        font-size: rem(16);
+      padding: 0 rem(8);
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      .bucket_content {
+        color: #2a2f7d;
+        > p:first-of-type {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: rem(6) 0;
+          > span:first-of-type {
+            font-size: rem(18);
+          }
+          .bucket {
+            display: inline-block;
+            font-size: rem(26);
+            background: #2a2f7d;
+            color: #fde833;
+            padding: 0 rem(6);
+            border-radius: rem(6);
+          }
+        }
+        .bucketDes {
+          font-size: rem(12);
+        }
       }
-      > div:nth-of-type(2) {}
-      > div:last-of-type {}
+      .bucket_container {
+        flex: auto;
+        position: relative;
+        img {
+          position: absolute;
+        }
+        .page9_bg {
+          bottom: 0;
+          left: 0;
+          width: 100%;
+        }
+        .page9_mask {
+          top: 7vw;
+          left: 0;
+          width: 100%;
+          z-index: 1;
+        }
+        > img:last-of-type {
+          top: 8.9vw;
+          left: 0;
+          right: 0;
+          width: 40.5vw;
+          margin: auto;
+          z-index: 0;
+        }
+      }
+      > div:last-of-type {
+        height: rem(60);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: rem(6);
+        > img {
+          height: 100%;
+        }
+      }
     }
     > div:last-of-type {
       flex: 0 0 rem(110);
@@ -2147,6 +2209,19 @@ polygon {
           object-fit: contain;
         }
       }
+    }
+  }
+  .reset {
+    width: rem(50);
+    height: rem(30);
+    position: absolute;
+    bottom: rem(130);
+    left: 0;
+    right: 0;
+    margin: auto;
+    img {
+      width: 100%;
+      vertical-align: top;
     }
   }
   .f-full {

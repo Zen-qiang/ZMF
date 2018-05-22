@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var clean = require('gulp-clean');
+var fontSpider = require('gulp-font-spider');
 var gulpSequence = require('gulp-sequence');
 var browserSync = require('browser-sync');
 var PATH = {
@@ -61,4 +62,7 @@ gulp.task('copy', ['clean'], function () {
 });
 gulp.task('clean', function () {
 	return gulp.src('dist/*').pipe(clean());
+})
+gulp.task('fontspider', function () {
+	return gulp.src('src/index.html').pipe(fontSpider({backup: false}));
 })

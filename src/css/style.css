@@ -36,7 +36,8 @@ html {
       font-size: 108px; } }
 
 body {
-  height: 100vh; }
+  height: 100vh;
+  font-family: Consolas, Monaco, monospace; }
 
 [hidden] {
   display: none; }
@@ -178,7 +179,8 @@ body {
     overflow: hidden;
     transform: rotate(30deg) translate3d(-40%, 8%, 1000px); }
   .h_bg ul li {
-    width: 100%;
+    width: 9.33333rem;
+    height: 2.66667rem;
     position: relative; }
   .h_bg.box_enter ul li {
     animation: box_enter .4s both linear; }
@@ -273,7 +275,8 @@ body {
   display: flex;
   flex-flow: row wrap;
   align-content: center;
-  overflow: hidden; }
+  overflow: hidden;
+  z-index: 6; }
   .h_loading > div {
     height: 2rem;
     flex: 0 0 100%;
@@ -292,23 +295,10 @@ body {
     .h_loading ul li {
       float: left;
       width: 2rem;
-      padding-bottom: 2rem;
-      height: 0; }
-    .h_loading ul li:nth-of-type(1) {
-      background: url(../image/bird_blue.svg) no-repeat center;
-      background-size: 300%; }
-    .h_loading ul li:nth-of-type(2) {
-      background: url(../image/bird_red.svg) no-repeat center;
-      background-size: 300%; }
-    .h_loading ul li:nth-of-type(3) {
-      background: url(../image/bird_green.svg) no-repeat center;
-      background-size: 300%; }
-    .h_loading ul li:nth-of-type(4) {
-      background: url(../image/bird_orange.svg) no-repeat center;
-      background-size: 300%; }
-    .h_loading ul li:nth-of-type(5) {
-      background: url(../image/bird_purple.svg) no-repeat center;
-      background-size: 300%; }
+      height: 2rem;
+      overflow: hidden;
+      position: relative;
+      display: flex; }
   .h_loading > p {
     height: 0.26667rem;
     flex: 0 0 100%;
@@ -572,7 +562,7 @@ polygon {
       background-size: contain;
       transform: translate(-1.2rem, -1.86667rem); }
     .page1 .input_box.active ul > li:nth-of-type(2) {
-      animation: neonlamp 1.4s .8s forwards; }
+      animation: neonlamp 1.4s .8s forwards infinite; }
     .page1 .input_box ul > li .go {
       position: absolute;
       bottom: 0;
@@ -850,6 +840,16 @@ polygon {
     background-size: contain; } }
   .page3 .content .chy.active {
     animation: page3_chy 1.5s forwards; }
+
+@keyframes page3_as {
+  15%, 35% {
+    background: url(../image/page3_as_dark.png) no-repeat center;
+    background-size: contain; }
+  0%, 25%, 100% {
+    background: url(../image/page3_as.png) no-repeat center;
+    background-size: contain; } }
+  .page3 .content .as.active {
+    animation: page3_as 1.5s forwards; }
   .page3 .content .logo ~ div > span {
     position: absolute;
     right: 0;
@@ -894,6 +894,13 @@ polygon {
     bottom: 34vw;
     height: 34vw;
     background: url(../image/page3_chy_dark.png) no-repeat center;
+    background-size: contain; }
+  .page3 .content .as {
+    width: 26vw;
+    left: 28vw;
+    bottom: 34vw;
+    height: 48vw;
+    background: url(../image/page3_as_dark.png) no-repeat center;
     background-size: contain; }
 
 @keyframes jump {
@@ -1124,7 +1131,8 @@ polygon {
       top: 11vw;
       width: 16vw;
       width: 15.5vw;
-      left: 17.5vw; }
+      left: 17.5vw;
+      top: 11.1vw; }
     .page5 .mask_square > span:nth-of-type(2) {
       top: 11vw;
       width: 16vw;
@@ -1148,10 +1156,12 @@ polygon {
       width: 12vw;
       height: 22vw; }
     .page5 .mask_square > span:nth-of-type(6) {
-      left: 56vw;
       top: 47vw;
       width: 12vw;
-      height: 22vw; }
+      height: 22vw;
+      left: 56.2vw;
+      top: 47.2vw;
+      width: 11.8vw; }
     .page5 .mask_square > span:nth-of-type(7) {
       top: 47vw;
       width: 12vw;
@@ -1199,7 +1209,7 @@ polygon {
       top: 94vw;
       width: 9.5vw;
       height: 19vw;
-      top: 93.4vw;
+      top: 93.5vw;
       left: 30.5vw; }
     .page5 .mask_square > span:nth-of-type(15) {
       top: 94vw;
@@ -1226,17 +1236,18 @@ polygon {
       height: 16vw;
       width: 8.5vw;
       top: 113.5vw;
-      left: 13.2vw; }
+      left: 13.1vw; }
     .page5 .mask_square > span:nth-of-type(19) {
       top: 113.4vw;
       width: 7.8vw;
       height: 16vw;
-      left: 24vw; }
+      left: 24vw;
+      width: 8.1vw; }
     .page5 .mask_square > span:nth-of-type(20) {
       top: 113.4vw;
       width: 7.8vw;
       height: 16vw;
-      top: 113.9vw;
+      top: 114vw;
       left: 40.5vw; }
     .page5 .mask_square > span:nth-of-type(21) {
       top: 113.4vw;
@@ -1501,35 +1512,49 @@ polygon {
     left: 0;
     width: 3.46667rem;
     height: 5.2rem; }
-    .page7 .diy_container .diy_left .diy_bg {
-      height: 100%;
-      width: 100%;
-      text-align: center; }
-      .page7 .diy_container .diy_left .diy_bg img {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 2.93333rem;
-        height: 4.26667rem;
-        vertical-align: middle; }
-    .page7 .diy_container .diy_left .diy_content {
+    .page7 .diy_container .diy_left .diy_box {
+      width: 2.93333rem;
+      height: 4.26667rem;
+      overflow: hidden;
       position: absolute;
       top: 0;
+      bottom: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-mask-image: url(../image/shading.png);
-      mask-image: url(../image/shading.png);
-      -webkit-mask-size: 2.93333rem 4.26667rem;
-      mask-size: 2.93333rem 4.26667rem;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-position: center; }
-      .page7 .diy_container .diy_left .diy_content img {
+      right: 0;
+      margin: auto; }
+      .page7 .diy_container .diy_left .diy_box .diy_bg {
+        height: 100%;
+        width: 100%;
+        text-align: center; }
+        .page7 .diy_container .diy_left .diy_box .diy_bg img {
+          width: 100%;
+          height: 100%;
+          vertical-align: middle; }
+      .page7 .diy_container .diy_left .diy_box .diy_content {
         position: absolute;
-        -o-object-fit: contain;
-           object-fit: contain; }
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-mask-image: url(../image/shading.png);
+        mask-image: url(../image/shading.png);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center; }
+        .page7 .diy_container .diy_left .diy_box .diy_content img {
+          position: absolute;
+          -o-object-fit: contain;
+             object-fit: contain; }
+        .page7 .diy_container .diy_left .diy_box .diy_content .static {
+          top: 0.53333rem;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          margin: auto;
+          width: 2rem; }
   .page7 .diy_container .diy_right {
     top: 0.12rem;
     right: 0.17333rem;
@@ -1810,9 +1835,58 @@ polygon {
   justify-content: space-between; }
   .page9 .container > div:first-of-type {
     flex: auto;
-    border: 0.02667rem solid #000; }
-    .page9 .container > div:first-of-type > div:first-of-type {
-      font-size: 0.21333rem; }
+    border: 0.02667rem solid #000;
+    padding: 0 0.10667rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between; }
+    .page9 .container > div:first-of-type .bucket_content {
+      color: #2a2f7d; }
+      .page9 .container > div:first-of-type .bucket_content > p:first-of-type {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.08rem 0; }
+        .page9 .container > div:first-of-type .bucket_content > p:first-of-type > span:first-of-type {
+          font-size: 0.24rem; }
+        .page9 .container > div:first-of-type .bucket_content > p:first-of-type .bucket {
+          display: inline-block;
+          font-size: 0.34667rem;
+          background: #2a2f7d;
+          color: #fde833;
+          padding: 0 0.08rem;
+          border-radius: 0.08rem; }
+      .page9 .container > div:first-of-type .bucket_content .bucketDes {
+        font-size: 0.16rem; }
+    .page9 .container > div:first-of-type .bucket_container {
+      flex: auto;
+      position: relative; }
+      .page9 .container > div:first-of-type .bucket_container img {
+        position: absolute; }
+      .page9 .container > div:first-of-type .bucket_container .page9_bg {
+        bottom: 0;
+        left: 0;
+        width: 100%; }
+      .page9 .container > div:first-of-type .bucket_container .page9_mask {
+        top: 7vw;
+        left: 0;
+        width: 100%;
+        z-index: 1; }
+      .page9 .container > div:first-of-type .bucket_container > img:last-of-type {
+        top: 8.9vw;
+        left: 0;
+        right: 0;
+        width: 40.5vw;
+        margin: auto;
+        z-index: 0; }
+    .page9 .container > div:first-of-type > div:last-of-type {
+      height: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.08rem; }
+      .page9 .container > div:first-of-type > div:last-of-type > img {
+        height: 100%; }
   .page9 .container > div:last-of-type {
     flex: 0 0 1.46667rem; }
     .page9 .container > div:last-of-type > p:first-of-type {
@@ -1844,6 +1918,18 @@ polygon {
         height: 100%;
         -o-object-fit: contain;
            object-fit: contain; }
+
+.page9 .reset {
+  width: 0.66667rem;
+  height: 0.4rem;
+  position: absolute;
+  bottom: 1.73333rem;
+  left: 0;
+  right: 0;
+  margin: auto; }
+  .page9 .reset img {
+    width: 100%;
+    vertical-align: top; }
 
 .page9 .f-full {
   position: absolute;

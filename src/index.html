@@ -255,7 +255,12 @@
         <img class="bubble" data-src="image/message3.svg">
       </div>
       <div class="dialog_box">
-        <div class="bounceInLeft"><img data-src="image/dialog_box.gif"></div>
+        <div class="bounceInLeft">
+          <img data-src="image/dialog_left.gif">
+          <div>
+            <p>Rock Bird:Hey Bro!<br>你准备好跟我一起去ZMF热播音乐节现场了吗？我叫墨菲斯，喜欢摇滚乐，你叫什么？</p>
+          </div>
+        </div>
         <div class="bounceInRight">
           <img data-src="image/bird_purple.png">
           <img class="bubble" data-src="image/message1.svg">
@@ -264,7 +269,7 @@
       <div class="input_box bounceInLeft">
         <ul>
           <li>
-            <input type="text" placeholder="请输入你的名字_" maxlength="4">
+            <input type="text" placeholder="请输入你的名字_" maxlength="7">
           </li>
           <li></li>
           <li>
@@ -330,8 +335,10 @@
           <img data-src="image/bird_red.png">
         </div>
         <div class="dialog_box bounceInRight">
-          <img data-src="image/dialog_box1.gif">
-          <div><span class="tada user">jerry</span></div>
+          <img data-src="image/dialog_right.gif">
+          <div>
+            <p>Fit Bird: 太好了<span class="user">jerry</span> ，你终于来了!<br>我正在做音乐节开场前的最后工程准备，艺人们都快到了，能请你帮我把那几个还没准备好的灯箱点亮吗？ GO!GO!GO! 挑你最喜欢的3位艺人吧。</p>
+          </div>
         </div>
       </div>
       <div class="square8 bounceInLeft">
@@ -356,22 +363,22 @@
           <p><img data-src="image/page3_wz1.svg"></p>
           <p hidden><img data-src="image/page3_wz2.svg"></p>
         </div>
-        <div class="dpn actor" data-index="0">
+        <div class="dpn actor" data-index="0" data-text="还想怎样">
           <span class="rotatemouse"></span>
         </div>
-        <div class="mby actor" data-index="1">
+        <div class="mby actor" data-index="1" data-text="一起喝啤酒">
           <span class="rotatemouse"></span>
         </div>
-        <div class="wsl actor" data-index="2">
+        <div class="wsl actor" data-index="2" data-text="追光者">
           <span class="rotatemouse"></span>
         </div>
-        <div class="gd actor" data-index="3">
+        <div class="gd actor" data-index="3" data-text="水星记">
           <span class="rotatemouse"></span>
         </div>
-        <div class="chy actor" data-index="7">
+        <div class="chy actor" data-index="7" data-text="年少模样">
           <span class="rotatemouse"></span>
         </div>
-        <div class="as actor" data-index="6">
+        <div class="as actor" data-index="6" data-text="天府广场吃炸鸡">
           <span class="rotatemouse"></span>
         </div>
       </div>
@@ -435,9 +442,9 @@
           </svg>
         </div>
         <div class="dialog_box bounceInLeft">
-          <img data-src="image/page4_box.gif">
+          <img data-src="image/dialog_left.gif">
           <div>
-            <span class="tada user">jerry</span>
+            <p>Wise Bird: Bravo！简直和我一样的聪明！<span class="user">jerry</span> ，幸好有你在!<br>看音乐节的艺人们都到场了，为了向你表示感谢，他们给你准备了一份礼物，收下吧！</p>
           </div>
         </div>
         <div class="dialog_bird bounceInRight">
@@ -657,12 +664,15 @@
           </div>
           <div class="box1">
             <img data-src="image/page6_boxblue.png">
+            <p class="gift_text_content"><span class="gift_text"></span></p>
           </div>
           <div class="box2">
             <img data-src="image/page6_boxorange.png">
+            <p class="gift_text_content"><span class="gift_text"></span></p>
           </div>
           <div class="box3">
             <img data-src="image/page6_boxred.png">
+            <p class="gift_text_content"><span class="gift_text"></span></p>
           </div>
           <div class="mouse">
             <img class="rotatemouse" data-src="image/mouse.svg">
@@ -679,8 +689,8 @@
             <img data-src="image/page6_bird.png">
           </div>
           <div class="box_text bounceInRight">
-            <img data-src="image/page6_text.gif">
-            <p class="tada"><span class="user">jerry</span></p>
+            <img data-src="image/dialog_right.gif">
+            <div><p>Art Bird:<span class="user">jerry</span> ，还有一件事想麻烦你。你知道我对美感这件事情非常执着。相信你也一样，你懂的。我们可是艺术家！<br>看到那几个垃圾桶了吗？我是指你能帮我把它们变得美一些吗？</p></div>
           </div>
         </div>
         <div class="person_bg">
@@ -701,7 +711,7 @@
               <img data-src="image/shading1.png">
             </div>
             <div class="diy_content">
-              <img class="static" data-src="image/page7_mouth.jpg">
+              <img class="static" data-src="image/page7_mouth.png">
             </div>
           </div>
         </div>
@@ -720,30 +730,137 @@
       </div>
       <div class="diy_element">
         <ul>
-          <!-- <li class="active">戴佩妮</li>
-          <li>毛不易</li>
-          <li>郭顶</li> -->
-          <li>赠送</li>
+          <li hidden data-index="0">戴佩妮
+            <svg height="100%" width="100%" x="0px" y="0px"
+              viewBox="712 4 488 120">
+              <g>
+                <polygon class="st0" points="716,119.7 716,8.3 1109.2,8.3 1167.4,119.7 	" />
+                <path class="st1" d="M1107.4,11.3l55.1,105.3H719V11.3H1107.4 M1111,5.3H713v117.3h459.3L1111,5.3L1111,5.3z" />
+              </g>
+            </svg>
+            <svg height="100%" width="100%" x="0px" y="0px"
+              viewBox="20 5 488 120">
+              <polygon class="st0" points="419,6.3 480.5,123.7 507,123.7 445.5,6.3 " />
+              <polygon class="st1" points="24,120.7 24,9.3 417.2,9.3 475.5,120.7 " />
+              <path class="st2" d="M415.5,12.3l55.1,105.4H27V12.3H415.5 M419,6.3H21v117.4h459.3L419,6.3L419,6.3z" />
+            </svg>
+          </li>
+          <li hidden data-index="1">毛不易
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="712 4 488 120">
+              <g>
+                <polygon class="st0" points="716,119.7 716,8.3 1109.2,8.3 1167.4,119.7 	" />
+                <path class="st1" d="M1107.4,11.3l55.1,105.3H719V11.3H1107.4 M1111,5.3H713v117.3h459.3L1111,5.3L1111,5.3z" />
+              </g>
+            </svg>
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="20 5 488 120">
+              <polygon class="st0" points="419,6.3 480.5,123.7 507,123.7 445.5,6.3 " />
+              <polygon class="st1" points="24,120.7 24,9.3 417.2,9.3 475.5,120.7 " />
+              <path class="st2" d="M415.5,12.3l55.1,105.4H27V12.3H415.5 M419,6.3H21v117.4h459.3L419,6.3L419,6.3z" />
+            </svg>
+          </li>
+          <li hidden data-index="2">汪苏泷
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="712 4 488 120">
+              <g>
+                <polygon class="st0" points="716,119.7 716,8.3 1109.2,8.3 1167.4,119.7 	" />
+                <path class="st1" d="M1107.4,11.3l55.1,105.3H719V11.3H1107.4 M1111,5.3H713v117.3h459.3L1111,5.3L1111,5.3z" />
+              </g>
+            </svg>
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="20 5 488 120">
+              <polygon class="st0" points="419,6.3 480.5,123.7 507,123.7 445.5,6.3 " />
+              <polygon class="st1" points="24,120.7 24,9.3 417.2,9.3 475.5,120.7 " />
+              <path class="st2" d="M415.5,12.3l55.1,105.4H27V12.3H415.5 M419,6.3H21v117.4h459.3L419,6.3L419,6.3z" />
+            </svg>
+          </li>
+          <li hidden data-index="3">郭顶
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="712 4 488 120">
+              <g>
+                <polygon class="st0" points="716,119.7 716,8.3 1109.2,8.3 1167.4,119.7 	" />
+                <path class="st1" d="M1107.4,11.3l55.1,105.3H719V11.3H1107.4 M1111,5.3H713v117.3h459.3L1111,5.3L1111,5.3z" />
+              </g>
+            </svg>
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="20 5 488 120">
+              <polygon class="st0" points="419,6.3 480.5,123.7 507,123.7 445.5,6.3 " />
+              <polygon class="st1" points="24,120.7 24,9.3 417.2,9.3 475.5,120.7 " />
+              <path class="st2" d="M415.5,12.3l55.1,105.4H27V12.3H415.5 M419,6.3H21v117.4h459.3L419,6.3L419,6.3z" />
+            </svg>
+          </li>
+          <li hidden data-index="6">阿肆
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="712 4 488 120">
+              <g>
+                <polygon class="st0" points="716,119.7 716,8.3 1109.2,8.3 1167.4,119.7 	" />
+                <path class="st1" d="M1107.4,11.3l55.1,105.3H719V11.3H1107.4 M1111,5.3H713v117.3h459.3L1111,5.3L1111,5.3z" />
+              </g>
+            </svg>
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="20 5 488 120">
+              <polygon class="st0" points="419,6.3 480.5,123.7 507,123.7 445.5,6.3 " />
+              <polygon class="st1" points="24,120.7 24,9.3 417.2,9.3 475.5,120.7 " />
+              <path class="st2" d="M415.5,12.3l55.1,105.4H27V12.3H415.5 M419,6.3H21v117.4h459.3L419,6.3L419,6.3z" />
+            </svg>
+          </li>
+          <li hidden data-index="7">陈鸿宇
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="712 4 488 120">
+              <g>
+                <polygon class="st0" points="716,119.7 716,8.3 1109.2,8.3 1167.4,119.7 	" />
+                <path class="st1" d="M1107.4,11.3l55.1,105.3H719V11.3H1107.4 M1111,5.3H713v117.3h459.3L1111,5.3L1111,5.3z" />
+              </g>
+            </svg>
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="20 5 488 120">
+              <polygon class="st0" points="419,6.3 480.5,123.7 507,123.7 445.5,6.3 " />
+              <polygon class="st1" points="24,120.7 24,9.3 417.2,9.3 475.5,120.7 " />
+              <path class="st2" d="M415.5,12.3l55.1,105.4H27V12.3H415.5 M419,6.3H21v117.4h459.3L419,6.3L419,6.3z" />
+            </svg>
+          </li>
+          <li>赠送
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="712 4 488 120">
+              <g>
+                <polygon class="st0" points="716,119.7 716,8.3 1109.2,8.3 1167.4,119.7 	" />
+                <path class="st1" d="M1107.4,11.3l55.1,105.3H719V11.3H1107.4 M1111,5.3H713v117.3h459.3L1111,5.3L1111,5.3z" />
+              </g>
+            </svg>
+            <svg height="100%" width="100%" x="0px" y="0px" viewBox="20 5 488 120">
+              <polygon class="st0" points="419,6.3 480.5,123.7 507,123.7 445.5,6.3 " />
+              <polygon class="st1" points="24,120.7 24,9.3 417.2,9.3 475.5,120.7 " />
+              <path class="st2" d="M415.5,12.3l55.1,105.4H27V12.3H415.5 M419,6.3H21v117.4h459.3L419,6.3L419,6.3z" />
+            </svg>
+          </li>
         </ul>
         <div class="labels">
-          <!-- <div class="active">
+          <div hidden data-index="0">
             <p><img class="d_label1" data-src="image/d_label1.png"></p>
             <p><img class="d_label2" data-src="image/d_label2.png"></p>
             <p><img class="d_label3" data-src="image/d_label3.png"></p>
             <p><img class="d_label4" data-src="image/d_label4.png"></p>
           </div>
-          <div>
+          <div hidden data-index="1">
             <p><img class="m_label1" data-src="image/m_label1.png"></p>
             <p><img class="m_label2" data-src="image/m_label2.png"></p>
             <p><img class="m_label3" data-src="image/m_label3.png"></p>
             <p><img class="m_label4" data-src="image/m_label4.png"></p>
           </div>
-          <div>
+          <div hidden data-index="2">
+            <p><img class="w_label1" data-src="image/w_label1.png"></p>
+            <p><img class="w_label2" data-src="image/w_label2.png"></p>
+            <p><img class="w_label3" data-src="image/w_label3.png"></p>
+            <p><img class="w_label4" data-src="image/w_label4.png"></p>
+          </div>
+          <div hidden data-index="3">
             <p><img class="g_label1" data-src="image/g_label1.png"></p>
             <p><img class="g_label2" data-src="image/g_label2.png"></p>
             <p><img class="g_label3" data-src="image/g_label3.png"></p>
             <p><img class="g_label4" data-src="image/g_label4.png"></p>
-          </div> -->
+          </div>
+          <div hidden data-index="6">
+            <p><img class="a_label1" data-src="image/a_label1.png"></p>
+            <p><img class="a_label2" data-src="image/a_label2.png"></p>
+            <p><img class="a_label3" data-src="image/a_label3.png"></p>
+            <p><img class="a_label4" data-src="image/a_label4.png"></p>
+          </div>
+          <div hidden data-index="7">
+            <p><img class="c_label1" data-src="image/c_label1.png"></p>
+            <p><img class="c_label2" data-src="image/c_label2.png"></p>
+            <p><img class="c_label3" data-src="image/c_label3.png"></p>
+            <p><img class="c_label4" data-src="image/c_label4.png"></p>
+          </div>
           <div>
             <p><img class="gift_label1" data-src="image/gift_lable1.png"></p>
             <p><img class="gift_label2" data-src="image/gift_lable2.png"></p>
@@ -768,7 +885,7 @@
         </svg>
         <img data-src="image/page8_lamp.png">
         <img class="rotatemouse" data-src="image/mouse.svg">
-        <span class="share"></span>
+        <span class="go"></span>
       </div>
       <div class="square2 bounceInLeft">
         <svg height="100%" width="100%">
@@ -816,10 +933,8 @@
           </svg>
         </div>
         <div class="text bounceInLeft">
-          <img data-src="image/page8_text.gif">
-          <p class="tada">
-            <span class="user">jerry</span>
-          </p>
+          <img data-src="image/dialog_left.gif">
+          <div><p>Rave Bird :<span class="user">jerry</span>，听说这次你帮了我们大忙了，真不敢想没有你，我们怎么办。现在ZMF终于要正式开场了。快刚告诉你的小伙伴，一起来选个好位置，尽情享受音乐吧！</p></div>
           <img data-src="image/person5.png">
           <img data-src="image/person6.png">
         </div>
@@ -838,7 +953,7 @@
           <div class="bucket_container">
             <img class="page9_bg" data-src="image/page9_bg.png">
             <img class="page9_mask" data-src="image/page9_mask.jpg">
-            <img data-src="image/shading2.png">
+            <!-- <img data-src="image/shading2.png"> -->
           </div>
           <div>
             <img data-src="image/page9_bhhj.png">
@@ -846,11 +961,10 @@
           </div>
         </div>
         <div>
-          <p>
+          <img src="image/page9_bottom.jpg">
+          <!-- <p>
             <span>
-              <svg height="100%" width="100%">
-                <use xlink:href="#logo"></use>
-              </svg>
+              <img data-src="image/zmfnewlogo.svg">
             </span>
             <span>
               <img data-src="image/zmfname.svg">
@@ -858,12 +972,15 @@
           </p>
           <p>
             <img data-src="image/bottomtext.svg">
-          </p>
+          </p> -->
         </div>
       </div>
       <div class="reset">
         <img data-src="image/page9_reset.png">
       </div>
+      <aside class="share_mask">
+        <p class="tada">点击左上角分享给你的小伙伴!</p>
+      </aside>
     </div>
   </section>
   <footer class="h_foot">
@@ -930,6 +1047,7 @@
         <path class="st0" d="M2116.9 41.1l-9-23.1.2 4.6 8 21.4 70.7-25.6.1-1.6z" />
       </svg>
     </span>
+    <audio style="display: none" id="audioBg" data-src="css/Feel-Like-Smiling.mp3" loop autoplay preload="auto"></audio>
   </footer>
 </body>
 </html>

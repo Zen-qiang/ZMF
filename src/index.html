@@ -175,7 +175,7 @@
     </div>
     <p>loading<span class="dotting"></span></p>
     <span class="loading_text">0 %</span>
-    <audio style="visibility: hidden;" id="audioBg" preload="auto" loop="loop" autoplay="autoplay"></audio>
+    <audio style="visibility: hidden;" id="audioBg" preload="auto" loop="loop"></audio>
   </div>
   <section class="h_container">
     <div class="page1" hidden>
@@ -1099,6 +1099,7 @@
 <script type='text/javascript'>
   if (window.ZMF) {
     ZMF.init();
+    // Common.setWeiXinShareConfig("起点大事记 | 2002-2016", location.href, location.origin + "/ploy/20160515/qd/images/sharebigdate400.png", "2002年，起点中文网开创了网络文学的篇章。悠悠十四年，一起聊聊？");
   }
   window.addEventListener('load', function () {
     function audioAutoPlay() {
@@ -1106,13 +1107,20 @@
       console.dir(audio);
       audio.src = 'sound/UpbeatSummerPop.mp3';
       audio.load();
+      console.log('load');
       console.log(audio.paused);
       if (audio.paused) {
         audio.volume = 0.6;
         audio.play();
+        console.log('load audio');
       };
       document.addEventListener("WeixinJSBridgeReady", function () {
-        audio.play();
+        if (audio.paused) {
+          audio.volume = 0.6;
+          audio.play();
+          console('WeixinJSBridgeReady');
+        }
+        // audio.play();
       }, false);
     }
     audioAutoPlay();

@@ -438,12 +438,6 @@ body {
 }
 /* 主体内容部分 */
 /* svg通用样式 */
-polygon {
-  stroke: #5A5D66;
-  stroke-width: 1;
-  stroke-linejoin: round;
-  stroke-miterlimit: 10;
-}
 .h_container {
   position: absolute;
   top: 0;
@@ -452,6 +446,12 @@ polygon {
   width: 100%;
   z-index: 2;
   overflow: hidden;
+  polygon {
+    stroke: #5A5D66;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+  }
   > div {
     height: 100%;
   }
@@ -2509,16 +2509,18 @@ polygon {
         }
         .page9_mask {
           bottom: rem(20);
-          left: 50%;
-          transform: translateX(-50%);
+          left: 0;
+          // width: 100%;
+          right: 0;
+          margin: auto;
           width: 82vw;
           z-index: 1;
         }
         .f-full {
-          bottom: rem(23);
+          bottom: rem(20.7);
           left: 0;
           right: 0;
-          width: 42.2vw;
+          width: 43.2vw;
           margin: auto;
           z-index: 0;
         }
@@ -2603,14 +2605,13 @@ polygon {
         }
         .bucket_container {
           .page9_mask {
-            bottom: rem(45);
+            bottom: rem(44);
             width: 100%;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
           }
           .f-full {
-            bottom: rem(46);
-            width: 49vw;
+            bottom: rem(45);
+            width: 49.2vw;
           }
         }
       }
@@ -2695,5 +2696,12 @@ polygon {
   > span {
     height: 100%;
     flex: 0 0 rem(120);
+  }
+  &.active {
+    z-index: 2;
+    height: rem(85);
+    > span {
+      flex: 0 0 rem(85);
+    }
   }
 }

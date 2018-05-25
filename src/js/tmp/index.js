@@ -2,7 +2,7 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-25 17:59:14
+ * @Last Modified time: 2018-05-25 21:57:18
  */
 var ZMF = (function (doc) {
   const $arr = (function () {
@@ -68,7 +68,7 @@ var ZMF = (function (doc) {
       this.queue = new createjs.LoadQueue(false);
       // this.queue.installPlugin(createjs.Sound);
       // createjs.Sound.alternateExtensions = ["mp3,wav"];
-      // this.queue.loadFile({ id: "sound", src: "css/Feel-Like-Smiling.mp3" });
+      // this.queue.loadFile({ id: "sound", src: "css/UpbeatSummerPop.mp3" });
       this.queue.loadManifest([
         // page1
         { id: 'bird_purple', src: 'bird_purple.png' },
@@ -145,7 +145,7 @@ var ZMF = (function (doc) {
           setTimeout(() => {
             _this.pageplay('.page6');
             if (isIphoneX) {
-              $('.h_foot').css('z-index', '');
+              $('.h_foot').removeClass('active');
             }
           }, 600);
         }
@@ -333,6 +333,20 @@ var ZMF = (function (doc) {
         } else {
           $(img).addClass('f-full');
         }
+        // --------------------------------
+        // var img = new Image();
+        // var base64 = '';
+        // base64 = canvas.toDataURL("image/png");
+        // img.src = base64;
+        // $(to).append(img);
+        // if (to == '.page9') {
+        //   $(img).css({
+        //     "width": canvas.width / 2 + "px",
+        //     "height": canvas.height / 2 + "px",
+        //   }).addClass('f-full');
+        // } else {
+        //   $(img).addClass('f-full');
+        // }
         // -----------------------------------
         // var img = new Image();
         // var base64 = '';
@@ -372,178 +386,364 @@ var ZMF = (function (doc) {
     },
     events: function () {
       let _this = this;
-      for(let i = 1; i <= 9; i++) {
-        if (i == 1) {
-          $(".page1 input[type='text']").on('change', function () {
-            $(this).val() ? $('.page1 .input_box').addClass('active') : $('.page1 .input_box').removeClass('active');
-            let audioBg = $('#audioBg')[0];
-            audioBg.load();
-            if (audioBg) {
-              console.log('play');
-              audioBg.volume = 0.2;
-              audioBg.play();
-              document.addEventListener('WeixinJSBridgeReady', () => {
-                audioBg.load();
-                audioBg.play();
-              }, false)
+      // page1点击事件
+      $(".page1 input[type='text']").on('change', function () {
+        $(this).val() ? $('.page1 .input_box').addClass('active') : $('.page1 .input_box').removeClass('active');
+        // let audioBg = document.getElementById('audioBg');
+        // audioBg.load();
+        // if (audioBg) {
+        //   console.log('play');
+        //   audioBg.volume = 0.2;
+        //   audioBg.play();
+        //   document.addEventListener('WeixinJSBridgeReady', () => {
+        //     audioBg.load();
+        //     audioBg.play();
+        //   }, false)
+        // }
+        $('.page2 img').each(function () {
+          $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+        });
+        if ($('.page1 .input_box').hasClass('active')) {
+          $('.page1 .go').on({
+            'touchstart': function () {
               $('.page2 img').each(function () {
                 $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
               });
-            }
-            if ($('.page1 .input_box').hasClass('active')) {
-              $('.page1 .go').on({
-                'touchstart': function () {
-                  $('.page2 img').each(function () {
-                    $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-                  });
-                }, 'click': function () {
-                  _this.pageplay('.page2');
-                  let user = $('.page1 input').val()
-                  $('.user').text(user)
-                }
-              });
-            } else {
-              $('.page1 .go').off();
-            }
-          });
-        } else if (i == 3) {
-          $('.page3 .actor').on('click', function () {
-            if ($('.page3 .actor.active').length >= 3) return
-            let flag = $(this).hasClass('active');
-            flag ? $(this).removeClass('active') : $(this).addClass('active');
-            let length = $('.page3 .actor.active').length
-            if (length == 3) {
-              $('.page3 .actor.active').each(function () {
-                _this.actorArr.push({ 'index': $(this).data('index'), 'text': $(this).data('text')});
-              });
-              $('.page3 .logo').addClass('active');
-              $('.page4 img').each(function () {
-                $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-              });
-              setTimeout(() => {
-                _this.pageplay('.page4');
-                $('.page3 .logo').removeClass('active');
-                $('.page3 .actor').removeClass('active');
-              }, 1200);
-              _this.actorArr.sort(function (a, b) {
-                var value1 = a['index'];
-                var value2 = b['index'];
-                return value1 - value2;
-              })
-              console.log(_this.actorArr);
-              // page6页面 礼物文字
-              $('.page6 .gift_text').each(function (index) {
-                $(this).text(_this.actorArr[index].text);
-              });
-              let no = 0;
-              let judge = function () {
-                let index = $(this).data('index')
-                if (index == _this.actorArr[0].index || index == _this.actorArr[1].index || index == _this.actorArr[2].index) {
-                  no < 3 ? no++ : no = 1;
-                  $(this).addClass('visible' + no)
-                  if (no == 1) {
-                    $(this).addClass('active');
-                  }
-                }
-              }
-              $('.page7 .diy_element li').each(judge).on('click', function () {
-                let index = $(this).index()
-                if ($(this).hasClass('active')) return;
-                $(this).addClass('active').siblings().removeClass('active');
-                $('.diy_element .labels > div').eq(index).addClass('active').siblings().removeClass('active');
-                $('.diy_element .labels > div:eq('+ index +') img').each(function () {
-                  $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-                })
-              });
-              $('.page7 .diy_element .labels > div').each(judge);
-              // console.log(_this.createRandom(_this.actorArr));
-              let bucketIndex = _this.createRandom(_this.actorArr);
-              $('.page9 .bucket').text($textArr[bucketIndex].name);
-              $('.page9 .bucketDes').text($textArr[bucketIndex].des);
-            } else {
-              _this.actorArr = [];
-            };
-          });
-        } else if (i == 4) {
-          $('.page4 .go').on({
-            'touchstart': function () {
-              $('.page5 img').each(function () {
-                $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-              });
             }, 'click': function () {
-              $('.page5').siblings().css('display', 'none').end().css('display', 'block');
-              _this.mask_square();
-              if (isIphoneX) {
-                $('.page5').addClass('iphoneX');
-                $('.h_foot').css('z-index', '2');
-              }
+              _this.pageplay('.page2');
+              let user = $('.page1 input').val()
+              $('.user').text(user)
             }
           });
-        } else if (i == 6) {
-          $('.page6 .go').on({
-            'touchstart': function () {
-              $('.page7 .diy_container img').each(function () {
-                $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-              });
-              $(".page7 .diy_element .labels .active img").each(function () {
-                $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-              });
-              // $(".page7 .diy_element .labels > div:last img").each(function () {
-              //   $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-              // });
-              $(".page7 .go img").each(function () {
-                $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-              });
-            }, 'click': function () {
-              $('.page7').siblings().css('display', 'none').end().css('display', 'block');
-              $('.h_foot').css('display', 'none');
-              if (isIphoneX) {
-                $('.page7 .diy_container').addClass('iphoneX');
-                $('.page7 .diy_element').addClass('iphoneX');
-              } else {
-                $('.page7 .diy_element').removeClass('iphoneX');
-              }
-            }
+        } else {
+          $('.page1 .go').off();
+        }
+      });
+      // page3点击事件
+      $('.page3 .actor').on('click', function () {
+        if ($('.page3 .actor.active').length >= 3) return
+        let flag = $(this).hasClass('active');
+        flag ? $(this).removeClass('active') : $(this).addClass('active');
+        let length = $('.page3 .actor.active').length
+        if (length == 3) {
+          $('.page3 .actor.active').each(function () {
+            _this.actorArr.push({ 'index': $(this).data('index'), 'text': $(this).data('text') });
           });
-        } else if (i == 7) {
-          $('.page7 .diy_right li').on({'touchstart': function () {
-            if ($(this).hasClass('active')) return
-            let index = $(this).index() + 1;
-            let src = $('.diy_bg img').attr('src').split('.png')[0].slice(0, -1);
-            $('.diy_bg img').attr('src', src + index + '.png');
-          }, 'click': function () {
-            $(this).addClass('active').siblings().removeClass('active');
-          }});
-          $('.page7 .go').on({'touchstart': function () {
-            _this.convert2canvas('.page7 .diy_box', '.page9 .bucket_container');
-            // _this.drawCanvas('.page7 .diy_box', '.page9 .bucket_container');
-            $('.page8 img').each(function () {
-              $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-            });
-            $('.page9 img').each(function () {
-              $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-            });
-          }, 'click': function () {
-            $('.page8').siblings().css('display', 'none').end().css('display', 'block');
-            $('.h_foot').css('display', '');
-          }});
-        } else if (i == 8) {
-          $('.page8').on('touchstart', function (e) {
-            console.log(e.touches[0].target.className)
-            $('.page9').siblings().css('display', 'none').end().css('display', 'block');
-            if (isIphoneX) $('.page9').addClass('iphoneX');
-            if (e.touches[0].target.className == 'go') {
-              $('.page9 .share_mask').addClass('active');
-              setTimeout(() => {
-                _this.convert2canvas('.page9 .container', '.page9');
-              }, 3000);
-            } else {
-              $('.page9 .share_mask').removeClass('active');
-              setTimeout(() => {
-                _this.convert2canvas('.page9 .container', '.page9');
-              }, 2000);
-            }
+          $('.page3 .logo').addClass('active');
+          $('.page4 img').each(function () {
+            $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          });
+          setTimeout(() => {
+            _this.pageplay('.page4');
+            $('.page3 .logo').removeClass('active');
+            $('.page3 .actor').removeClass('active');
+          }, 1200);
+          _this.actorArr.sort(function (a, b) {
+            var value1 = a['index'];
+            var value2 = b['index'];
+            return value1 - value2;
           })
+          console.log(_this.actorArr);
+          // page6页面 礼物文字
+          $('.page6 .gift_text').each(function (index) {
+            $(this).text(_this.actorArr[index].text);
+          });
+          let no = 0;
+          let judge = function () {
+            let index = $(this).data('index')
+            if (index == _this.actorArr[0].index || index == _this.actorArr[1].index || index == _this.actorArr[2].index) {
+              no < 3 ? no++ : no = 1;
+              $(this).addClass('visible' + no)
+              if (no == 1) {
+                $(this).addClass('active');
+              }
+            }
+          }
+          $('.page7 .diy_element li').each(judge).on('click', function () {
+            let index = $(this).index()
+            if ($(this).hasClass('active')) return;
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.diy_element .labels > div').eq(index).addClass('active').siblings().removeClass('active');
+            $('.diy_element .labels > div:eq(' + index + ') img').each(function () {
+              $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+            })
+          });
+          $('.page7 .diy_element .labels > div').each(judge);
+          // console.log(_this.createRandom(_this.actorArr));
+          let bucketIndex = _this.createRandom(_this.actorArr);
+          $('.page9 .bucket').text($textArr[bucketIndex].name);
+          $('.page9 .bucketDes').text($textArr[bucketIndex].des);
+        } else {
+          _this.actorArr = [];
+        };
+      });
+      // page4点击事件
+      $('.page4 .go').on({
+        'touchstart': function () {
+          $('.page5 img').each(function () {
+            $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          });
+        }, 'click': function () {
+          $('.page5').siblings().css('display', 'none').end().css('display', 'block');
+          _this.mask_square();
+          if (isIphoneX) {
+            $('.page5').addClass('iphoneX');
+            $('.h_foot').addClass('active');
+          }
+        }
+      });
+      // page2点击事件
+      $('.page2 .go').on({
+        'touchstart': function () {
+          $('.page3 img').each(function () {
+            $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          });
+        }, 'click': function () {
+          $('.page3').siblings().css('display', 'none').end().css('display', 'block');
+        }
+      });
+      // page6点击事件
+      $('.page6 .go').on({
+        'touchstart': function () {
+          $('.page7 .diy_container img').each(function () {
+            $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          });
+          $(".page7 .diy_element .labels .active img").each(function () {
+            $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          });
+          // $(".page7 .diy_element .labels > div:last img").each(function () {
+          //   $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          // });
+          $(".page7 .go img").each(function () {
+            $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          });
+        }, 'click': function () {
+          $('.page7').siblings().css('display', 'none').end().css('display', 'block');
+          $('.h_foot').css('display', 'none');
+          if (isIphoneX) {
+            $('.page7 .diy_container').addClass('iphoneX');
+            $('.page7 .diy_element').addClass('iphoneX');
+          } else {
+            $('.page7 .diy_element').removeClass('iphoneX');
+          }
+        }
+      });
+      // page7点击事件
+      $('.page7 .diy_right li').on({
+        'touchstart': function () {
+          if ($(this).hasClass('active')) return
+          let index = $(this).index() + 1;
+          let src = $('.diy_bg img').attr('src').split('.png')[0].slice(0, -1);
+          $('.diy_bg img').attr('src', src + index + '.png');
+        }, 'click': function () {
+          $(this).addClass('active').siblings().removeClass('active');
+        }
+      });
+      $('.page7 .go').on({
+        'touchstart': function () {
+          _this.convert2canvas('.page7 .diy_box', '.page9 .bucket_container');
+          // _this.drawCanvas('.page7 .diy_box', '.page9 .bucket_container');
+          $('.page8 img').each(function () {
+            $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          });
+          $('.page9 img').each(function () {
+            $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          });
+        }, 'click': function () {
+          $('.page8').siblings().css('display', 'none').end().css('display', 'block');
+          $('.h_foot').css('display', '');
+        }
+      });
+      // page8点击事件
+      $('.page8').on('touchstart', function (e) {
+        console.log(e.touches[0].target.className)
+        $('.page9').siblings().css('display', 'none').end().css('display', 'block');
+        if (isIphoneX) $('.page9').addClass('iphoneX');
+        if (e.touches[0].target.className == 'go') {
+          $('.page9 .share_mask').addClass('active');
+          setTimeout(() => {
+            _this.convert2canvas('.page9 .container', '.page9');
+          }, 3000);
+        } else {
+          $('.page9 .share_mask').removeClass('active');
+          setTimeout(() => {
+            _this.convert2canvas('.page9 .container', '.page9');
+          }, 3000);
+        }
+      })
+      for(let i = 1; i <= 9; i++) {
+        if (i == 1) {
+          // $(".page1 input[type='text']").on('change', function () {
+          //   $(this).val() ? $('.page1 .input_box').addClass('active') : $('.page1 .input_box').removeClass('active');
+          //   let audioBg = $('#audioBg')[0];
+          //   audioBg.load();
+          //   if (audioBg) {
+          //     console.log('play');
+          //     audioBg.volume = 0.2;
+          //     audioBg.play();
+          //     document.addEventListener('WeixinJSBridgeReady', () => {
+          //       audioBg.load();
+          //       audioBg.play();
+          //     }, false)
+          //     $('.page2 img').each(function () {
+          //       $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //     });
+          //   }
+          //   if ($('.page1 .input_box').hasClass('active')) {
+          //     $('.page1 .go').on({
+          //       'touchstart': function () {
+          //         $('.page2 img').each(function () {
+          //           $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //         });
+          //       }, 'click': function () {
+          //         _this.pageplay('.page2');
+          //         let user = $('.page1 input').val()
+          //         $('.user').text(user)
+          //       }
+          //     });
+          //   } else {
+          //     $('.page1 .go').off();
+          //   }
+          // });
+        } else if (i == 3) {
+          // $('.page3 .actor').on('click', function () {
+          //   if ($('.page3 .actor.active').length >= 3) return
+          //   let flag = $(this).hasClass('active');
+          //   flag ? $(this).removeClass('active') : $(this).addClass('active');
+          //   let length = $('.page3 .actor.active').length
+          //   if (length == 3) {
+          //     $('.page3 .actor.active').each(function () {
+          //       _this.actorArr.push({ 'index': $(this).data('index'), 'text': $(this).data('text')});
+          //     });
+          //     $('.page3 .logo').addClass('active');
+          //     $('.page4 img').each(function () {
+          //       $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //     });
+          //     setTimeout(() => {
+          //       _this.pageplay('.page4');
+          //       $('.page3 .logo').removeClass('active');
+          //       $('.page3 .actor').removeClass('active');
+          //     }, 1200);
+          //     _this.actorArr.sort(function (a, b) {
+          //       var value1 = a['index'];
+          //       var value2 = b['index'];
+          //       return value1 - value2;
+          //     })
+          //     console.log(_this.actorArr);
+          //     // page6页面 礼物文字
+          //     $('.page6 .gift_text').each(function (index) {
+          //       $(this).text(_this.actorArr[index].text);
+          //     });
+          //     let no = 0;
+          //     let judge = function () {
+          //       let index = $(this).data('index')
+          //       if (index == _this.actorArr[0].index || index == _this.actorArr[1].index || index == _this.actorArr[2].index) {
+          //         no < 3 ? no++ : no = 1;
+          //         $(this).addClass('visible' + no)
+          //         if (no == 1) {
+          //           $(this).addClass('active');
+          //         }
+          //       }
+          //     }
+          //     $('.page7 .diy_element li').each(judge).on('click', function () {
+          //       let index = $(this).index()
+          //       if ($(this).hasClass('active')) return;
+          //       $(this).addClass('active').siblings().removeClass('active');
+          //       $('.diy_element .labels > div').eq(index).addClass('active').siblings().removeClass('active');
+          //       $('.diy_element .labels > div:eq('+ index +') img').each(function () {
+          //         $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //       })
+          //     });
+          //     $('.page7 .diy_element .labels > div').each(judge);
+          //     // console.log(_this.createRandom(_this.actorArr));
+          //     let bucketIndex = _this.createRandom(_this.actorArr);
+          //     $('.page9 .bucket').text($textArr[bucketIndex].name);
+          //     $('.page9 .bucketDes').text($textArr[bucketIndex].des);
+          //   } else {
+          //     _this.actorArr = [];
+          //   };
+          // });
+        } else if (i == 4) {
+          // $('.page4 .go').on({
+          //   'touchstart': function () {
+          //     $('.page5 img').each(function () {
+          //       $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //     });
+          //   }, 'click': function () {
+          //     $('.page5').siblings().css('display', 'none').end().css('display', 'block');
+          //     _this.mask_square();
+          //     if (isIphoneX) {
+          //       $('.page5').addClass('iphoneX');
+          //       $('.h_foot').css('z-index', '2');
+          //     }
+          //   }
+          // });
+        } else if (i == 6) {
+          // $('.page6 .go').on({
+          //   'touchstart': function () {
+          //     $('.page7 .diy_container img').each(function () {
+          //       $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //     });
+          //     $(".page7 .diy_element .labels .active img").each(function () {
+          //       $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //     });
+          //     // $(".page7 .diy_element .labels > div:last img").each(function () {
+          //     //   $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //     // });
+          //     $(".page7 .go img").each(function () {
+          //       $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //     });
+          //   }, 'click': function () {
+          //     $('.page7').siblings().css('display', 'none').end().css('display', 'block');
+          //     $('.h_foot').css('display', 'none');
+          //     if (isIphoneX) {
+          //       $('.page7 .diy_container').addClass('iphoneX');
+          //       $('.page7 .diy_element').addClass('iphoneX');
+          //     } else {
+          //       $('.page7 .diy_element').removeClass('iphoneX');
+          //     }
+          //   }
+          // });
+        } else if (i == 7) {
+          // $('.page7 .diy_right li').on({'touchstart': function () {
+          //   if ($(this).hasClass('active')) return
+          //   let index = $(this).index() + 1;
+          //   let src = $('.diy_bg img').attr('src').split('.png')[0].slice(0, -1);
+          //   $('.diy_bg img').attr('src', src + index + '.png');
+          // }, 'click': function () {
+          //   $(this).addClass('active').siblings().removeClass('active');
+          // }});
+          // $('.page7 .go').on({'touchstart': function () {
+          //   _this.convert2canvas('.page7 .diy_box', '.page9 .bucket_container');
+          //   // _this.drawCanvas('.page7 .diy_box', '.page9 .bucket_container');
+          //   $('.page8 img').each(function () {
+          //     $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //   });
+          //   $('.page9 img').each(function () {
+          //     $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //   });
+          // }, 'click': function () {
+          //   $('.page8').siblings().css('display', 'none').end().css('display', 'block');
+          //   $('.h_foot').css('display', '');
+          // }});
+        } else if (i == 8) {
+          // $('.page8').on('touchstart', function (e) {
+          //   console.log(e.touches[0].target.className)
+          //   $('.page9').siblings().css('display', 'none').end().css('display', 'block');
+          //   if (isIphoneX) $('.page9').addClass('iphoneX');
+          //   if (e.touches[0].target.className == 'go') {
+          //     $('.page9 .share_mask').addClass('active');
+          //     setTimeout(() => {
+          //       _this.convert2canvas('.page9 .container', '.page9');
+          //     }, 3000);
+          //   } else {
+          //     $('.page9 .share_mask').removeClass('active');
+          //     setTimeout(() => {
+          //       _this.convert2canvas('.page9 .container', '.page9');
+          //     }, 2000);
+          //   }
+          // })
+          // ---------------------------
           // $('.page8 .go').on({
           //   'touchstart': function () {
           //     $('.page9 img').each(function () {
@@ -557,14 +757,14 @@ var ZMF = (function (doc) {
           //   }
           // });
         } else {
-          let next = i + 1;
-          $('.page' + i + ' .go').on({'touchstart': function () {
-            $('.page' + next + ' img').each(function () {
-              $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
-            });
-          }, 'click': function () {
-            $('.page' + next).siblings().css('display', 'none').end().css('display', 'block');
-          }});
+          // let next = i + 1;
+          // $('.page' + i + ' .go').on({'touchstart': function () {
+          //   $('.page' + next + ' img').each(function () {
+          //     $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+          //   });
+          // }, 'click': function () {
+          //   $('.page' + next).siblings().css('display', 'none').end().css('display', 'block');
+          // }});
         }
       };
       $('.page6 .take_gift .next').on('click', function () {

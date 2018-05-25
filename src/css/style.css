@@ -350,12 +350,6 @@ body {
 
 /* 主体内容部分 */
 /* svg通用样式 */
-polygon {
-  stroke: #5A5D66;
-  stroke-width: 1;
-  stroke-linejoin: round;
-  stroke-miterlimit: 10; }
-
 .h_container {
   position: absolute;
   top: 0;
@@ -364,6 +358,11 @@ polygon {
   width: 100%;
   z-index: 2;
   overflow: hidden; }
+  .h_container polygon {
+    stroke: #5A5D66;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10; }
   .h_container > div {
     height: 100%; }
   .h_container > div > div {
@@ -2184,15 +2183,16 @@ polygon {
         position: absolute; }
       .page9 .container > div:first-of-type .bucket_container .page9_mask {
         bottom: 0.26667rem;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        right: 0;
+        margin: auto;
         width: 82vw;
         z-index: 1; }
       .page9 .container > div:first-of-type .bucket_container .f-full {
-        bottom: 0.30667rem;
+        bottom: 0.276rem;
         left: 0;
         right: 0;
-        width: 42.2vw;
+        width: 43.2vw;
         margin: auto;
         z-index: 0; }
     .page9 .container > div:first-of-type > div:last-of-type {
@@ -2224,14 +2224,13 @@ polygon {
     line-height: 0.26667rem; }
 
 .page9.iphoneX .container > div:first-of-type .bucket_container .page9_mask {
-  bottom: 0.6rem;
+  bottom: 0.58667rem;
   width: 100%;
-  left: 50%;
-  transform: translateX(-50%); }
+  left: 0; }
 
 .page9.iphoneX .container > div:first-of-type .bucket_container .f-full {
-  bottom: 0.61333rem;
-  width: 49vw; }
+  bottom: 0.6rem;
+  width: 49.2vw; }
 
 .page9.iphoneX .container > div:last-of-type {
   flex: 0 0 1.73333rem; }
@@ -2303,3 +2302,8 @@ polygon {
   .h_foot > span {
     height: 100%;
     flex: 0 0 1.6rem; }
+  .h_foot.active {
+    z-index: 2;
+    height: 1.13333rem; }
+    .h_foot.active > span {
+      flex: 0 0 1.13333rem; }

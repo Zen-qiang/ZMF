@@ -1155,17 +1155,26 @@ polygon {
     height: 100%; }
   .page5 .bg img {
     position: absolute;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     vertical-align: middle; }
-    .page5 .bg img:first-of-type {
-      display: inline-block; }
-    .page5 .bg img:last-of-type {
-      display: none; }
-  .page5 .bg.active img:first-of-type {
+  .page5 .bg .page5_normal {
+    display: inline-block; }
+  .page5 .bg .page5_normal_active, .page5 .bg .page5_x, .page5 .bg .page5_x_active {
     display: none; }
-  .page5 .bg.active img:last-of-type {
+  .page5 .bg.active .page5_normal_active {
+    display: inline-block; }
+  .page5 .bg.active .page5_normal {
+    display: none; }
+  .page5.iphoneX .bg .page5_normal, .page5.iphoneX .bg .page5_normal_active, .page5.iphoneX .bg .page5_x_active {
+    display: none; }
+  .page5.iphoneX .bg .page5_x {
+    display: inline-block; }
+  .page5.iphoneX .bg.active .page5_x {
+    display: none; }
+  .page5.iphoneX .bg.active .page5_x_active {
     display: inline-block; }
   .page5 .mask_square {
     position: relative;
@@ -1353,6 +1362,178 @@ polygon {
       height: 16vw;
       top: 131.5vw;
       left: 79vw; }
+  .page5.iphoneX .mask_square > span:first-of-type {
+    top: 36vw;
+    width: 16vw;
+    width: 16.2vw;
+    left: 16vw;
+    top: 35vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(2) {
+    top: 36vw;
+    width: 16vw;
+    left: 39.1vw;
+    width: 15.7vw;
+    top: 35vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(3) {
+    top: 36vw;
+    width: 16vw;
+    left: 71.5vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(4) {
+    top: 71.5vw;
+    width: 14vw;
+    height: 22vw;
+    left: 13vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(5) {
+    top: 71.5vw;
+    width: 14vw;
+    height: 22vw;
+    left: 29.5vw;
+    width: 15.8vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(6) {
+    top: 71.5vw;
+    width: 14vw;
+    height: 22vw;
+    left: 55vw;
+    top: 72vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(7) {
+    top: 71.5vw;
+    width: 14vw;
+    height: 22vw;
+    top: 72.5vw;
+    left: 72vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(8) {
+    top: 97vw;
+    width: 12vw;
+    left: 12vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(9) {
+    top: 97vw;
+    width: 12vw;
+    left: 25.4vw;
+    top: 97vw;
+    width: 12vw;
+    height: 19vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(10) {
+    top: 97vw;
+    width: 12vw;
+    left: 45vw;
+    top: 98.5vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(11) {
+    top: 97vw;
+    width: 12vw;
+    left: 59vw;
+    top: 98.5vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(12) {
+    top: 97vw;
+    width: 12vw;
+    left: 79vw;
+    top: 99vw;
+    width: 11vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(13) {
+    top: 120vw;
+    width: 9.5vw;
+    height: 19vw;
+    width: 9.2vw;
+    left: 10vw;
+    height: 18vw;
+    top: 119.5vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(14) {
+    top: 120vw;
+    width: 9.5vw;
+    height: 19vw;
+    left: 29.5vw;
+    top: 118.7vw;
+    width: 9.8vw;
+    height: 20vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(15) {
+    top: 120vw;
+    width: 9.5vw;
+    height: 19vw;
+    left: 43.3vw;
+    top: 119.2vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(16) {
+    top: 120vw;
+    width: 9.5vw;
+    height: 19vw;
+    left: 63.5vw;
+    width: 9.3vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(17) {
+    top: 120vw;
+    width: 9.5vw;
+    height: 19vw;
+    left: 76.5vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(18) {
+    top: 140vw;
+    width: 7.8vw;
+    height: 16vw;
+    width: 8.5vw;
+    left: 12vw;
+    top: 139.5vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(19) {
+    top: 140vw;
+    width: 7.8vw;
+    height: 16vw;
+    left: 23.4vw;
+    width: 8.1vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(20) {
+    top: 140vw;
+    width: 7.8vw;
+    height: 16vw;
+    left: 40vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(21) {
+    top: 140vw;
+    width: 7.8vw;
+    height: 16vw;
+    width: 8.2vw;
+    left: 51vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(22) {
+    top: 140vw;
+    width: 7.8vw;
+    height: 16vw;
+    width: 8.2vw;
+    left: 67.5vw;
+    top: 140.3vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(23) {
+    top: 140vw;
+    width: 7.8vw;
+    height: 16vw;
+    width: 8.5vw;
+    left: 78.4vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(24) {
+    top: 155vw;
+    width: 8vw;
+    height: 16vw;
+    left: 12vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(25) {
+    top: 155vw;
+    width: 8vw;
+    height: 16vw;
+    left: 23.5vw;
+    top: 156vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(26) {
+    top: 155vw;
+    width: 8vw;
+    height: 16vw;
+    left: 40vw;
+    top: 156vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(27) {
+    top: 155vw;
+    width: 8vw;
+    height: 16vw;
+    left: 51vw;
+    top: 156.5vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(28) {
+    top: 155vw;
+    width: 8vw;
+    height: 16vw;
+    left: 67.6vw;
+    width: 7.5vw;
+    top: 157vw; }
+  .page5.iphoneX .mask_square > span:nth-of-type(29) {
+    top: 155vw;
+    width: 8vw;
+    height: 16vw;
+    left: 78.5vw;
+    top: 157vw; }
 
 .page6 [class^="square"] svg {
   float: left; }
@@ -1664,6 +1845,8 @@ polygon {
           display: inline-block;
           vertical-align: middle;
           line-height: 0.24rem; }
+  .page7 .diy_container.iphoneX {
+    top: 0.26667rem; }
 
 .page7 .diy_element {
   height: 2.13333rem;
@@ -1759,9 +1942,9 @@ polygon {
           max-height: 75%;
           max-width: 75%; }
   .page7 .diy_element.iphoneX {
-    height: 2.66667rem; }
+    height: 2.93333rem; }
     .page7 .diy_element.iphoneX > div {
-      height: 2.28rem; }
+      height: 2.54667rem; }
 
 .page7 .go {
   width: 1.33333rem;
@@ -1954,19 +2137,28 @@ polygon {
   .page9 .container > div:first-of-type {
     flex: auto;
     border: 0.02667rem solid #000;
-    padding: 0 0.10667rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    margin: 0.06667rem 0.13333rem 0 0.13333rem; }
+    margin: 0.06667rem 0.13333rem 0 0.13333rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; }
+    .page9 .container > div:first-of-type .page9_bg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1; }
     .page9 .container > div:first-of-type .bucket_content {
-      color: #2a2f7d; }
+      color: #2a2f7d;
+      padding: 0 0.10667rem; }
       .page9 .container > div:first-of-type .bucket_content > p:first-of-type {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0.10667rem 0;
-        height: 0.50667rem; }
+        height: 0.56rem; }
         .page9 .container > div:first-of-type .bucket_content > p:first-of-type > span:first-of-type {
           font-size: 0.26667rem;
           padding-left: 0.21333rem;
@@ -1978,31 +2170,29 @@ polygon {
           font-size: 0.29333rem;
           background: #2a2f7d;
           color: #fde833;
-          padding: 0 0.08rem;
+          padding: 0.01333rem 0.08rem;
           border-radius: 0.08rem; }
       .page9 .container > div:first-of-type .bucket_content .bucketDes {
         margin-top: 0.08rem;
         font-size: 0.18667rem;
-        line-height: 0.22667rem; }
+        line-height: 0.24rem;
+        text-indent: 2ch; }
     .page9 .container > div:first-of-type .bucket_container {
       flex: auto;
       position: relative; }
       .page9 .container > div:first-of-type .bucket_container img {
         position: absolute; }
-      .page9 .container > div:first-of-type .bucket_container .page9_bg {
-        bottom: 0;
-        left: 0;
-        width: 100%; }
       .page9 .container > div:first-of-type .bucket_container .page9_mask {
-        bottom: 0.10667rem;
-        left: 0;
-        width: 100%;
+        bottom: 0.26667rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 82vw;
         z-index: 1; }
       .page9 .container > div:first-of-type .bucket_container .f-full {
-        bottom: 0.41333rem;
+        bottom: 0.30667rem;
         left: 0;
         right: 0;
-        width: 40.5vw;
+        width: 42.2vw;
         margin: auto;
         z-index: 0; }
     .page9 .container > div:first-of-type > div:last-of-type {
@@ -2010,7 +2200,7 @@ polygon {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 0.08rem; }
+      padding: 0 0.10667rem 0.08rem; }
       .page9 .container > div:first-of-type > div:last-of-type > img {
         height: 100%; }
   .page9 .container > div:last-of-type {
@@ -2020,6 +2210,34 @@ polygon {
     .page9 .container > div:last-of-type img {
       vertical-align: middle;
       width: 100%; }
+
+.page9.iphoneX .container > div:first-of-type .bucket_content {
+  margin-top: 0.16rem; }
+  .page9.iphoneX .container > div:first-of-type .bucket_content > p:first-of-type {
+    height: 0.61333rem; }
+    .page9.iphoneX .container > div:first-of-type .bucket_content > p:first-of-type > span:first-of-type {
+      padding-left: 0; }
+    .page9.iphoneX .container > div:first-of-type .bucket_content > p:first-of-type .bucket {
+      font-size: 0.4rem; }
+  .page9.iphoneX .container > div:first-of-type .bucket_content .bucketDes {
+    font-size: 0.21333rem;
+    line-height: 0.26667rem; }
+
+.page9.iphoneX .container > div:first-of-type .bucket_container .page9_mask {
+  bottom: 0.6rem;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.page9.iphoneX .container > div:first-of-type .bucket_container .f-full {
+  bottom: 0.61333rem;
+  width: 49vw; }
+
+.page9.iphoneX .container > div:last-of-type {
+  flex: 0 0 1.73333rem; }
+
+.page9.iphoneX .reset {
+  bottom: 1.97333rem; }
 
 @keyframes resetLoaded {
   from {

@@ -133,6 +133,9 @@
     </div>
     <p>loading<span class="dotting"></span></p>
     <span class="loading_text">0 %</span>
+    <audio style="display: none;" id="audioBg" preload="auto" loop="loop">
+      <source src="css/UpbeatSummerPop.mp3">
+    </audio>
   </div>
   <section class="h_container">
     <div class="page1" hidden>
@@ -258,7 +261,7 @@
         <div class="bounceInLeft">
           <img data-src="image/dialog_left.gif">
           <div>
-            <p>Rock Bird:Hey Bro!<br>你准备好跟我一起去ZMF热播音乐节现场了吗？我叫墨菲斯，喜欢摇滚乐，你叫什么？</p>
+            <p>Rock Bird:Hey Bro!<br>你准备好跟我一起去ZMF热波音乐节现场了吗？我叫墨菲斯，喜欢摇滚乐，你叫什么？</p>
           </div>
         </div>
         <div class="bounceInRight">
@@ -465,8 +468,10 @@
     </div>
     <div class="page5" hidden>
       <div class="bg">
-        <img data-src="image/page5_bg.png">
-        <img data-src="image/page5_bg_active.png">
+        <img class="page5_normal" data-src="image/page5_bg.png">
+        <img class="page5_normal_active" data-src="image/page5_bg_active.png">
+        <img class="page5_x" data-src="image/page5_bg_x.png">
+        <img class="page5_x_active" data-src="image/page5_bg_active_x.jpg">
       </div>
       <div class="mask_square">
         <span>
@@ -946,18 +951,17 @@
     <div class="page9" hidden>
       <div class="container">
         <div>
+          <img class="page9_bg" data-src="image/page9_bg.jpg">
           <div class="bucket_content">
             <p><span><span class="user">jerry</span>是一只</span><span class="bucket">感性桶</span></p>
             <p class="bucketDes">看似坚强能干的你其实拥有着柔软的内心，你总能被这个世界上一些看似不起眼的小事情和小人物打动。由于心地很善良，所以总不愿伤害别人。有时会觉得自己与其他人不一样、喜欢沉醉于自己的想象世界。</p>
           </div>
           <div class="bucket_container">
-            <img class="page9_bg" data-src="image/page9_bg.png">
-            <img class="page9_mask" data-src="image/page9_mask.jpg">
-            <!-- <img data-src="image/shading2.png"> -->
+            <img class="page9_mask" data-src="image/page9_mask.png">
           </div>
           <div>
             <img data-src="image/page9_bhhj.png">
-            <img data-src="image/page9_qrcode.png">
+            <img data-src="image/page9_qrcode.jpg">
           </div>
         </div>
         <div>
@@ -1047,7 +1051,6 @@
         <path class="st0" d="M2116.9 41.1l-9-23.1.2 4.6 8 21.4 70.7-25.6.1-1.6z" />
       </svg>
     </span>
-    <audio style="display: none" id="audioBg" data-src="css/Feel-Like-Smiling.mp3" loop autoplay preload="auto"></audio>
   </footer>
 </body>
 </html>
@@ -1057,4 +1060,5 @@
   if (window.ZMF) {
     ZMF.init();
   }
+  // 2018.5.25
 </script>

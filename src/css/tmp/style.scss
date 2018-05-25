@@ -1322,23 +1322,40 @@ polygon {
   .bg {
     img {
       position: absolute;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       // height: 100%;
       width: 100%;
       vertical-align: middle;
-      &:first-of-type {
-        display: inline-block;
+    }
+    .page5_normal {
+      display: inline-block;
+    }
+    .page5_normal_active, .page5_x, .page5_x_active {
+      display: none;
+    }
+    &.active {
+      .page5_normal_active {
+      display: inline-block;
       }
-      &:last-of-type {
+      .page5_normal {
         display: none;
       }
     }
+  }
+  &.iphoneX .bg {
+    .page5_normal, .page5_normal_active, .page5_x_active {
+      display: none;
+    }
+    .page5_x {
+      display: inline-block;
+    }
     &.active {
-      img:first-of-type {
+      .page5_x {
         display: none;
       }
-      img:last-of-type {
+      .page5_x_active {
         display: inline-block;
       }
     }
@@ -1533,6 +1550,187 @@ polygon {
       @include row6;
       top: 131.5vw;
       left: 79vw;
+    }
+  }
+  &.iphoneX .mask_square {
+    @mixin row1 {
+      top: 36vw;
+      width: 16vw;
+    }
+    > span:first-of-type {
+      @include row1;
+      width: 16.2vw;
+      left: 16vw;
+      top: 35vw;
+    }
+    > span:nth-of-type(2) {
+      @include row1;
+      left: 39.1vw;
+      width: 15.7vw;
+      top: 35vw;
+    }
+    > span:nth-of-type(3) {
+      @include row1;
+      left: 71.5vw;
+    }
+    @mixin row2 {
+      top: 71.5vw;
+      width: 14vw;
+      height: 22vw;
+    }
+    > span:nth-of-type(4) {
+      @include row2;
+      left: 13vw;
+    }
+    > span:nth-of-type(5) {
+      @include row2;
+      left: 29.5vw;
+      width: 15.8vw;
+    }
+    > span:nth-of-type(6) {
+      @include row2;
+      left: 55vw;
+      top: 72vw;
+    }
+    > span:nth-of-type(7) {
+      @include row2;
+      top: 72.5vw;
+      left: 72vw;
+    }
+    @mixin row3 {
+      top: 97vw;
+      width: 12vw;
+    }
+    > span:nth-of-type(8) {
+      @include row3;
+      left: 12vw;
+    }
+    > span:nth-of-type(9) {
+      @include row3;
+      left: 25.4vw;
+      top: 97vw;
+      width: 12vw;
+      height: 19vw;
+    }
+    > span:nth-of-type(10) {
+      @include row3;
+      left: 45vw;
+      top: 98.5vw;
+    }
+    > span:nth-of-type(11) {
+      @include row3;
+      left: 59vw;
+      top: 98.5vw;
+    }
+    > span:nth-of-type(12) {
+      @include row3;
+      left: 79vw;
+      top: 99vw;
+      width: 11vw;
+    }
+    @mixin row4 {
+      top: 120vw;
+      width: 9.5vw;
+      height: 19vw;
+    }
+    > span:nth-of-type(13) {
+      @include row4;
+      width: 9.2vw;
+      left: 10vw;
+      height: 18vw;
+      top: 119.5vw;
+    }
+    > span:nth-of-type(14) {
+      @include row4;
+      left: 29.5vw;
+      top: 118.7vw;
+      width: 9.8vw;
+      height: 20vw;
+    }
+    > span:nth-of-type(15) {
+      @include row4;
+      left: 43.3vw;
+      top: 119.2vw;
+    }
+    > span:nth-of-type(16) {
+      @include row4;
+      left: 63.5vw;
+      width: 9.3vw;
+    }
+    > span:nth-of-type(17) {
+      @include row4;
+      left: 76.5vw;
+    }
+    @mixin row5 {
+      top: 140vw;
+      width: 7.8vw;
+      height: 16vw;
+    }
+    > span:nth-of-type(18) {
+      @include row5;
+      width: 8.5vw;
+      left: 12vw;
+      top: 139.5vw;
+    }
+    > span:nth-of-type(19) {
+      @include row5;
+      left: 23.4vw;
+      width: 8.1vw;
+    }
+    > span:nth-of-type(20) {
+      @include row5;
+      left: 40vw;
+    }
+    > span:nth-of-type(21) {
+      @include row5;
+      width: 8.2vw;
+      left: 51vw;
+    }
+    > span:nth-of-type(22) {
+      @include row5;
+      width: 8.2vw;
+      left: 67.5vw;
+      top: 140.3vw;
+    }
+    > span:nth-of-type(23) {
+      @include row5;
+      width: 8.5vw;
+      left: 78.4vw;
+    }
+    @mixin row6 {
+      top: 155vw;
+      width: 8vw;
+      height: 16vw;
+    }
+    > span:nth-of-type(24) {
+      @include row6;
+      left: 12vw;
+    }
+    > span:nth-of-type(25) {
+      @include row6;
+      left: 23.5vw;
+      top: 156vw;
+    }
+    > span:nth-of-type(26) {
+      @include row6;
+      left: 40vw;
+      top: 156vw;
+    }
+    > span:nth-of-type(27) {
+      @include row6;
+      left: 51vw;
+      top: 156.5vw;
+    }
+    > span:nth-of-type(28) {
+      @include row6;
+      left: 67.6vw;
+      width: 7.5vw;
+      top: 157vw;
+    }
+    > span:nth-of-type(29) {
+      @include row6;
+      left: 78.5vw;
+      top: 157vw;
     }
   }
 }
@@ -1907,6 +2105,9 @@ polygon {
         }
       }
     }
+    &.iphoneX {
+      top: rem(20);
+    }
   }
   .diy_element {
     height: rem(160);
@@ -2027,9 +2228,11 @@ polygon {
       }
     }
     &.iphoneX {
-      height: rem(200);
+      // height: rem(200);
+      height: rem(220);
       > div {
-        height: rem(171);
+        // height: rem(171);
+        height: rem(191);
       }
     }
   }
@@ -2250,19 +2453,30 @@ polygon {
     > div:first-of-type {
       flex: auto;
       border: rem(2) solid #000;
-      padding: 0 rem(8);
+      // padding: 0 rem(8);
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-between;
       margin: rem(5) rem(10) 0 rem(10);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      .page9_bg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+      }
       .bucket_content {
         color: #2a2f7d;
+        padding: 0 rem(8);
         > p:first-of-type {
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: rem(8) 0;
-          height: rem(38);
+          height: rem(42);
           > span:first-of-type {
             font-size: rem(20);
             padding-left: rem(16);
@@ -2276,14 +2490,15 @@ polygon {
             font-size: rem(22);
             background: #2a2f7d;
             color: #fde833;
-            padding: 0 rem(6);
+            padding: rem(1) rem(6);
             border-radius: rem(6);
           }
         }
         .bucketDes {
           margin-top: rem(6);
           font-size: rem(14);
-          line-height: rem(17);
+          line-height: rem(18);
+          text-indent: 2ch;
         }
       }
       .bucket_container {
@@ -2292,22 +2507,18 @@ polygon {
         img {
           position: absolute;
         }
-        .page9_bg {
-          bottom: 0;
-          left: 0;
-          width: 100%;
-        }
         .page9_mask {
-          bottom: rem(8);
-          left: 0;
-          width: 100%;
+          bottom: rem(20);
+          left: 50%;
+          transform: translateX(-50%);
+          width: 82vw;
           z-index: 1;
         }
         .f-full {
-          bottom: rem(31);
+          bottom: rem(23);
           left: 0;
           right: 0;
-          width: 40.5vw;
+          width: 42.2vw;
           margin: auto;
           z-index: 0;
         }
@@ -2317,7 +2528,7 @@ polygon {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: rem(6);
+        padding: 0 rem(8) rem(6);
         > img {
           height: 100%;
         }
@@ -2369,6 +2580,46 @@ polygon {
       //     object-fit: contain;
       //   }
       // }
+    }
+  }
+  &.iphoneX {
+    .container {
+      > div:first-of-type {
+        .bucket_content {
+          margin-top: rem(12);
+          > p:first-of-type {
+            height: rem(46);
+            > span:first-of-type {
+              padding-left: 0;
+            }
+            .bucket {
+              font-size: rem(30);
+            }
+          }
+          .bucketDes {
+            font-size: rem(16);
+            line-height: rem(20);
+          }
+        }
+        .bucket_container {
+          .page9_mask {
+            bottom: rem(45);
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          .f-full {
+            bottom: rem(46);
+            width: 49vw;
+          }
+        }
+      }
+      > div:last-of-type {
+        flex: 0 0 rem(130);
+      }
+    }
+    .reset {
+      bottom: rem(148);
     }
   }
   @keyframes resetLoaded {

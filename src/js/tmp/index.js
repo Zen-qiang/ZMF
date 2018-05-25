@@ -2,7 +2,7 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-24 21:09:18
+ * @Last Modified time: 2018-05-25 17:59:14
  */
 var ZMF = (function (doc) {
   const $arr = (function () {
@@ -90,13 +90,16 @@ var ZMF = (function (doc) {
         // page5
         { id: 'page5_bg', src: 'page5_bg.png' },
         { id: 'page5_bg_active', src: 'page5_bg_active.png' },
+        { id: 'page5_bg_x', src: 'page5_bg_x.png' },
+        { id: 'page5_bg_active_x', src: 'page5_bg_active_x.jpg' },
         // page6
         { id: 'page6_box', src: 'page6_box.png' },
         // page8
         { id: 'page8_bird', src: 'page8_bird.png' },
         { id: 'page8_lamp', src: 'page8_lamp.png' },
         // page9
-        { id: 'page8_text', src: 'page9_mask.jpg' }
+        { id: 'page9_mask', src: 'page9_mask.png' },
+        { id: 'page9_bg', src: 'page9_bg.jpg'}
       ], true, "image/");
       this.queue.on("progress", this.loadFileProgress);
       this.queue.on("complete", this.bgAnimate);
@@ -114,7 +117,7 @@ var ZMF = (function (doc) {
         $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
       });
       bg_box.addClass('box_enter');
-      $('#audioBg').attr('src', $('#audioBg').attr('data-src')).removeAttr('data-src')[0].play();
+      $('#audioBg').attr('src', $('#audioBg').attr('data-src')).removeAttr('data-src');
       setTimeout(() => {
         bg_box.removeClass('box_enter').addClass('box_shake');
       }, 600);
@@ -141,6 +144,9 @@ var ZMF = (function (doc) {
           _this.pagestart('.page6 img');
           setTimeout(() => {
             _this.pageplay('.page6');
+            if (isIphoneX) {
+              $('.h_foot').css('z-index', '');
+            }
           }, 600);
         }
       }, 100)
@@ -233,7 +239,7 @@ var ZMF = (function (doc) {
         } else {
           e.preventDefault();
         }
-      })
+      });
       ele.on('touchmove', function (e) {
         if (!canRun) return;
         canRun = false;
@@ -256,7 +262,36 @@ var ZMF = (function (doc) {
         } else {
           e.preventDefault();
         }
-      })
+      });
+    },
+    drawCanvas: function (from, to) {
+      let cntElem = $(from)[0],
+        width = $(from).width(),
+        height = $(from).height(),
+        canvas = document.createElement("canvas"),//创建一个canvas节点
+        scale = 2; //定义任意放大倍数 支持小数
+      canvas.width = width * scale; //定义canvas 宽度 * 缩放
+      canvas.height = height * scale; //定义canvas高度 *缩放
+      canvas.getContext("2d").scale(scale, scale); //获取context,设置scale
+      let opts = {
+        scale: scale, // 添加的scale 参数
+        canvas: canvas, //自定义 canvas
+        // logging: true, //日志开关，便于查看html2canvas的内部执行流程
+        width: width, //dom 原始宽度
+        height: height,
+        useCORS: true // 【重要】开启跨域配置
+      }
+      console.log(opts)
+      html2canvas(cntElem, opts).then(function (canvas) {
+        // console.log(canvas.toDataURL())
+        var context = canvas.getContext('2d');
+        // 【重要】关闭抗锯齿
+        context.mozImageSmoothingEnabled = false;
+        context.webkitImageSmoothingEnabled = false;
+        context.msImageSmoothingEnabled = false;
+        context.imageSmoothingEnabled = false;
+        $(to).append(canvas);
+      });
     },
     convert2canvas: function (from, to) {
       // '.page9 .container'
@@ -278,15 +313,13 @@ var ZMF = (function (doc) {
       }
       console.log(opts)
       html2canvas(cntElem, opts).then(function (canvas) {
+        // console.log(canvas.toDataURL())
         var context = canvas.getContext('2d');
         // 【重要】关闭抗锯齿
         context.mozImageSmoothingEnabled = false;
         context.webkitImageSmoothingEnabled = false;
         context.msImageSmoothingEnabled = false;
         context.imageSmoothingEnabled = false;
-        // var img = new Image();
-        // var base64 = '';
-        // ima.src = 'http://zmf.dingliantech.com/';
         // 【重要】默认转化的格式为png,也可设置为其他格式
         var img = Canvas2Image.convertToPNG(canvas, canvas.width, canvas.height);
         // .page9
@@ -300,6 +333,24 @@ var ZMF = (function (doc) {
         } else {
           $(img).addClass('f-full');
         }
+        // -----------------------------------
+        // var img = new Image();
+        // var base64 = '';
+        // img.setAttribute("crossOrigin", 'Anonymous');
+        // // img.src = 'http://zmf.dingliantech.com/';
+        // // context.drawImage(img, 0, 0);
+        // base64 = canvas.toDataURL("image/png")
+        // img.src = base64;
+        // $(to).append(img);
+        // if (to == '.page9') {
+        //   $(img).css({
+        //     "width": canvas.width / 2 + "px",
+        //     "height": canvas.height / 2 + "px",
+        //   }).addClass('f-full');
+        // } else {
+        //   $(img).addClass('f-full');
+        // }
+        // -----------------------------------
       });
     },
     createRandom: function (arr) {
@@ -325,6 +376,20 @@ var ZMF = (function (doc) {
         if (i == 1) {
           $(".page1 input[type='text']").on('change', function () {
             $(this).val() ? $('.page1 .input_box').addClass('active') : $('.page1 .input_box').removeClass('active');
+            let audioBg = $('#audioBg')[0];
+            audioBg.load();
+            if (audioBg) {
+              console.log('play');
+              audioBg.volume = 0.2;
+              audioBg.play();
+              document.addEventListener('WeixinJSBridgeReady', () => {
+                audioBg.load();
+                audioBg.play();
+              }, false)
+              $('.page2 img').each(function () {
+                $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+              });
+            }
             if ($('.page1 .input_box').hasClass('active')) {
               $('.page1 .go').on({
                 'touchstart': function () {
@@ -408,6 +473,10 @@ var ZMF = (function (doc) {
             }, 'click': function () {
               $('.page5').siblings().css('display', 'none').end().css('display', 'block');
               _this.mask_square();
+              if (isIphoneX) {
+                $('.page5').addClass('iphoneX');
+                $('.h_foot').css('z-index', '2');
+              }
             }
           });
         } else if (i == 6) {
@@ -427,7 +496,9 @@ var ZMF = (function (doc) {
               });
             }, 'click': function () {
               $('.page7').siblings().css('display', 'none').end().css('display', 'block');
+              $('.h_foot').css('display', 'none');
               if (isIphoneX) {
+                $('.page7 .diy_container').addClass('iphoneX');
                 $('.page7 .diy_element').addClass('iphoneX');
               } else {
                 $('.page7 .diy_element').removeClass('iphoneX');
@@ -445,6 +516,7 @@ var ZMF = (function (doc) {
           }});
           $('.page7 .go').on({'touchstart': function () {
             _this.convert2canvas('.page7 .diy_box', '.page9 .bucket_container');
+            // _this.drawCanvas('.page7 .diy_box', '.page9 .bucket_container');
             $('.page8 img').each(function () {
               $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
             });
@@ -453,11 +525,13 @@ var ZMF = (function (doc) {
             });
           }, 'click': function () {
             $('.page8').siblings().css('display', 'none').end().css('display', 'block');
+            $('.h_foot').css('display', '');
           }});
         } else if (i == 8) {
           $('.page8').on('touchstart', function (e) {
             console.log(e.touches[0].target.className)
             $('.page9').siblings().css('display', 'none').end().css('display', 'block');
+            if (isIphoneX) $('.page9').addClass('iphoneX');
             if (e.touches[0].target.className == 'go') {
               $('.page9 .share_mask').addClass('active');
               setTimeout(() => {
@@ -512,7 +586,7 @@ var ZMF = (function (doc) {
         $('.page5 .mask_square span').removeAttr('class');
         $('.page9 > img').remove();
         $('.page9 .bucket_container .f-full').remove();
-      })
+      });
     },
     load: function () {
       let _this = ZMF;
@@ -520,6 +594,13 @@ var ZMF = (function (doc) {
         $('body').height($(window).height());
         $('section').on('touchmove', false);
         _this.preLoad();
+        $('section > div').on('touchstart', function () {
+          if ($(this).find('img').attr('data-src') != 'undefined') {
+            $(this).find('img').each(function () {
+              $(this).attr('src', $(this).attr('data-src')).removeAttr('data-src');
+            })
+          }
+        })
       });
       return _this;
     },

@@ -58,7 +58,7 @@ gulp.task('js-optimize', function () {
 		.pipe(gulp.dest('dist/js/other'));
 });
 gulp.task('copy', ['clean'], function () {
-	return gulp.src(['src/index.html', 'src/image/*', 'src/font/*', 'src/js/*.js'], {base: 'src'}).pipe(gulp.dest('dist'));
+	return gulp.src(['src/index.html', 'src/image/*', 'src/font/*', 'src/js/*.js', 'src/sound/*', 'src/*.txt'], {base: 'src'}).pipe(gulp.dest('dist'));
 });
 gulp.task('clean', function () {
 	return gulp.src('dist/*').pipe(clean());

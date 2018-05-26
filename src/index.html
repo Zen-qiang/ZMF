@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>热波音乐节</title>
+  <script src="https://cdn.bootcss.com/jsSHA/2.3.1/sha.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -1099,7 +1100,14 @@
 <script type='text/javascript'>
   if (window.ZMF) {
     ZMF.init();
-    // Common.setWeiXinShareConfig("起点大事记 | 2002-2016", location.href, location.origin + "/ploy/20160515/qd/images/sharebigdate400.png", "2002年，起点中文网开创了网络文学的篇章。悠悠十四年，一起聊聊？");
+    console.log(location.href, location.origin)
+    // Weixin.setWeiXinShareConfig("热波音乐节", location.href, location.origin + "/image/wxShare.jpeg", "咆哮吧桶君");
+    Weixin.setWeiXinShareConfig({
+      title: '咆哮吧桶军',
+      link: location.href,
+      img: location.origin + "/image/wxShare.jpeg",
+      desc: "热波音乐节2018成都站"
+    })
   }
   window.addEventListener('load', function () {
     function audioAutoPlay() {

@@ -337,10 +337,10 @@ body {
 /* 加载页动画效果 */
 @keyframes marquee {
   0% {
-    left: 0;
+    transform: translateX(0);
   }
   100% {
-    left: -10rem;
+    transform: translateX(-10rem);
   }
 }
 @keyframes dot {

@@ -2,7 +2,7 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-26 18:22:15
+ * @Last Modified time: 2018-05-26 20:46:20
  */
 var Weixin = (function () {
   var isMobile = function () {
@@ -21,8 +21,9 @@ var Weixin = (function () {
   };
   var custAjax = function (info, j) {
     if (!isMobile()) return
+    var url = encodeURI("http://zmf.dingliantech.com");
     j = $.extend({
-      url: "http://101.132.119.127:5566/zmf/getConfig?url=" + location.href.split('#')[0],
+      url: "http://101.132.119.127:5566/zmf/getConfig?url=" + url,
       type: "GET",
       cache: false,
       dataType: "json",
@@ -476,6 +477,10 @@ var ZMF = (function (doc) {
               let user = $('.page1 input').val()
               $('.user').text(user)
               _this.userName = user;
+              if ($('#audioBg')[0].paused) {
+                $('#audioBg')[0].volume = 0.6;
+                $('#audioBg')[0].play();
+              }
             }
           });
         } else {
@@ -618,8 +623,8 @@ var ZMF = (function (doc) {
           $('.h_foot').css('display', '');
           Weixin.weixinShare({
             title: _this.userName + '是一只' + _this.bucketName,
-            link: location.href,
-            img: location.origin + "/image/wxShare.jpeg",
+            link: 'http://zmf.dingliantech.com',
+            img: "http://zmf.dingliantech.com/image/wxShare.jpeg",
             desc: "热波音乐节2018成都站"
           })
         }

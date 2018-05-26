@@ -1024,7 +1024,7 @@
         <img data-src="image/page9_reset.png">
       </div>
       <aside class="share_mask">
-        <p class="tada">点击左上角分享给你的小伙伴!</p>
+        <p class="tada">点击右上角分享给你的小伙伴!</p>
       </aside>
     </div>
   </section>
@@ -1101,11 +1101,10 @@
   if (window.ZMF) {
     ZMF.init();
     console.log(location.href, location.origin)
-    // Weixin.setWeiXinShareConfig("热波音乐节", location.href, location.origin + "/image/wxShare.jpeg", "咆哮吧桶君");
     Weixin.setWeiXinShareConfig({
-      title: '咆哮吧桶军',
-      link: location.href,
-      img: location.origin + "/image/wxShare.jpeg",
+      title: '咆哮吧桶君',
+      link: 'http://zmf.dingliantech.com',
+      img: "http://zmf.dingliantech.com/image/wxShare.jpeg",
       desc: "热波音乐节2018成都站"
     })
   }

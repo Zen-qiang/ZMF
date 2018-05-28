@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>热波音乐节</title>
-  <script src="https://cdn.bootcss.com/jsSHA/2.3.1/sha.js"></script>
+  <title>咆哮吧,桶君!</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -1100,12 +1099,13 @@
 <script type='text/javascript'>
   if (window.ZMF) {
     ZMF.init();
-    console.log(location.href, location.origin)
+    // console.log(location.href, location.origin)
+    // alert(0, location.origin);
     Weixin.setWeiXinShareConfig({
       title: '咆哮吧桶君',
-      link: 'http://zmf.dingliantech.com',
-      img: "http://zmf.dingliantech.com/image/wxShare.jpeg",
-      desc: "热波音乐节2018成都站"
+      link: location.origin,
+      img: location.origin + "/image/wxShare.jpeg",
+      desc: '来看看你是什么桶!'
     })
   }
   window.addEventListener('load', function () {

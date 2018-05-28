@@ -370,25 +370,51 @@ body {
     flex: 0 0 100%;
     overflow: hidden;
     position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     > div {
       position: relative;
       width: rem(1500);
+      height: 2rem;
       overflow: hidden;
-      animation: marquee 3s linear infinite;
+      webkit-transform: translateZ(0); 
+      -moz-transform: translateZ(0); 
+      -ms-transform: translateZ(0); 
+      -o-transform: translateZ(0); 
+      transform: translateZ(0);
+      webkit-transform: translate3d(0,0,0); 
+      -moz-transform: translate3d(0,0,0); 
+      -ms-transform: translate3d(0,0,0); 
+      -o-transform: translate3d(0,0,0); 
+      transform: translate3d(0,0,0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective:1000;
+      perspective:1000;
+      animation: marquee 6s linear infinite;
     }
   }
   ul {
     float: left;
+    // display: inline-block;
     width: 50%;
     height: 100%;
     overflow: hidden;
     li {
       float: left;
+      // display: inline-block;
       width: 2rem;
       height: 2rem;
       overflow: hidden;
       position: relative;
       display: flex;
+      // line-height: 0;
+      // font-size: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+      }
     }
   }
   > p {
@@ -2470,7 +2496,7 @@ body {
       }
       .bucket_content {
         color: #2a2f7d;
-        padding: 0 rem(8);
+        padding: rem(8) rem(8) 0;
         > p:first-of-type {
           display: flex;
           align-items: center;
@@ -2479,9 +2505,10 @@ body {
           height: rem(42);
           > span:first-of-type {
             font-size: rem(20);
-            padding-left: rem(16);
+            // padding-left: rem(16);
             letter-spacing: rem(2);
             span {
+              align-self: flex-end;
               padding-right: rem(8);
             }
           }
@@ -2495,10 +2522,11 @@ body {
           }
         }
         .bucketDes {
+          font-family: Consolas, Monaco, monospace;
           margin-top: rem(6);
           font-size: rem(14);
           line-height: rem(18);
-          text-indent: 2ch;
+          text-align: justify;
         }
       }
       .bucket_container {

@@ -2,7 +2,7 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-26 20:46:20
+ * @Last Modified time: 2018-05-28 17:25:56
  */
 var Weixin = (function () {
   var isMobile = function () {
@@ -21,13 +21,13 @@ var Weixin = (function () {
   };
   var custAjax = function (info, j) {
     if (!isMobile()) return
-    var url = encodeURI("http://zmf.dingliantech.com");
     j = $.extend({
-      url: "http://101.132.119.127:5566/zmf/getConfig?url=" + url,
+      url: "http://101.132.119.127:5566/zmf/getConfig?url=" + encodeURIComponent(location.href.split('#')[0]),
       type: "GET",
       cache: false,
       dataType: "json",
       success: function (res) {
+        // console.log(res.data)
         if (res && res.code == 0) {
           wx.config({
             debug: false,
@@ -106,7 +106,7 @@ var ZMF = (function (doc) {
     { 'name': '巨星桶', 'des': '如果生活是一个垃圾桶，你就是那个被所有回收站争抢的那个矿泉水瓶。如果生活是一场热波音乐节，你就是万人宠爱的毛不易；拥有强大气场的你走到哪都是人群中最出挑的那一个巨星。' },
     { 'name': 'IQ桶', 'des': '小机灵鬼儿，你是团队内的智慧担当，没有你想不明白的问题，门萨俱乐部的入会测试对你来说也只是小菜一碟。真想掀起你的头盖骨…啊不是，掀起你的盖子，看看里面都装了些什么。' },
     { 'name': '摇滚桶', 'des': '谁说垃圾桶只能安安静静地待在角落？内心如你般热血而愤怒，任何东西都能用来表达自我！你的生活不能没有音乐，哪怕身边没有吉他，敲打敲打自己的的盖子你也能立马高歌一曲！' },
-    { 'name': '逗笔筒', 'des': '你是所有朋友口中的小逗笔，有你的地方就有笑声！派对由你来活跃气氛准没错，你的字典里压根没有“冷场”这两个字！我们打算派你的朋友去和戴佩妮PK掐大腿了…' },
+    { 'name': '逗笔桶', 'des': '你是所有朋友口中的小逗笔，有你的地方就有笑声！派对由你来活跃气氛准没错，你的字典里压根没有“冷场”这两个字！我们打算派你的朋友去和戴佩妮PK掐大腿了…' },
     { 'name': '桃花桶', 'des': '有一个神奇的传说，和你做朋友的人都会在3个月内脱单。你简直就是红娘本娘！有心无心的一直在促成朋友圈共同好友之间的一段段姻缘。截图给你的那些单身狗朋友们看吧，3个月后他们会回来感谢你的。' },
     { 'name': '飒蜜桶', 'des': '天啦噜~可爱滴你设计出了一个更加可爱滴垃圾桶哦！我猜你一定是个萌妹纸吧！你的可爱和那些装腔作势的绿茶们不同。不娇柔做作恰恰就是你最可爱的品质。' },
     { 'name': '颜值桶', 'des': '“沉鱼落雁，闭月羞花”说的就是你了！作为朋友圈中的颜值top3，你随时都在吸引异性甚至同性热情的瞩目。招蜂引蝶不是你的错，你只是将自己天生的优势发挥的游刃有余而已，果然桶如其人啊！' },
@@ -139,47 +139,101 @@ var ZMF = (function (doc) {
       }
     })(document.createElement('div')),
     preLoad: function () {
-      this.queue = new createjs.LoadQueue(false);
       // this.queue.installPlugin(createjs.Sound);
       // createjs.Sound.alternateExtensions = ["mp3,wav"];
       // this.queue.loadFile({ id: "sound", src: "css/UpbeatSummerPop.mp3" });
-      this.queue.loadManifest([
+      // ----------------------------------------
+      // this.queue = new createjs.LoadQueue(false);
+      // this.queue.loadManifest([
+      //   // page1
+      //   { id: 'bird_purple', src: 'bird_purple.png' },
+      //   { id: 'dialog_left', src: 'dialog_left.gif' },
+      //   { id: 'dialog_right', src: 'dialog_right.gif' },
+      //   { id: 'lamp_light', src: 'lamp_light.png' },
+      //   // page2
+      //   { id: 'lamp_light1', src: 'lamp_light1.png' },
+      //   { id: 'bird_red', src: 'bird_red.png' },
+      //   // page3
+      //   { id: 'page3_bg', src: 'page3_bg.jpg' },
+      //   { id: 'page3_as', src: 'page3_as.png' },
+      //   { id: 'page3_dnp', src: 'page3_dpn.png' },
+      //   { id: 'page3_mby', src: 'page3_mby.png'},
+      //   { id: 'page3_wsl', src: 'page3_wsl.png' },
+      //   { id: 'page3_gd', src: 'page3_gd.png' },
+      //   { id: 'page3_chy', src: 'page3_chy.png' },
+      //   { id: 'page3_wz1', src: 'page3_wz2.svg' },
+      //   // page5
+      //   { id: 'page5_bg', src: 'page5_bg.png' },
+      //   { id: 'page5_bg_active', src: 'page5_bg_active.png' },
+      //   { id: 'page5_bg_x', src: 'page5_bg_x.png' },
+      //   { id: 'page5_bg_active_x', src: 'page5_bg_active_x.jpg' },
+      //   // page6
+      //   { id: 'page6_box', src: 'page6_box.png' },
+      //   // page8
+      //   { id: 'page8_bird', src: 'page8_bird.png' },
+      //   { id: 'page8_lamp', src: 'page8_lamp.png' },
+      //   // page9
+      //   { id: 'page9_mask', src: 'page9_mask.png' },
+      //   { id: 'page9_bg', src: 'page9_bg.jpg'}
+      // ], true, "image/");
+      // this.queue.on("progress", this.loadFileProgress);
+      // this.queue.on("complete", this.bgAnimate);
+      // -------------------------------------------------
+      let _this = ZMF;
+      var images = [
         // page1
-        { id: 'bird_purple', src: 'bird_purple.png' },
-        { id: 'dialog_left', src: 'dialog_left.gif' },
-        { id: 'dialog_right', src: 'dialog_right.gif' },
-        { id: 'lamp_light', src: 'lamp_light.png' },
+        'bird_purple.png',
+        'dialog_left.gif',
+        'dialog_right.gif',
+        'lamp_light.png',
         // page2
-        { id: 'lamp_light1', src: 'lamp_light1.png' },
-        { id: 'bird_red', src: 'bird_red.png' },
+        'lamp_light1.png',
+        'bird_red.png',
         // page3
-        { id: 'page3_bg', src: 'page3_bg.jpg' },
-        { id: 'page3_as', src: 'page3_as.png' },
-        { id: 'page3_dnp', src: 'page3_dpn.png' },
-        { id: 'page3_mby', src: 'page3_mby.png'},
-        { id: 'page3_wsl', src: 'page3_wsl.png' },
-        { id: 'page3_gd', src: 'page3_gd.png' },
-        { id: 'page3_chy', src: 'page3_chy.png' },
-        { id: 'page3_wz1', src: 'page3_wz2.svg' },
+        'page3_bg.jpg',
+        'page3_as.png',
+        'page3_dpn.png',
+        'page3_mby.png',
+        'page3_wsl.png',
+        'page3_gd.png',
+        'page3_chy.png',
+        'page3_wz2.svg',
         // page5
-        { id: 'page5_bg', src: 'page5_bg.png' },
-        { id: 'page5_bg_active', src: 'page5_bg_active.png' },
-        { id: 'page5_bg_x', src: 'page5_bg_x.png' },
-        { id: 'page5_bg_active_x', src: 'page5_bg_active_x.jpg' },
+        'page5_bg.png',
+        'page5_bg_active.png',
+        'page5_bg_x.png',
+        'page5_bg_active_x.jpg',
         // page6
-        { id: 'page6_box', src: 'page6_box.png' },
+        'page6_box.png',
         // page8
-        { id: 'page8_bird', src: 'page8_bird.png' },
-        { id: 'page8_lamp', src: 'page8_lamp.png' },
+        'page8_bird.png',
+        'page8_lamp.png',
         // page9
-        { id: 'page9_mask', src: 'page9_mask.png' },
-        { id: 'page9_bg', src: 'page9_bg.jpg'}
-      ], true, "image/");
-      this.queue.on("progress", this.loadFileProgress);
-      this.queue.on("complete", this.bgAnimate);
+        'page9_mask.png',
+        'page9_bg.jpg'
+      ]
+      let i = 0;
+      let loaded = false;
+      images.forEach(function (item) {
+        let img = new Image();
+        img.src = 'image/' + item;
+        img.onload = function () {
+          i++;
+          $('.loading_text').text(Math.floor(i * 100 / images.length) + '%');
+          if (i == images.length) {
+            _this.bgAnimate();
+            loaded = true;
+          }
+        };
+      });
+      setTimeout(() => {
+        if (i != images.length && !loaded) {
+          _this.bgAnimate();
+        }
+      }, 20000);
     },
     loadFileProgress: function (event) {
-      console.log("已加载 " + (this.progress * 100 | 0) + "%");
+      // console.log("已加载 " + (this.progress * 100 | 0) + "%");
       $('.loading_text').text((this.progress * 100 | 0) + "%");
     },
     bgAnimate: function () {
@@ -407,38 +461,6 @@ var ZMF = (function (doc) {
         } else {
           $(img).addClass('f-full');
         }
-        // --------------------------------
-        // var img = new Image();
-        // var base64 = '';
-        // base64 = canvas.toDataURL("image/png");
-        // img.src = base64;
-        // $(to).append(img);
-        // if (to == '.page9') {
-        //   $(img).css({
-        //     "width": canvas.width / 2 + "px",
-        //     "height": canvas.height / 2 + "px",
-        //   }).addClass('f-full');
-        // } else {
-        //   $(img).addClass('f-full');
-        // }
-        // -----------------------------------
-        // var img = new Image();
-        // var base64 = '';
-        // img.setAttribute("crossOrigin", 'Anonymous');
-        // // img.src = 'http://zmf.dingliantech.com/';
-        // // context.drawImage(img, 0, 0);
-        // base64 = canvas.toDataURL("image/png")
-        // img.src = base64;
-        // $(to).append(img);
-        // if (to == '.page9') {
-        //   $(img).css({
-        //     "width": canvas.width / 2 + "px",
-        //     "height": canvas.height / 2 + "px",
-        //   }).addClass('f-full');
-        // } else {
-        //   $(img).addClass('f-full');
-        // }
-        // -----------------------------------
       });
     },
     createRandom: function (arr) {
@@ -621,11 +643,12 @@ var ZMF = (function (doc) {
         }, 'click': function () {
           $('.page8').siblings().css('display', 'none').end().css('display', 'block');
           $('.h_foot').css('display', '');
+          // alert(2, location.href.split('#')[0])
           Weixin.weixinShare({
-            title: _this.userName + '是一只' + _this.bucketName,
-            link: 'http://zmf.dingliantech.com',
-            img: "http://zmf.dingliantech.com/image/wxShare.jpeg",
-            desc: "热波音乐节2018成都站"
+            title: _this.userName + '竟然是一只' + _this.bucketName + '看看你是一只什么桶',
+            link: location.origin,
+            img: location.origin + "/image/wxShare.jpeg",
+            desc: '来看看你是什么桶!'
           })
         }
       });

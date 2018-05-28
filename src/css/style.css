@@ -289,12 +289,21 @@ body {
     height: 2rem;
     flex: 0 0 100%;
     overflow: hidden;
-    position: relative; }
+    position: relative;
+    transform-style: preserve-3d; }
     .h_loading > div > div {
       position: relative;
       width: 20rem;
+      height: 2rem;
       overflow: hidden;
-      animation: marquee 3s linear infinite; }
+      webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      perspective: 1000;
+      animation: marquee 6s linear infinite; }
   .h_loading ul {
     float: left;
     width: 50%;
@@ -307,6 +316,10 @@ body {
       overflow: hidden;
       position: relative;
       display: flex; }
+      .h_loading ul li img {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle; }
   .h_loading > p {
     height: 0.26667rem;
     flex: 0 0 100%;
@@ -2151,7 +2164,7 @@ body {
       z-index: -1; }
     .page9 .container > div:first-of-type .bucket_content {
       color: #2a2f7d;
-      padding: 0 0.10667rem; }
+      padding: 0.10667rem 0.10667rem 0; }
       .page9 .container > div:first-of-type .bucket_content > p:first-of-type {
         display: flex;
         align-items: center;
@@ -2160,9 +2173,9 @@ body {
         height: 0.56rem; }
         .page9 .container > div:first-of-type .bucket_content > p:first-of-type > span:first-of-type {
           font-size: 0.26667rem;
-          padding-left: 0.21333rem;
           letter-spacing: 0.02667rem; }
           .page9 .container > div:first-of-type .bucket_content > p:first-of-type > span:first-of-type span {
+            align-self: flex-end;
             padding-right: 0.10667rem; }
         .page9 .container > div:first-of-type .bucket_content > p:first-of-type .bucket {
           display: inline-block;
@@ -2172,10 +2185,11 @@ body {
           padding: 0.01333rem 0.08rem;
           border-radius: 0.08rem; }
       .page9 .container > div:first-of-type .bucket_content .bucketDes {
+        font-family: Consolas, Monaco, monospace;
         margin-top: 0.08rem;
         font-size: 0.18667rem;
         line-height: 0.24rem;
-        text-indent: 2ch; }
+        text-align: justify; }
     .page9 .container > div:first-of-type .bucket_container {
       flex: auto;
       position: relative; }

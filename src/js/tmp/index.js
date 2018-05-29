@@ -2,7 +2,7 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-29 15:21:26
+ * @Last Modified time: 2018-05-29 15:59:26
  */
 var Weixin = (function () {
   var isMobile = function () {

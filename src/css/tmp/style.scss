@@ -2667,9 +2667,19 @@ body {
     animation: restLoaded 0.1;
     z-index: 2;
     img {
-      width: 100%;
+      // position: absolute;
+      // height: rem(36);
+      height: 100%;
       vertical-align: top;
     }
+  }
+  .more {
+    position: absolute;
+    z-index: 2;
+    width: rem(52);
+    height: rem(46);
+    bottom: rem(68);
+    right: rem(10);
   }
   @keyframes share_mask {
     from {

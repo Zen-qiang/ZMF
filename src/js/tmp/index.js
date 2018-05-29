@@ -2,7 +2,7 @@
  * @Author: yyl 
  * @Date: 2018-05-04 20:37:02 
  * @Last Modified by: yyl
- * @Last Modified time: 2018-05-28 17:25:56
+ * @Last Modified time: 2018-05-29 15:21:26
  */
 var Weixin = (function () {
   var isMobile = function () {
@@ -645,10 +645,10 @@ var ZMF = (function (doc) {
           $('.h_foot').css('display', '');
           // alert(2, location.href.split('#')[0])
           Weixin.weixinShare({
-            title: _this.userName + '竟然是一只' + _this.bucketName + '看看你是一只什么桶',
+            title: _this.userName + '竟然是一只' + _this.bucketName,
             link: location.origin,
             img: location.origin + "/image/wxShare.jpeg",
-            desc: '来看看你是什么桶!'
+            desc: '来看看你是什么桶?'
           })
         }
       });
